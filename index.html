@@ -147,6 +147,12 @@
                 font-size: 5vw;
             }
 
+            .text-wrapper {
+                flex-direction: column;
+                gap: 2vh;
+                align-items: center;
+            }
+
             .nav-button {
                 font-size: 1rem;
                 padding: 10px 20px;
@@ -171,7 +177,11 @@
             }
 
             .title {
-                font-size: 6vw;
+                font-size: 8vw;
+            }
+
+            .text-wrapper {
+                gap: 3vh;
             }
 
             .nav-button {
@@ -229,6 +239,9 @@
         const videoElement = document.querySelector('.video-gallery');
         const videoBackground = document.querySelector('.video-background');
 
+        // Start loading the video immediately
+        videoElement.load();
+
         // Set playback rate to slow down video
         videoElement.playbackRate = 0.95;
 
@@ -245,7 +258,6 @@
                 })
                 .catch(error => {
                     // Auto-play was prevented
-                    // Show a "Play" button or similar
                     console.log("Video autoplay failed:", error);
                     // Try playing again with user interaction
                     document.body.addEventListener('touchstart', function() {
@@ -276,12 +288,18 @@
                 fadeStarted = false;
                 videoBackground.style.transition = 'opacity 2s ease';
                 
-                // Wait 5 seconds before starting again
+                // Wait 4 seconds before starting again
                 setTimeout(() => {
                     playVideo();
                 }, 4000);
             });
         }
+
+        // Start loading video immediately, but don't play until after logo animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize video loop handling
+            handleVideoLoop();
+        });
 
         // Ensure video gallery starts after logo animation
         setTimeout(() => {
@@ -292,9 +310,6 @@
             
             // Start playing the video
             playVideo();
-            
-            // Initialize video loop handling
-            handleVideoLoop();
         }, 2500);
 
         // Prevent keyboard shortcuts for saving/downloading
