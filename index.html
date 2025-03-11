@@ -144,7 +144,7 @@
             }
 
             .content {
-                width: 90%;
+                width: 98%;
                 bottom: 3vh;
             }
 
@@ -154,8 +154,13 @@
             }
 
             .text-wrapper {
-                gap: 3vw;
-                justify-content: center;
+                justify-content: space-between;
+                gap: 0;
+                padding: 0 2vw;
+            }
+
+            .text-wrapper span {
+                flex: 0 0 auto;
             }
 
             .nav-button {
@@ -204,7 +209,7 @@
             }
 
             .content {
-                width: 95%;
+                width: 100%;
                 bottom: 2vh;
             }
 
@@ -215,7 +220,7 @@
             }
 
             .text-wrapper {
-                gap: 2vw;
+                padding: 0 3vw;
             }
 
             .nav-button {
@@ -272,16 +277,27 @@
     <script>
         const videoElement = document.querySelector('.video-gallery');
         const videoBackground = document.querySelector('.video-background');
+        const videoSource = videoElement.querySelector('source');
 
-        // Set video source based on screen size
-        if (window.innerWidth <= 768) {
-            <video class="video-gallery" muted playsinline webkit-playsinline autoplay preload="auto">
-                 videoElement.querySelector('source').src = './mobilebackgroundvideo.mp4';
-            </video>
+        // Set video source based on screen size and handle resize
+        function setVideoSource() {
+            const isMobile = window.innerWidth <= 768;
+            const currentSrc = videoSource.src;
+            const mobileSrc = './mobilebackgroundvideo.mp4';
+            const desktopSrc = './backgroundvideo.mp4';
+            
+            if (isMobile && !currentSrc.includes('mobile')) {
+                videoSource.src = mobileSrc;
+                videoElement.load();
+            } else if (!isMobile && currentSrc.includes('mobile')) {
+                videoSource.src = desktopSrc;
+                videoElement.load();
+            }
         }
 
-        // Start loading the video immediately
-        videoElement.load();
+        // Call initially and add resize listener
+        setVideoSource();
+        window.addEventListener('resize', setVideoSource);
 
         // Set playback rate to slow down video
         videoElement.playbackRate = 0.95;
