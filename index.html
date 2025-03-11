@@ -279,78 +279,26 @@
         const videoElement = document.querySelector('.video-gallery');
         const videoBackground = document.querySelector('.video-background');
 
-        // Function to check if device is mobile
-        function isMobileDevice() {
-            return (window.innerWidth <= 768) || 
-                   ('ontouchstart' in window) ||
-                   (navigator.maxTouchPoints > 0) ||
-                   (navigator.msMaxTouchPoints > 0);
-        }
-
-        // Set video source based on device
-        function setCorrectVideo() {
-            const newSrc = isMobileDevice() ? './mobilebackgroundvideo.mp4' : './backgroundvideo.mp4';
-            const currentSrc = videoElement.currentSrc;
-            
-            if (!currentSrc.includes(newSrc)) {
-                videoElement.innerHTML = `<source src="${newSrc}" type="video/mp4">`;
-                videoElement.load();
-                
-                // Reset video properties
-                videoElement.muted = true;
-                videoElement.playsinline = true;
-                videoElement.setAttribute('webkit-playsinline', '');
-                
-                // Try to play
-                tryPlayVideo();
-            }
-        }
-
-        function tryPlayVideo() {
-            const playAttempt = videoElement.play();
-            if (playAttempt !== undefined) {
-                playAttempt
-                    .then(() => {
-                        console.log("Video playing successfully");
-                        setTimeout(() => {
-                            videoBackground.style.opacity = '1';
-                        }, 100);
-                    })
-                    .catch(error => {
-                        console.log("Playback failed:", error);
-                        // Add multiple interaction listeners for mobile
-                        const playHandler = () => {
-                            videoElement.play()
-                                .then(() => {
-                                    videoBackground.style.opacity = '1';
-                                    // Remove listeners after successful play
-                                    document.removeEventListener('touchstart', playHandler);
-                                    document.removeEventListener('click', playHandler);
-                                })
-                                .catch(console.error);
-                        };
-                        
-                        document.addEventListener('touchstart', playHandler);
-                        document.addEventListener('click', playHandler);
-                    });
-            }
-        }
-
-        // Set initial video source
-        setCorrectVideo();
-
-        // Handle resize events with debounce
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(setCorrectVideo, 250);
-        });
-
         function playVideo() {
             videoElement.currentTime = 0;
             videoElement.muted = true;
             videoElement.playsinline = true;
-            tryPlayVideo();
+            
+            const playPromise = videoElement.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    setTimeout(() => {
+                        videoBackground.style.opacity = '1';
+                    }, 100);
+                })
+                .catch(error => {
+                    console.log("Autoplay failed:", error);
+                    // Add touch-to-play for mobile
+                    document.body.addEventListener('touchstart', () => {
+                        videoElement.play();
+                    }, { once: true });
+                });
+            }
         }
 
         // Function to handle video loop with fade
@@ -388,7 +336,7 @@
                 document.querySelector('.menu-left').style.opacity = '1';
                 document.querySelector('.small-logo-container').style.opacity = '1';
                 playVideo();
-            }, isMobileDevice() ? 4500 : 2500);
+            }, window.innerWidth <= 768 ? 4500 : 2500);
         });
 
         // Prevent keyboard shortcuts for saving/downloading
