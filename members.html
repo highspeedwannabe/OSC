@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSC Members</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: white;
+            font-family: 'Space Grotesk', 'Outfit', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .password-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        input {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            outline: none;
+            text-align: center;
+            width: 250px;
+        }
+
+        .letters {
+            font-size: 2rem;
+            letter-spacing: 1.5em;
+            margin-top: 20px;
+            padding-left: 1.5em; /* Compensate for letter-spacing */
+        }
+
+        #content {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .incorrect {
+            color: #ff4444;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="password-container">
+        <img src="./OSC.png" alt="OSC Logo" class="logo">
+        <input type="password" id="password" placeholder="Enter Password" onkeyup="checkPassword(event)">
+        <div class="incorrect" id="incorrect">Incorrect Password</div>
+        <div class="letters">O S C</div>
+    </div>
+
+    <div id="content">
+        <!-- Content that appears after correct password -->
+        <h1>Welcome to OSC Members Area</h1>
+        <!-- Add your protected content here -->
+    </div>
+
+    <script>
+        function checkPassword(event) {
+            const password = document.getElementById('password').value;
+            const content = document.getElementById('content');
+            const incorrect = document.getElementById('incorrect');
+            const container = document.querySelector('.password-container');
+            
+            if (event.key === 'Enter') {
+                if (password === 'Taiwan') {
+                    container.style.display = 'none';
+                    content.style.display = 'block';
+                } else {
+                    incorrect.style.opacity = '1';
+                    setTimeout(() => {
+                        incorrect.style.opacity = '0';
+                    }, 2000);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
