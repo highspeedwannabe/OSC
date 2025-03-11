@@ -253,7 +253,7 @@
 
     <div class="video-background">
         <video class="video-gallery" muted playsinline webkit-playsinline autoplay preload="auto">
-            <source src="./backgroundvideo.mp4" type="video/mp4">
+            <source src="./backgroundvideo.mp4" type="video/mp4" id="videoSource">
         </video>
     </div>
     <div class="content">
@@ -277,36 +277,58 @@
     <script>
         const videoElement = document.querySelector('.video-gallery');
         const videoBackground = document.querySelector('.video-background');
-        const videoSource = videoElement.querySelector('source');
+        const videoSource = document.getElementById('videoSource');
 
-        // Set video source based on screen size and handle resize
-        function setVideoSource() {
-            const isMobile = window.innerWidth <= 768;
-            const currentSrc = videoSource.src;
-            const mobileSrc = './mobilebackgroundvideo.mp4';
-            const desktopSrc = './backgroundvideo.mp4';
-            
-            if (isMobile && !currentSrc.includes('mobile')) {
-                videoSource.src = mobileSrc;
+        // Function to check if device is mobile
+        function isMobileDevice() {
+            return (window.innerWidth <= 768) || 
+                   ('ontouchstart' in window) ||
+                   (navigator.maxTouchPoints > 0) ||
+                   (navigator.msMaxTouchPoints > 0);
+        }
+
+        // Set video source based on device
+        function setCorrectVideo() {
+            const newSrc = isMobileDevice() ? './mobilebackgroundvideo.mp4' : './backgroundvideo.mp4';
+            if (videoSource.src !== newSrc) {
+                videoSource.src = newSrc;
                 videoElement.load();
-            } else if (!isMobile && currentSrc.includes('mobile')) {
-                videoSource.src = desktopSrc;
-                videoElement.load();
+                
+                // Reset video properties
+                videoElement.muted = true;
+                videoElement.playsinline = true;
+                videoElement.setAttribute('webkit-playsinline', '');
+                
+                // Try to play
+                const playAttempt = videoElement.play();
+                if (playAttempt !== undefined) {
+                    playAttempt.catch(error => {
+                        console.log("Playback failed:", error);
+                        // Add touch-to-play for mobile
+                        document.body.addEventListener('touchstart', () => {
+                            videoElement.play();
+                        }, { once: true });
+                    });
+                }
             }
         }
 
-        // Call initially and add resize listener
-        setVideoSource();
-        window.addEventListener('resize', setVideoSource);
+        // Set initial video source
+        setCorrectVideo();
 
-        // Set playback rate to slow down video
-        videoElement.playbackRate = 0.95;
+        // Handle resize events
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(setCorrectVideo, 250);
+        });
 
         function playVideo() {
             videoElement.currentTime = 0;
-            // Create a promise to handle mobile autoplay
-            const playPromise = videoElement.play();
+            videoElement.muted = true;
+            videoElement.playsinline = true;
             
+            const playPromise = videoElement.play();
             if (playPromise !== undefined) {
                 playPromise.then(() => {
                     setTimeout(() => {
@@ -314,10 +336,9 @@
                     }, 100);
                 })
                 .catch(error => {
-                    // Auto-play was prevented
-                    console.log("Video autoplay failed:", error);
-                    // Try playing again with user interaction
-                    document.body.addEventListener('touchstart', function() {
+                    console.log("Autoplay failed:", error);
+                    // Add touch-to-play for mobile
+                    document.body.addEventListener('touchstart', () => {
                         videoElement.play();
                     }, { once: true });
                 });
@@ -328,11 +349,9 @@
         function handleVideoLoop() {
             let fadeStarted = false;
 
-            // When video is near the end, start fading to black
             videoElement.addEventListener('timeupdate', function() {
                 const timeLeft = videoElement.duration - videoElement.currentTime;
                 
-                // Start fade out in last 3 seconds
                 if (timeLeft <= 3 && !fadeStarted) {
                     fadeStarted = true;
                     videoBackground.style.transition = 'opacity 3s ease';
@@ -340,34 +359,29 @@
                 }
             });
 
-            // When video ends
             videoElement.addEventListener('ended', function() {
                 fadeStarted = false;
                 videoBackground.style.transition = 'opacity 2s ease';
                 
-                // Wait 4 seconds before starting again
                 setTimeout(() => {
                     playVideo();
                 }, 4000);
             });
         }
 
-        // Start loading video immediately, but don't play until after logo animation
+        // Initialize video handling
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize video loop handling
             handleVideoLoop();
         });
 
-        // Ensure video gallery starts after logo animation
+        // Start everything after logo animation
         setTimeout(() => {
             document.querySelector('.content').style.opacity = '1';
             document.querySelector('.menu').style.opacity = '1';
             document.querySelector('.menu-left').style.opacity = '1';
             document.querySelector('.small-logo-container').style.opacity = '1';
-            
-            // Start playing the video
             playVideo();
-        }, window.innerWidth <= 768 ? 4500 : 2500);
+        }, isMobileDevice() ? 4500 : 2500);
 
         // Prevent keyboard shortcuts for saving/downloading
         document.addEventListener('keydown', function(e) {
