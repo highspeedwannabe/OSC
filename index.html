@@ -144,19 +144,21 @@
             }
 
             .content {
-                width: 96%;
+                width: 100%;
                 bottom: 3vh;
+                padding: 0 10px;
+                box-sizing: border-box;
             }
 
             .title {
-                font-size: 3.2vw;
+                font-size: 2.8vw;
                 font-weight: 300;
             }
 
             .text-wrapper {
                 justify-content: space-between;
-                gap: 0;
-                padding: 0 1vw;
+                gap: 1.5vw;
+                padding: 0;
             }
 
             .text-wrapper span {
@@ -190,12 +192,10 @@
 
             .menu {
                 animation: fadeIn 2s 4s forwards;
-                right: 20px;
             }
 
             .menu-left {
                 animation: fadeIn 2s 4s forwards;
-                left: 20px;
             }
         }
 
@@ -209,19 +209,19 @@
             }
 
             .content {
-                width: 98%;
+                width: 100%;
                 bottom: 2vh;
+                padding: 0 8px;
             }
 
             .title {
-                font-size: 2.8vw;
+                font-size: 2.5vw;
                 font-weight: 400;
-                letter-spacing: 0;
+                letter-spacing: -0.02em;
             }
 
             .text-wrapper {
-                padding: 0 1vw;
-                gap: 2vw;
+                gap: 1.2vw;
             }
 
             .nav-button {
@@ -254,7 +254,7 @@
 
     <div class="video-background">
         <video class="video-gallery" muted playsinline webkit-playsinline autoplay preload="auto">
-            <source src="./backgroundvideo.mp4" type="video/mp4" id="videoSource">
+            <source src="./backgroundvideo.mp4" type="video/mp4">
         </video>
     </div>
     <div class="content">
@@ -278,7 +278,6 @@
     <script>
         const videoElement = document.querySelector('.video-gallery');
         const videoBackground = document.querySelector('.video-background');
-        const videoSource = document.getElementById('videoSource');
 
         // Function to check if device is mobile
         function isMobileDevice() {
@@ -291,8 +290,10 @@
         // Set video source based on device
         function setCorrectVideo() {
             const newSrc = isMobileDevice() ? './mobilebackgroundvideo.mp4' : './backgroundvideo.mp4';
-            if (videoSource.src !== newSrc) {
-                videoSource.src = newSrc;
+            const currentSrc = videoElement.currentSrc;
+            
+            if (!currentSrc.includes(newSrc)) {
+                videoElement.innerHTML = `<source src="${newSrc}" type="video/mp4">`;
                 videoElement.load();
                 
                 // Reset video properties
@@ -301,23 +302,44 @@
                 videoElement.setAttribute('webkit-playsinline', '');
                 
                 // Try to play
-                const playAttempt = videoElement.play();
-                if (playAttempt !== undefined) {
-                    playAttempt.catch(error => {
+                tryPlayVideo();
+            }
+        }
+
+        function tryPlayVideo() {
+            const playAttempt = videoElement.play();
+            if (playAttempt !== undefined) {
+                playAttempt
+                    .then(() => {
+                        console.log("Video playing successfully");
+                        setTimeout(() => {
+                            videoBackground.style.opacity = '1';
+                        }, 100);
+                    })
+                    .catch(error => {
                         console.log("Playback failed:", error);
-                        // Add touch-to-play for mobile
-                        document.body.addEventListener('touchstart', () => {
-                            videoElement.play();
-                        }, { once: true });
+                        // Add multiple interaction listeners for mobile
+                        const playHandler = () => {
+                            videoElement.play()
+                                .then(() => {
+                                    videoBackground.style.opacity = '1';
+                                    // Remove listeners after successful play
+                                    document.removeEventListener('touchstart', playHandler);
+                                    document.removeEventListener('click', playHandler);
+                                })
+                                .catch(console.error);
+                        };
+                        
+                        document.addEventListener('touchstart', playHandler);
+                        document.addEventListener('click', playHandler);
                     });
-                }
             }
         }
 
         // Set initial video source
         setCorrectVideo();
 
-        // Handle resize events
+        // Handle resize events with debounce
         let resizeTimer;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);
@@ -328,22 +350,7 @@
             videoElement.currentTime = 0;
             videoElement.muted = true;
             videoElement.playsinline = true;
-            
-            const playPromise = videoElement.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    setTimeout(() => {
-                        videoBackground.style.opacity = '1';
-                    }, 100);
-                })
-                .catch(error => {
-                    console.log("Autoplay failed:", error);
-                    // Add touch-to-play for mobile
-                    document.body.addEventListener('touchstart', () => {
-                        videoElement.play();
-                    }, { once: true });
-                });
-            }
+            tryPlayVideo();
         }
 
         // Function to handle video loop with fade
@@ -370,19 +377,19 @@
             });
         }
 
-        // Initialize video handling
+        // Initialize everything when the DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
             handleVideoLoop();
+            
+            // Start everything after logo animation
+            setTimeout(() => {
+                document.querySelector('.content').style.opacity = '1';
+                document.querySelector('.menu').style.opacity = '1';
+                document.querySelector('.menu-left').style.opacity = '1';
+                document.querySelector('.small-logo-container').style.opacity = '1';
+                playVideo();
+            }, isMobileDevice() ? 4500 : 2500);
         });
-
-        // Start everything after logo animation
-        setTimeout(() => {
-            document.querySelector('.content').style.opacity = '1';
-            document.querySelector('.menu').style.opacity = '1';
-            document.querySelector('.menu-left').style.opacity = '1';
-            document.querySelector('.small-logo-container').style.opacity = '1';
-            playVideo();
-        }, isMobileDevice() ? 4500 : 2500);
 
         // Prevent keyboard shortcuts for saving/downloading
         document.addEventListener('keydown', function(e) {
