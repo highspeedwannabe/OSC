@@ -54,8 +54,7 @@
             height: 100%;
             z-index: 1;
             opacity: 0;
-            animation: fadeIn 2s 2s forwards;
-            transition: opacity 1s ease;
+            transition: opacity 2s ease;
         }
 
         .video-gallery {
@@ -157,7 +156,7 @@
     </div>
 
     <div class="video-background">
-        <video class="video-gallery" muted loop preload="auto">
+        <video class="video-gallery" muted preload="auto">
             <source src="./backgroundvideo.mp4" type="video/mp4">
         </video>
     </div>
@@ -184,29 +183,41 @@
         const videoBackground = document.querySelector('.video-background');
 
         // Set playback rate to slow down video
-        videoElement.playbackRate = 0.75;
+        videoElement.playbackRate = 0.95;
+
+        function playVideo() {
+            videoElement.currentTime = 0;
+            videoElement.play();
+            setTimeout(() => {
+                videoBackground.style.opacity = '1';
+            }, 100);
+        }
 
         // Function to handle video loop with fade
         function handleVideoLoop() {
-            // When video is near the end, fade to black
+            let fadeStarted = false;
+
+            // When video is near the end, start fading to black
             videoElement.addEventListener('timeupdate', function() {
-                if (videoElement.duration - videoElement.currentTime < 1) {
+                const timeLeft = videoElement.duration - videoElement.currentTime;
+                
+                // Start fade out in last 3 seconds
+                if (timeLeft <= 3 && !fadeStarted) {
+                    fadeStarted = true;
+                    videoBackground.style.transition = 'opacity 3s ease';
                     videoBackground.style.opacity = '0';
                 }
             });
 
             // When video ends
             videoElement.addEventListener('ended', function() {
+                fadeStarted = false;
+                videoBackground.style.transition = 'opacity 2s ease';
+                
                 // Wait 5 seconds before starting again
                 setTimeout(() => {
-                    // Reset video to start
-                    videoElement.currentTime = 0;
-                    // Play video and fade in
-                    videoElement.play();
-                    setTimeout(() => {
-                        videoBackground.style.opacity = '1';
-                    }, 100);
-                }, 5000);
+                    playVideo();
+                }, 4000);
             });
         }
 
@@ -216,12 +227,10 @@
             document.querySelector('.menu').style.opacity = '1';
             document.querySelector('.menu-left').style.opacity = '1';
             document.querySelector('.small-logo-container').style.opacity = '1';
+            
             // Start playing the video
-            videoElement.play();
-            // Fade in the video after a short delay
-            setTimeout(() => {
-                videoBackground.style.opacity = '1';
-            }, 100);
+            playVideo();
+            
             // Initialize video loop handling
             handleVideoLoop();
         }, 2500);
