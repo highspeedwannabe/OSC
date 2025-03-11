@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oxford Semiconductor Conference</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .logo-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            opacity: 0;
+            animation: fadeInOut 2s forwards;
+        }
+
+        .logo {
+            max-width: 300px;
+        }
+
+        .small-logo-container {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            opacity: 0;
+            animation: fadeIn 2s 2s forwards;
+        }
+
+        .small-logo {
+            max-width: 100px;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0;
+            animation: fadeIn 2s 2s forwards;
+        }
+
+        .video-gallery {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            pointer-events: none;
+            -webkit-user-drag: none;
+            user-drag: none;
+        }
+
+        .content {
+            position: fixed;
+            bottom: 5vh;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 2;
+            opacity: 0;
+            animation: fadeIn 2s 2s forwards;
+            width: 70%;
+        }
+
+        .title {
+            font-family: 'Space Grotesk', 'Outfit', sans-serif;
+            font-size: 2vw;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            background: linear-gradient(45deg, hsl(0, 0%, 100%), #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 20px rgba(255,255,255,0.1);
+        }
+
+        .text-wrapper {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            gap: 1vw;
+        }
+
+        .menu {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            z-index: 4;
+            opacity: 0;
+            animation: fadeIn 2s 2s forwards;
+        }
+
+        .menu-left {
+            position: fixed;
+            top: 30px;
+            left: 40px;
+            z-index: 4;
+            opacity: 0;
+            animation: fadeIn 2s 2s forwards;
+        }
+
+        .nav-button {
+            color: white;
+            text-decoration: none;
+            font-size: 1.6rem;
+            padding: 15px 30px;
+            border: 2px solid white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-button:hover {
+            background: white;
+            color: black;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false">
+    <div class="logo-container">
+        <img src="conference-logo.png" alt="Conference Logo" class="logo">
+    </div>
+
+    <div class="small-logo-container">
+        <img src="conference-logo.png" alt="Conference Logo" class="small-logo">
+    </div>
+
+    <div class="video-background">
+        <video class="video-gallery" muted loop preload="auto">
+            <source src="backgroundvideo.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="content">
+        <h1 class="title">
+            <span class="text-wrapper">
+                <span>Oxford</span>
+                <span>Semiconductor</span>
+                <span>Conference</span>
+            </span>
+        </h1>
+    </div>
+
+    <nav class="menu-left">
+        <a href="/about" class="nav-button">About OSC</a>
+    </nav>
+
+    <nav class="menu">
+        <a href="/members" class="nav-button">Members</a>
+    </nav>
+
+    <script>
+        // Ensure video gallery starts after logo animation
+        setTimeout(() => {
+            document.querySelector('.video-background').style.opacity = '1';
+            document.querySelector('.content').style.opacity = '1';
+            document.querySelector('.menu').style.opacity = '1';
+            document.querySelector('.menu-left').style.opacity = '1';
+            document.querySelector('.small-logo-container').style.opacity = '1';
+            // Start playing the video
+            document.querySelector('.video-gallery').play();
+        }, 2500);
+
+        // Prevent keyboard shortcuts for saving/downloading
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                if (e.key === 's' || e.key === 'S') {
+                    e.preventDefault();
+                }
+            }
+        });
+
+        // Additional protection for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+            });
+            img.style.webkitUserDrag = 'none';
+            img.style.userDrag = 'none';
+        });
+    </script>
+</body>
+</html>
