@@ -275,7 +275,9 @@
 
         // Set video source based on screen size
         if (window.innerWidth <= 768) {
-            videoElement.querySelector('source').src = './mobilebackgroundvideo.mp4';
+            <video class="video-gallery" muted playsinline webkit-playsinline autoplay preload="auto">
+                 videoElement.querySelector('source').src = './mobilebackgroundvideo.mp4';
+            </video>
         }
 
         // Start loading the video immediately
