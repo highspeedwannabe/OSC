@@ -165,11 +165,33 @@
             .menu-left {
                 left: 20px;
             }
+
+            .logo-container {
+                animation: fadeInOut 4s forwards;
+            }
+
+            .small-logo-container {
+                animation: fadeIn 2s 4s forwards;
+            }
+
+            .content {
+                animation: fadeIn 2s 4s forwards;
+            }
+
+            .menu {
+                animation: fadeIn 2s 4s forwards;
+                right: 20px;
+            }
+
+            .menu-left {
+                animation: fadeIn 2s 4s forwards;
+                left: 20px;
+            }
         }
 
         @media screen and (max-width: 480px) {
             .logo {
-                max-width: 150px;
+                max-width: 100px;
             }
 
             .small-logo {
@@ -177,7 +199,7 @@
             }
 
             .title {
-                font-size: 8vw;
+                font-size: 4vw;
             }
 
             .text-wrapper {
@@ -192,8 +214,8 @@
 
         @keyframes fadeInOut {
             0% { opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
             100% { opacity: 0; }
         }
 
@@ -310,7 +332,7 @@
             
             // Start playing the video
             playVideo();
-        }, 2500);
+        }, window.innerWidth <= 768 ? 4500 : 2500);
 
         // Prevent keyboard shortcuts for saving/downloading
         document.addEventListener('keydown', function(e) {
