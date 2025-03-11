@@ -133,6 +133,53 @@
             color: black;
         }
 
+        /* Mobile Styles */
+        @media screen and (max-width: 768px) {
+            .logo {
+                max-width: 200px;
+            }
+
+            .small-logo {
+                max-width: 60px;
+            }
+
+            .title {
+                font-size: 5vw;
+            }
+
+            .nav-button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+
+            .menu {
+                right: 20px;
+            }
+
+            .menu-left {
+                left: 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .logo {
+                max-width: 150px;
+            }
+
+            .small-logo {
+                max-width: 50px;
+            }
+
+            .title {
+                font-size: 6vw;
+            }
+
+            .nav-button {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+        }
+
         @keyframes fadeInOut {
             0% { opacity: 0; }
             20% { opacity: 1; }
@@ -156,7 +203,7 @@
     </div>
 
     <div class="video-background">
-        <video class="video-gallery" muted preload="auto">
+        <video class="video-gallery" muted playsinline webkit-playsinline autoplay preload="auto">
             <source src="./backgroundvideo.mp4" type="video/mp4">
         </video>
     </div>
@@ -187,10 +234,25 @@
 
         function playVideo() {
             videoElement.currentTime = 0;
-            videoElement.play();
-            setTimeout(() => {
-                videoBackground.style.opacity = '1';
-            }, 100);
+            // Create a promise to handle mobile autoplay
+            const playPromise = videoElement.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    setTimeout(() => {
+                        videoBackground.style.opacity = '1';
+                    }, 100);
+                })
+                .catch(error => {
+                    // Auto-play was prevented
+                    // Show a "Play" button or similar
+                    console.log("Video autoplay failed:", error);
+                    // Try playing again with user interaction
+                    document.body.addEventListener('touchstart', function() {
+                        videoElement.play();
+                    }, { once: true });
+                });
+            }
         }
 
         // Function to handle video loop with fade
