@@ -55,6 +55,7 @@
             z-index: 1;
             opacity: 0;
             animation: fadeIn 2s 2s forwards;
+            transition: opacity 1s ease;
         }
 
         .video-gallery {
@@ -179,15 +180,50 @@
     </nav>
 
     <script>
+        const videoElement = document.querySelector('.video-gallery');
+        const videoBackground = document.querySelector('.video-background');
+
+        // Set playback rate to slow down video
+        videoElement.playbackRate = 0.75;
+
+        // Function to handle video loop with fade
+        function handleVideoLoop() {
+            // When video is near the end, fade to black
+            videoElement.addEventListener('timeupdate', function() {
+                if (videoElement.duration - videoElement.currentTime < 1) {
+                    videoBackground.style.opacity = '0';
+                }
+            });
+
+            // When video ends
+            videoElement.addEventListener('ended', function() {
+                // Wait 5 seconds before starting again
+                setTimeout(() => {
+                    // Reset video to start
+                    videoElement.currentTime = 0;
+                    // Play video and fade in
+                    videoElement.play();
+                    setTimeout(() => {
+                        videoBackground.style.opacity = '1';
+                    }, 100);
+                }, 5000);
+            });
+        }
+
         // Ensure video gallery starts after logo animation
         setTimeout(() => {
-            document.querySelector('.video-background').style.opacity = '1';
             document.querySelector('.content').style.opacity = '1';
             document.querySelector('.menu').style.opacity = '1';
             document.querySelector('.menu-left').style.opacity = '1';
             document.querySelector('.small-logo-container').style.opacity = '1';
             // Start playing the video
-            document.querySelector('.video-gallery').play();
+            videoElement.play();
+            // Fade in the video after a short delay
+            setTimeout(() => {
+                videoBackground.style.opacity = '1';
+            }, 100);
+            // Initialize video loop handling
+            handleVideoLoop();
         }, 2500);
 
         // Prevent keyboard shortcuts for saving/downloading
