@@ -147,9 +147,31 @@
                 margin: 2rem 0;
             }
         }
+
+        .logo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            mix-blend-mode: difference;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
+    <a href="index.html" class="logo">
+        <img src="assets/logo.png" alt="Conference Logo">
+    </a>
+
     <div class="light-effect"></div>
 
     <div class="hero-section">
@@ -167,7 +189,7 @@
             <div class="staff-info">
                 <h2>Tommy Hall</h2>
                 <p class="title">Founder & Director</p>
-                <p>Tommy serves as a First Lieutenant in U.S. Army (Logistics) currently at Army Sustainment University before an overseas assignment in the Republic of Korea. His prior roles included an assignment as a deputy military advisor at the U.S. Mission to the United Nations’ military staff committee where he assisted the team liaise with interagency colleagues in synthesizing complex diplomatic issues. Tommy holds a MSt. Diplomatic Studies from the University of Oxford, a MA in Chinese Studies from SOAS, University of London and a BSc in Chinese from the United States Military Academy at West Point. He is proficient in Mandarin.</p>
+                <p>Tommy serves as a First Lieutenant in U.S. Army (Logistics) currently at Army Sustainment University before an overseas assignment in the Republic of Korea. His prior roles included an assignment as a deputy military advisor at the U.S. Mission to the United Nations' military staff committee where he assisted the team liaise with interagency colleagues in synthesizing complex diplomatic issues. Tommy holds a MSt. Diplomatic Studies from the University of Oxford, a MA in Chinese Studies from SOAS, University of London and a BSc in Chinese from the United States Military Academy at West Point. He is proficient in Mandarin.</p>
             </div>
         </div>
 
@@ -192,7 +214,7 @@
 
     <script>
         // Split text into individual spans
-        const text = "From September 17-19, 2024, the inaugural Oxford Semiconductor Conference convened at Kellogg College, Oxford, as a closed-door Track 1.5 dialogue on semiconductor policy, geopolitics, and AI. Co-hosted by leading academic institutions, it brought together senior government officials, policy experts, industry executives, and academics. Keynotes included former Ministers of State from the USA, UK, and Taiwan, alongside top industry leaders. Discussions addressed strategic issues, including export controls, industrial policy, blockade scenarios, and AI’s defense applications.";
+        const text = "From September 17-19, 2024, the inaugural Oxford Semiconductor Conference convened at Kellogg College, Oxford, as a closed-door Track 1.5 dialogue on semiconductor policy, geopolitics, and AI. Co-hosted by leading academic institutions, it brought together senior government officials, policy experts, industry executives, and academics. Keynotes included former Ministers of State from the USA, UK, and Taiwan, alongside top industry leaders. Discussions addressed strategic issues, including export controls, industrial policy, blockade scenarios, and AI's defense applications.";
         const dynamicText = document.getElementById('dynamicText');
         
         // Split text into words and wrap each in a span
