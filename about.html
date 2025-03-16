@@ -43,21 +43,25 @@
         }
 
         @media (max-width: 768px) {
-            .staff-member, .staff-member:nth-child(even) {
-                flex-direction: column;
+            .staff-member, 
+            .staff-member:nth-child(even),
+            .staff-member:nth-child(odd) {
+                flex-direction: column !important;
                 text-align: center;
                 margin: 4rem auto;
             }
 
             .staff-image {
-                width: 100%;
-                max-width: 300px;
-                height: 375px;
-                margin: 2rem auto;
+                width: 100% !important;
+                max-width: 300px !important;
+                height: 375px !important;
+                margin: 2rem auto !important;
+                object-fit: cover;
             }
 
             .staff-info {
                 width: 100%;
+                padding: 0 1rem;
             }
 
             .staff-info h2 {
@@ -67,7 +71,7 @@
             .staff-info p {
                 font-size: 0.9rem;
                 line-height: 1.6;
-                padding: 0 1rem;
+                padding: 0;
             }
 
             .dynamic-text {
@@ -82,6 +86,10 @@
                 transition: none;
                 padding: 0;
                 text-shadow: none !important;
+            }
+
+            .staff-section {
+                padding: 4rem 1rem;
             }
         }
 
