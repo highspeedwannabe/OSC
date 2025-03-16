@@ -34,7 +34,12 @@
             font-size: 1.4rem;
             font-weight: 300;
             text-align: center;
-            position: relative;
+        }
+
+        .dynamic-text span {
+            display: inline-block;
+            transition: text-shadow 0.3s ease;
+            padding: 0 2px;
         }
 
         .light-effect {
@@ -156,8 +161,8 @@
     <div class="light-effect"></div>
 
     <div class="hero-section">
-        <p class="dynamic-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <p class="dynamic-text" id="dynamicText">
+            <!-- Text will be split into spans via JavaScript -->
         </p>
         <div class="scroll-prompt">
             <div class="scroll-arrow">↓</div>
@@ -194,6 +199,53 @@
     </div>
 
     <script>
+        // Split text into individual spans
+        const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+        const dynamicText = document.getElementById('dynamicText');
+        
+        // Split text into words and wrap each in a span
+        dynamicText.innerHTML = text.split(' ').map(word => {
+            return `<span>${word} </span>`;
+        }).join('');
+
+        const spans = document.querySelectorAll('.dynamic-text span');
+
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            spans.forEach(span => {
+                const rect = span.getBoundingClientRect();
+                const spanX = rect.left + (rect.width / 2);
+                const spanY = rect.top + (rect.height / 2);
+
+                // Calculate distance between mouse and span center
+                const distance = Math.sqrt(
+                    Math.pow(mouseX - spanX, 2) + 
+                    Math.pow(mouseY - spanY, 2)
+                );
+
+                // Maximum distance for the effect (in pixels)
+                const maxDistance = 200;
+                
+                if (distance < maxDistance) {
+                    // Calculate intensity based on distance
+                    const intensity = 1 - (distance / maxDistance);
+                    
+                    // Apply glow effect
+                    span.style.textShadow = `
+                        0 0 ${intensity * 20}px rgba(255,255,255,${intensity}),
+                        0 0 ${intensity * 40}px rgba(255,255,255,${intensity * 0.5}),
+                        0 0 ${intensity * 60}px rgba(255,255,255,${intensity * 0.25})
+                    `;
+                    span.style.color = `rgba(255,255,255,${1 + intensity * 0.5})`;
+                } else {
+                    span.style.textShadow = 'none';
+                    span.style.color = 'rgba(255,255,255,1)';
+                }
+            });
+        });
+
         // Light gleam effect
         const lightEffect = document.querySelector('.light-effect');
         
