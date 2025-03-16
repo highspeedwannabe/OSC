@@ -46,12 +46,28 @@
             .staff-member, .staff-member:nth-child(even) {
                 flex-direction: column;
                 text-align: center;
+                margin: 4rem auto;
             }
 
             .staff-image {
                 width: 100%;
-                height: 400px;
-                margin: 2rem 0;
+                max-width: 300px;
+                height: 375px;
+                margin: 2rem auto;
+            }
+
+            .staff-info {
+                width: 100%;
+            }
+
+            .staff-info h2 {
+                font-size: 2rem;
+            }
+
+            .staff-info p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                padding: 0 1rem;
             }
 
             .dynamic-text {
@@ -316,11 +332,25 @@
             observer.observe(member);
         });
 
-        // Smooth scroll
+        // Smooth scroll with mobile adjustment
         document.querySelector('.scroll-prompt').addEventListener('click', () => {
-            document.querySelector('.staff-section').scrollIntoView({ 
-                behavior: 'smooth' 
-            });
+            if (window.innerWidth <= 768) {
+                // For mobile: scroll to first staff member
+                const firstStaffMember = document.querySelector('.staff-member');
+                const headerOffset = 20; // Small offset from the top
+                const elementPosition = firstStaffMember.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            } else {
+                // For desktop: keep existing behavior
+                document.querySelector('.staff-section').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            }
         });
     </script>
 </body>
