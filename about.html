@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Conference</title>
-    <!-- Add these favicon links -->
-    <link rel="icon" type="image/png" href="./OSC.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="./OSC.png" sizes="16x16">
-    <link rel="apple-touch-icon" href="./OSC.png">
     <style>
         * {
             margin: 0;
@@ -206,7 +202,7 @@
             <div class="staff-info">
                 <h2>Adeel Hussain</h2>
                 <p class="title">Co-Founder & Director</p>
-                <p>Adeel Hussain is the Co-Founder and Director of the Oxford Semiconductor Conference and a British Civil Servant. He is currently leading on aspects of the UK's innovation policy at the Department for Business and Trade (DBT). Prior to this his focus was on advanced manufacturing FDI where he was also was part of the team that created the British 'Office for Investment' (OfI), a joint DBT, HM Treasury and Number 10 unit which works across government to land top-tier investment. In 2024 he co-founded the Oxford Semiconductor Conference, an annual event focused on building industrial policy cohesion between like-minded partners in the semiconductor and AI space. Adeel holds a MSt. Diplomatic Studies from the University of Oxford, a MA in Chinese Studies from the University of Edinburgh and a Bachelor's degree in Politics and International Relations from the University of Exeter.</p>
+                <p>Adeel Hussain is the Co-Founder and Director of the Oxford Semiconductor Conference and a British Civil Servant. He is currently leading on aspects of the UK’s innovation policy at the Department for Business and Trade (DBT). Prior to this his focus was on advanced manufacturing FDI where he was also was part of the team that created the British ‘Office for Investment’ (OfI), a joint DBT, HM Treasury and Number 10 unit which works across government to land top-tier investment. In 2024 he co-founded the Oxford Semiconductor Conference, an annual event focused on building industrial policy cohesion between like-minded partners in the semiconductor and AI space. Adeel holds a MSt. Diplomatic Studies from the University of Oxford, a MA in Chinese Studies from the University of Edinburgh and a Bachelor’s degree in Politics and International Relations from the University of Exeter.</p>
             </div>
         </div>
 
@@ -215,7 +211,7 @@
             <div class="staff-info">
                 <h2>Francisco Javier Nicolas Felix</h2>
                 <p class="title">Events Manager</p>
-                <p>Francisco Javier is an international cooperation and development professional. For the past four and a half years, he was a Technical Cooperation Programme Officer at the Japan International Cooperation Agency's (JICA) Mexico Office, managing projects in the areas of disaster risk reduction, health, and inter-municipal cooperation. He is an active proponent of closer Mexican-Japanese ties. In 2018, He was selected as a member of the Mexican committee to participate in the "Global Next Leaders Forum" in Tokyo. He is also a member and former Social Communication Director of the Mexican Association of Japan Goverment Scholars (AMEJ).He holds a MSt. in Diplomatic Studies at the University of Oxford. He holds a Bachelor's Degree in International Relations from the Faculty of Political and Social Sciences of the National Autonomous University of Mexico. His main interests are Japanese foreign policy, East Asia Politics, Latin American  politics, international development, international cooperation and technical assistance.</p>
+                <p>Francisco Javier is an international cooperation and development professional. For the past four and a half years, he was a Technical Cooperation Programme Officer at the Japan International Cooperation Agency’s (JICA) Mexico Office, managing projects in the areas of disaster risk reduction, health, and inter-municipal cooperation. He is an active proponent of closer Mexican-Japanese ties. In 2018, He was selected as a member of the Mexican committee to participate in the "Global Next Leaders Forum" in Tokyo. He is also a member and former Social Communication Director of the Mexican Association of Japan Goverment Scholars (AMEJ).He holds a MSt. in Diplomatic Studies at the University of Oxford. He holds a Bachelor's Degree in International Relations from the Faculty of Political and Social Sciences of the National Autonomous University of Mexico. His main interests are Japanese foreign policy, East Asia Politics, Latin American  politics, international development, international cooperation and technical assistance.</p>
             </div>
         </div>
     </div>
@@ -225,29 +221,27 @@
         const text = "From September 17-19, 2024, the inaugural Oxford Semiconductor Conference convened at Kellogg College, Oxford, as a closed-door Track 1.5 dialogue on semiconductor policy, geopolitics, and AI. Co-hosted by leading academic institutions, it brought together senior government officials, policy experts, industry executives, and academics. Keynotes included former Ministers of State from the USA, UK, and Taiwan, alongside top industry leaders. Discussions addressed strategic issues, including export controls, industrial policy, blockade scenarios, and AI's defense applications.";
         const dynamicText = document.getElementById('dynamicText');
         
-        // Only enable on desktop
-        if (window.innerWidth > 768) {
-            // Split text into words and wrap each in a span
-            dynamicText.innerHTML = text.split(' ').map(word => {
-                return `<span style="font-size: 0.9rem">${word} </span>`;
-            }).join('');
+        // Split text into words and wrap each in a span
+        dynamicText.innerHTML = text.split(' ').map(word => {
+            return `<span>${word} </span>`;
+        }).join('');
 
-            const spans = document.querySelectorAll('.dynamic-text span');
+        const spans = document.querySelectorAll('.dynamic-text span');
 
-            document.addEventListener('mousemove', (e) => {
-                const mouseX = e.clientX;
-                const mouseY = e.clientY;
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
 
-                spans.forEach(span => {
-                    const rect = span.getBoundingClientRect();
-                    const spanX = rect.left + (rect.width / 2);
-                    const spanY = rect.top + (rect.height / 2);
+            spans.forEach(span => {
+                const rect = span.getBoundingClientRect();
+                const spanX = rect.left + (rect.width / 2);
+                const spanY = rect.top + (rect.height / 2);
 
-                    // Calculate distance between mouse and span center
-                    const distance = Math.sqrt(
-                        Math.pow(mouseX - spanX, 2) + 
-                        Math.pow(mouseY - spanY, 2)
-                    );
+                // Calculate distance between mouse and span center
+                const distance = Math.sqrt(
+                    Math.pow(mouseX - spanX, 2) + 
+                    Math.pow(mouseY - spanY, 2)
+                );
 
                 // Maximum distance for the effect (in pixels)
                 const maxDistance = 200;
