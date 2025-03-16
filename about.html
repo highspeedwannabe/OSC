@@ -225,27 +225,29 @@
         const text = "From September 17-19, 2024, the inaugural Oxford Semiconductor Conference convened at Kellogg College, Oxford, as a closed-door Track 1.5 dialogue on semiconductor policy, geopolitics, and AI. Co-hosted by leading academic institutions, it brought together senior government officials, policy experts, industry executives, and academics. Keynotes included former Ministers of State from the USA, UK, and Taiwan, alongside top industry leaders. Discussions addressed strategic issues, including export controls, industrial policy, blockade scenarios, and AI's defense applications.";
         const dynamicText = document.getElementById('dynamicText');
         
-        // Split text into words and wrap each in a span
-        dynamicText.innerHTML = text.split(' ').map(word => {
-            return `<span>${word} </span>`;
-        }).join('');
+        // Only enable on desktop
+        if (window.innerWidth > 768) {
+            // Split text into words and wrap each in a span
+            dynamicText.innerHTML = text.split(' ').map(word => {
+                return `<span style="font-size: 0.9rem">${word} </span>`;
+            }).join('');
 
-        const spans = document.querySelectorAll('.dynamic-text span');
+            const spans = document.querySelectorAll('.dynamic-text span');
 
-        document.addEventListener('mousemove', (e) => {
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
+            document.addEventListener('mousemove', (e) => {
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
 
-            spans.forEach(span => {
-                const rect = span.getBoundingClientRect();
-                const spanX = rect.left + (rect.width / 2);
-                const spanY = rect.top + (rect.height / 2);
+                spans.forEach(span => {
+                    const rect = span.getBoundingClientRect();
+                    const spanX = rect.left + (rect.width / 2);
+                    const spanY = rect.top + (rect.height / 2);
 
-                // Calculate distance between mouse and span center
-                const distance = Math.sqrt(
-                    Math.pow(mouseX - spanX, 2) + 
-                    Math.pow(mouseY - spanY, 2)
-                );
+                    // Calculate distance between mouse and span center
+                    const distance = Math.sqrt(
+                        Math.pow(mouseX - spanX, 2) + 
+                        Math.pow(mouseY - spanY, 2)
+                    );
 
                 // Maximum distance for the effect (in pixels)
                 const maxDistance = 200;
