@@ -42,6 +42,40 @@
             padding: 0 2px;
         }
 
+        @media (max-width: 768px) {
+            .staff-member, .staff-member:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .staff-image {
+                width: 100%;
+                height: 400px;
+                margin: 2rem 0;
+            }
+
+            .dynamic-text {
+                font-size: 0.9rem;
+                max-width: 90vw;
+                line-height: 1.6;
+            }
+
+            /* Disable text effect on mobile */
+            .dynamic-text span {
+                display: inline;
+                transition: none;
+                padding: 0;
+                text-shadow: none !important;
+            }
+        }
+
+        /* Even smaller screens */
+        @media (max-width: 480px) {
+            .dynamic-text {
+                font-size: 0.8rem;
+                line-height: 1.5;
+            }
+        }
 
         .scroll-prompt {
             position: absolute;
@@ -135,19 +169,6 @@
             font-weight: 300;
         }
 
-        @media (max-width: 768px) {
-            .staff-member, .staff-member:nth-child(even) {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .staff-image {
-                width: 100%;
-                height: 400px;
-                margin: 2rem 0;
-            }
-        }
-
         .logo {
             position: absolute;
             top: 30px;
@@ -202,7 +223,7 @@
             <div class="staff-info">
                 <h2>Adeel Hussain</h2>
                 <p class="title">Co-Founder & Director</p>
-                <p>Adeel Hussain is the Co-Founder and Director of the Oxford Semiconductor Conference and a British Civil Servant. He is currently leading on aspects of the UK’s innovation policy at the Department for Business and Trade (DBT). Prior to this his focus was on advanced manufacturing FDI where he was also was part of the team that created the British ‘Office for Investment’ (OfI), a joint DBT, HM Treasury and Number 10 unit which works across government to land top-tier investment. In 2024 he co-founded the Oxford Semiconductor Conference, an annual event focused on building industrial policy cohesion between like-minded partners in the semiconductor and AI space. Adeel holds a MSt. Diplomatic Studies from the University of Oxford, a MA in Chinese Studies from the University of Edinburgh and a Bachelor’s degree in Politics and International Relations from the University of Exeter.</p>
+                <p>Adeel Hussain is the Co-Founder and Director of the Oxford Semiconductor Conference and a British Civil Servant. He is currently leading on aspects of the UK's innovation policy at the Department for Business and Trade (DBT). Prior to this his focus was on advanced manufacturing FDI where he was also was part of the team that created the British 'Office for Investment' (OfI), a joint DBT, HM Treasury and Number 10 unit which works across government to land top-tier investment. In 2024 he co-founded the Oxford Semiconductor Conference, an annual event focused on building industrial policy cohesion between like-minded partners in the semiconductor and AI space. Adeel holds a MSt. Diplomatic Studies from the University of Oxford, a MA in Chinese Studies from the University of Edinburgh and a Bachelor's degree in Politics and International Relations from the University of Exeter.</p>
             </div>
         </div>
 
@@ -211,7 +232,7 @@
             <div class="staff-info">
                 <h2>Francisco Javier Nicolas Felix</h2>
                 <p class="title">Events Manager</p>
-                <p>Francisco Javier is an international cooperation and development professional. For the past four and a half years, he was a Technical Cooperation Programme Officer at the Japan International Cooperation Agency’s (JICA) Mexico Office, managing projects in the areas of disaster risk reduction, health, and inter-municipal cooperation. He is an active proponent of closer Mexican-Japanese ties. In 2018, He was selected as a member of the Mexican committee to participate in the "Global Next Leaders Forum" in Tokyo. He is also a member and former Social Communication Director of the Mexican Association of Japan Goverment Scholars (AMEJ).He holds a MSt. in Diplomatic Studies at the University of Oxford. He holds a Bachelor's Degree in International Relations from the Faculty of Political and Social Sciences of the National Autonomous University of Mexico. His main interests are Japanese foreign policy, East Asia Politics, Latin American  politics, international development, international cooperation and technical assistance.</p>
+                <p>Francisco Javier is an international cooperation and development professional. For the past four and a half years, he was a Technical Cooperation Programme Officer at the Japan International Cooperation Agency's (JICA) Mexico Office, managing projects in the areas of disaster risk reduction, health, and inter-municipal cooperation. He is an active proponent of closer Mexican-Japanese ties. In 2018, He was selected as a member of the Mexican committee to participate in the "Global Next Leaders Forum" in Tokyo. He is also a member and former Social Communication Director of the Mexican Association of Japan Goverment Scholars (AMEJ).He holds a MSt. in Diplomatic Studies at the University of Oxford. He holds a Bachelor's Degree in International Relations from the Faculty of Political and Social Sciences of the National Autonomous University of Mexico. His main interests are Japanese foreign policy, East Asia Politics, Latin American  politics, international development, international cooperation and technical assistance.</p>
             </div>
         </div>
     </div>
@@ -228,41 +249,44 @@
 
         const spans = document.querySelectorAll('.dynamic-text span');
 
-        document.addEventListener('mousemove', (e) => {
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
+        // Only apply mouse effect if not on mobile
+        if (window.innerWidth > 768) {
+            document.addEventListener('mousemove', (e) => {
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
 
-            spans.forEach(span => {
-                const rect = span.getBoundingClientRect();
-                const spanX = rect.left + (rect.width / 2);
-                const spanY = rect.top + (rect.height / 2);
+                spans.forEach(span => {
+                    const rect = span.getBoundingClientRect();
+                    const spanX = rect.left + (rect.width / 2);
+                    const spanY = rect.top + (rect.height / 2);
 
-                // Calculate distance between mouse and span center
-                const distance = Math.sqrt(
-                    Math.pow(mouseX - spanX, 2) + 
-                    Math.pow(mouseY - spanY, 2)
-                );
+                    // Calculate distance between mouse and span center
+                    const distance = Math.sqrt(
+                        Math.pow(mouseX - spanX, 2) + 
+                        Math.pow(mouseY - spanY, 2)
+                    );
 
-                // Maximum distance for the effect (in pixels)
-                const maxDistance = 200;
-                
-                if (distance < maxDistance) {
-                    // Calculate intensity based on distance
-                    const intensity = 1 - (distance / maxDistance);
+                    // Maximum distance for the effect (in pixels)
+                    const maxDistance = 200;
                     
-                    // Apply glow effect
-                    span.style.textShadow = `
-                        0 0 ${intensity * 20}px rgba(255,255,255,${intensity}),
-                        0 0 ${intensity * 40}px rgba(255,255,255,${intensity * 0.5}),
-                        0 0 ${intensity * 60}px rgba(255,255,255,${intensity * 0.25})
-                    `;
-                    span.style.color = `rgba(255,255,255,${1 + intensity * 0.5})`;
-                } else {
-                    span.style.textShadow = 'none';
-                    span.style.color = 'rgba(255,255,255,1)';
-                }
+                    if (distance < maxDistance) {
+                        // Calculate intensity based on distance
+                        const intensity = 1 - (distance / maxDistance);
+                        
+                        // Apply glow effect
+                        span.style.textShadow = `
+                            0 0 ${intensity * 20}px rgba(255,255,255,${intensity}),
+                            0 0 ${intensity * 40}px rgba(255,255,255,${intensity * 0.5}),
+                            0 0 ${intensity * 60}px rgba(255,255,255,${intensity * 0.25})
+                        `;
+                        span.style.color = `rgba(255,255,255,${1 + intensity * 0.5})`;
+                    } else {
+                        span.style.textShadow = 'none';
+                        span.style.color = 'rgba(255,255,255,1)';
+                    }
+                });
             });
-        });
+        }
 
         // Light gleam effect
         const lightEffect = document.querySelector('.light-effect');
