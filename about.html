@@ -9,7 +9,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none;
         }
 
         body {
@@ -17,29 +16,6 @@
             color: #ffffff;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-        }
-
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid white;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 999;
-            transition: all 0.1s ease;
-            transition-property: width, height, border;
-        }
-
-        .cursor-follower {
-            width: 8px;
-            height: 8px;
-            background: white;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 999;
-            transition: 0.2s ease;
         }
 
         .hero-section {
@@ -58,7 +34,17 @@
             font-size: 1.4rem;
             font-weight: 300;
             text-align: center;
-            mix-blend-mode: difference;
+            position: relative;
+        }
+
+        .light-effect {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+            mix-blend-mode: overlay;
+            z-index: 2;
         }
 
         .scroll-prompt {
@@ -167,8 +153,7 @@
     </style>
 </head>
 <body>
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
+    <div class="light-effect"></div>
 
     <div class="hero-section">
         <p class="dynamic-text">
@@ -209,26 +194,15 @@
     </div>
 
     <script>
-        // Custom cursor
-        const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
-
+        // Light gleam effect
+        const lightEffect = document.querySelector('.light-effect');
+        
         document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+            const x = e.clientX - 150;
+            const y = e.clientY - 150;
             
-            cursorFollower.style.left = e.clientX + 'px';
-            cursorFollower.style.top = e.clientY + 'px';
-        });
-
-        // Dynamic text effect
-        document.addEventListener('mousemove', (e) => {
-            const dynamicText = document.querySelector('.dynamic-text');
-            const rect = dynamicText.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            dynamicText.style.transform = `translate(${x * 0.01}px, ${y * 0.01}px)`;
+            lightEffect.style.left = `${x}px`;
+            lightEffect.style.top = `${y}px`;
         });
 
         // Scroll animation for staff members
