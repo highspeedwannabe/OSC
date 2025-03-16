@@ -174,61 +174,6 @@
         .logo:hover img {
             transform: scale(1.1);
         }
-
-        /* Wave container styles */
-        .scroll-wave {
-            position: fixed;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .scroll-wave svg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-
-        .scroll-wave path {
-            fill: none;
-            stroke: rgba(255, 255, 255, 0.05);
-            stroke-width: 1px;
-        }
-
-        /* Corner waves */
-        .corner-waves {
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .corner-waves.top-right {
-            top: 0;
-            right: 0;
-            transform: rotate(90deg);
-        }
-
-        .corner-waves.bottom-left {
-            bottom: 0;
-            left: 0;
-            transform: rotate(-90deg);
-        }
-
-        .corner-waves path {
-            fill: none;
-            stroke: rgba(255, 255, 255, 0.05);
-            stroke-width: 1px;
-        }
-
-        /* Ensure content stays above waves */
-        .hero-section, .staff-section {
-            position: relative;
-            z-index: 2;
-        }
     </style>
 </head>
 <body>
@@ -273,30 +218,6 @@
                 <p>Francisco Javier is an international cooperation and development professional. For the past four and a half years, he was a Technical Cooperation Programme Officer at the Japan International Cooperation Agency's (JICA) Mexico Office, managing projects in the areas of disaster risk reduction, health, and inter-municipal cooperation. He is an active proponent of closer Mexican-Japanese ties. In 2018, He was selected as a member of the Mexican committee to participate in the "Global Next Leaders Forum" in Tokyo. He is also a member and former Social Communication Director of the Mexican Association of Japan Goverment Scholars (AMEJ).He holds a MSt. in Diplomatic Studies at the University of Oxford. He holds a Bachelor's Degree in International Relations from the Faculty of Political and Social Sciences of the National Autonomous University of Mexico. His main interests are Japanese foreign policy, East Asia Politics, Latin American  politics, international development, international cooperation and technical assistance.</p>
             </div>
         </div>
-    </div>
-
-    <div class="scroll-wave">
-        <svg viewBox="0 0 1440 800" preserveAspectRatio="none">
-            <path d="M 0 80 C 316 80 316 20 632 20 C 948 20 948 80 1264 80 L 1264 0 L 0 0 Z"></path>
-            <path d="M 0 40 C 316 40 316 80 632 80 C 948 80 948 40 1264 40 L 1264 0 L 0 0 Z"></path>
-            <path d="M 0 60 C 316 60 316 0 632 0 C 948 0 948 60 1264 60 L 1264 0 L 0 0 Z"></path>
-        </svg>
-    </div>
-
-    <div class="corner-waves top-right">
-        <svg viewBox="0 0 300 300">
-            <path d="M 0 50 Q 75 25, 150 50 T 300 50"></path>
-            <path d="M 0 100 Q 75 75, 150 100 T 300 100"></path>
-            <path d="M 0 150 Q 75 125, 150 150 T 300 150"></path>
-        </svg>
-    </div>
-
-    <div class="corner-waves bottom-left">
-        <svg viewBox="0 0 300 300">
-            <path d="M 0 50 Q 75 25, 150 50 T 300 50"></path>
-            <path d="M 0 100 Q 75 75, 150 100 T 300 100"></path>
-            <path d="M 0 150 Q 75 125, 150 150 T 300 150"></path>
-        </svg>
     </div>
 
     <script>
@@ -381,32 +302,6 @@
         document.querySelector('.scroll-prompt').addEventListener('click', () => {
             document.querySelector('.staff-section').scrollIntoView({ 
                 behavior: 'smooth' 
-            });
-        });
-
-        // Add this to your existing script
-        document.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const waves = document.querySelector('.scroll-wave');
-            const paths = waves.querySelectorAll('path');
-            
-            paths.forEach((path, index) => {
-                const offset = scrolled * (0.5 + index * 0.2);
-                path.style.transform = `translate3d(0, ${offset}px, 0)`;
-            });
-        });
-
-        // Animate corner waves
-        const cornerPaths = document.querySelectorAll('.corner-waves path');
-        cornerPaths.forEach((path, index) => {
-            const animation = path.animate([
-                { transform: 'translateY(0px)' },
-                { transform: 'translateY(10px)' },
-                { transform: 'translateY(0px)' }
-            ], {
-                duration: 2000 + (index * 400),
-                iterations: Infinity,
-                easing: 'ease-in-out'
             });
         });
     </script>
