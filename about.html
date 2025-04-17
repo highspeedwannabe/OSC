@@ -279,7 +279,7 @@
 
     <script>
         // Split text into individual spans
-        const text = "The Oxford Semiconductor Conference is a closed-door forum bringing together global leaders to discuss semiconductor policy, geopolitics, and AI, with a focus on industrial policy and defense applications.";
+        const text = "The Oxford Semiconductor Conference is a closed-door forum bringing together global leaders to discuss semiconductor policy, geopolitics, and AI, with a focus on industrial policy and defense applications.".replace(/./g, match => `<small>${match}</small>`);
         const dynamicText = document.getElementById('dynamicText');
         
         // Split text into words and wrap each in a span
