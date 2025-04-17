@@ -97,14 +97,15 @@
             }
 
             .section {
+                width: 100%;
                 min-height: 33vh;
                 padding: 1rem;
-                transition: transform 0.3s ease, background 0.3s ease;
+                transition: all 0.3s ease;
             }
 
             .section:hover {
-                flex: 1;
-                transform: scale(1.02);
+                flex: none;
+                min-height: 50vh;
             }
 
             .section h2 {
@@ -137,7 +138,7 @@
 
             /* Mobile-specific hover effects */
             .section:active {
-                transform: scale(0.98);
+                min-height: 45vh;
             }
 
             .mission:active {
