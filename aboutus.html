@@ -88,6 +88,49 @@
         .advisors:hover {
             background: linear-gradient(45deg, #43e97b, #38f9d7);
         }
+
+        /* Mobile Responsive Design */
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .section {
+                min-height: 33vh;
+                padding: 1.5rem;
+            }
+
+            .section:hover {
+                flex: 1;
+                min-height: 50vh;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .section p {
+                font-size: 1rem;
+                max-width: 90%;
+            }
+        }
+
+        /* Small Mobile Devices */
+        @media screen and (max-width: 480px) {
+            .section {
+                min-height: 30vh;
+                padding: 1rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .section p {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
