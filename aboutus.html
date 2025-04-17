@@ -98,20 +98,22 @@
 
             .section {
                 min-height: 33vh;
-                padding: 1.5rem;
+                padding: 1rem;
+                transition: transform 0.3s ease, background 0.3s ease;
             }
 
             .section:hover {
                 flex: 1;
-                min-height: 50vh;
+                transform: scale(1.02);
             }
 
             .section h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 0.5rem;
             }
 
             .section p {
-                font-size: 1rem;
+                font-size: 0.9rem;
                 max-width: 90%;
             }
         }
@@ -120,15 +122,34 @@
         @media screen and (max-width: 480px) {
             .section {
                 min-height: 30vh;
-                padding: 1rem;
+                padding: 0.8rem;
             }
 
             .section h2 {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
+                letter-spacing: 1px;
             }
 
             .section p {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+
+            /* Mobile-specific hover effects */
+            .section:active {
+                transform: scale(0.98);
+            }
+
+            .mission:active {
+                background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            }
+
+            .committee:active {
+                background: linear-gradient(45deg, #4facfe, #00f2fe);
+            }
+
+            .advisors:active {
+                background: linear-gradient(45deg, #43e97b, #38f9d7);
             }
         }
     </style>
