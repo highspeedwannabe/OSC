@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSC Members</title>
+    <title>OSC Delegate Login</title>
     <style>
         body {
             margin: 0;
@@ -81,14 +81,12 @@
     <script>
         function checkPassword(event) {
             const password = document.getElementById('password').value;
-            const content = document.getElementById('content');
             const incorrect = document.getElementById('incorrect');
-            const container = document.querySelector('.password-container');
             
             if (event.key === 'Enter') {
                 if (password === 'Taiwan') {
-                    container.style.display = 'none';
-                    content.style.display = 'block';
+                    // Redirect to the members area
+                    window.location.href = 'https://oxfordsemi.org/members';
                 } else {
                     incorrect.style.opacity = '1';
                     setTimeout(() => {
