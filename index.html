@@ -174,7 +174,7 @@
             }
 
             .nav-button {
-                font-size: 0.5rem;
+                font-size: 0.75rem;
                 padding: 1px 2px;
             }
 
@@ -233,7 +233,7 @@
             }
 
             .nav-button {
-                font-size: 0.5rem;
+                font-size: 0.75rem;
                 padding: 2px 4px;
             }
         }
@@ -261,8 +261,11 @@
     </div>
 
     <div class="video-background">
-        <video class="video-gallery" muted playsinline webkit-playsinline autoplay preload="auto">
-            <source src="./backgroundvideo.mp4" type="video/mp4">
+        <video class="video-gallery" muted playsinline webkit-playsinline autoplay preload="auto" poster="./assets/video-poster.jpg">
+            <source src="./assets/backgroundvideo-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+            <source src="./assets/backgroundvideo-tablet.mp4" type="video/mp4" media="(max-width: 1024px)">
+            <source src="./assets/backgroundvideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
         </video>
     </div>
     <div class="content">
@@ -286,11 +289,17 @@
     <script>
         const videoElement = document.querySelector('.video-gallery');
         const videoBackground = document.querySelector('.video-background');
+        const isMobile = window.innerWidth <= 768;
 
         function playVideo() {
             videoElement.currentTime = 0;
             videoElement.muted = true;
             videoElement.playsinline = true;
+            
+            // Set lower quality for mobile
+            if (isMobile) {
+                videoElement.quality = 'low';
+            }
             
             const playPromise = videoElement.play();
             if (playPromise !== undefined) {
@@ -330,6 +339,15 @@
                 setTimeout(() => {
                     playVideo();
                 }, 4000);
+            });
+            
+            // Add error handling for video loading
+            videoElement.addEventListener('error', function(e) {
+                console.error("Video error:", e);
+                // Fallback to poster image if video fails
+                videoBackground.style.backgroundImage = "url('./assets/video-poster.jpg')";
+                videoBackground.style.backgroundSize = "cover";
+                videoBackground.style.backgroundPosition = "center";
             });
         }
 

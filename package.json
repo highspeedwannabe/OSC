@@ -1,0 +1,13 @@
+{
+  "name": "osc-website",
+  "version": "1.0.0",
+  "description": "Oxford Semiconductor Conference Website",
+  "main": "index.html",
+  "scripts": {
+    "compress-video": "node compress-video.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
+} 
