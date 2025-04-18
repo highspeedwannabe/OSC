@@ -62,7 +62,6 @@
             z-index: 1;
             opacity: 0;
             transition: opacity 2s ease;
-            background-color: #000; /* Fallback background color */
         }
 
         .video-gallery {
@@ -262,8 +261,8 @@
     </div>
 
     <div class="video-background">
-        <video class="video-gallery" muted playsinline webkit-playsinline autoplay preload="metadata" poster="./assets/video-poster.jpg">
-            <source src="./assets/backgroundvideo.mp4" type="video/mp4">
+        <video class="video-gallery" muted playsinline webkit-playsinline autoplay preload="auto">
+            <source src="./backgroundvideo.mp4" type="video/mp4">
         </video>
     </div>
     <div class="content">
@@ -336,11 +335,6 @@
 
         // Initialize everything when the DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
-            // Set a timeout to show the background even if video doesn't load
-            setTimeout(() => {
-                videoBackground.style.opacity = '1';
-            }, 3000);
-            
             handleVideoLoop();
             
             // Start everything after logo animation
