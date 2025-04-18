@@ -94,6 +94,7 @@
             letter-spacing: -0.02em;
             background: linear-gradient(45deg, hsl(0, 0%, 100%), #e0e0e0);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 2px 2px 20px rgba(255,255,255,0.1);
         }
@@ -361,7 +362,7 @@
                 e.preventDefault();
             });
             img.style.webkitUserDrag = 'none';
-            img.style.userDrag = 'none';
+            img.style.userSelect = 'none';
         });
     </script>
 </body>
