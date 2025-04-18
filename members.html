@@ -33,6 +33,10 @@
             position: relative;
             overflow: hidden;
             background-color: #333;
+            background-image: url('./assets/adeel.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%);
         }
 
         .section::before {
@@ -48,26 +52,27 @@
 
         .section:hover {
             flex: 2;
+            filter: grayscale(0%);
         }
 
         .section:hover::before {
-            background-color: rgba(0, 0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.3);
         }
 
-        .section:nth-child(1):hover {
-            background-color: #e74c3c;
+        .section:nth-child(1):hover::before {
+            background-color: rgba(0, 0, 0, 0.3);
         }
 
-        .section:nth-child(2):hover {
-            background-color: #3498db;
+        .section:nth-child(2):hover::before {
+            background-color: rgba(0, 0, 0, 0.3);
         }
 
-        .section:nth-child(3):hover {
-            background-color: #2ecc71;
+        .section:nth-child(3):hover::before {
+            background-color: rgba(0, 0, 0, 0.3);
         }
 
-        .section:nth-child(4):hover {
-            background-color: #f39c12;
+        .section:nth-child(4):hover::before {
+            background-color: rgba(0, 0, 0, 0.3);
         }
 
         .section-content {
@@ -84,7 +89,13 @@
         }
 
         .section:hover .section-content {
-            transform: scale(1.2);
+            transform: scale(1.5);
+            font-size: 1.2rem;
+        }
+
+        .section:not(:hover) .section-content {
+            transform: scale(0.8);
+            opacity: 0.7;
         }
 
         .logo {
