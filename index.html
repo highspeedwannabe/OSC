@@ -292,11 +292,23 @@
                     gyroControls: false,
                     minHeight: 30.00,
                     minWidth: 30.00,
-                    scale: 0.30,
-                    scaleMobile: 0.30,
+                    scale: 0.05,
+                    scaleMobile: 0.05,
                     color: 0xf7f0f2,
-                    spacing: 1.50,
+                    spacing: 0.20,
                     chaos: 6.00
+                });
+
+                // Add resize handler to update scale
+                window.addEventListener('resize', () => {
+                    if (vantaEffect) {
+                        vantaEffect.setOptions({
+                            scale: 0.05,
+                            scaleMobile: 0.05,
+                            spacing: 0.50,
+                            chaos: 3.00
+                        });
+                    }
                 });
             }, 100);
 
