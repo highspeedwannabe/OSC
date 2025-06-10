@@ -36,11 +36,11 @@
             transform: translate(-50%, -50%);
             z-index: 3;
             opacity: 0;
-            animation: fadeIn 2s forwards;
+            animation: fadeInOut 2s forwards;
         }
 
         .logo {
-            max-width: 500px;
+            max-width: 300px;
         }
 
         .small-logo-container {
@@ -134,7 +134,7 @@
         /* Mobile Styles */
         @media screen and (max-width: 768px) {
             .logo {
-                max-width: 300px;
+                max-width: 200px;
             }
 
             .small-logo {
@@ -204,7 +204,7 @@
 
         @media screen and (max-width: 480px) {
             .logo {
-                max-width: 200px;
+                max-width: 100px;
             }
 
             .small-logo {
@@ -284,33 +284,7 @@
         
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize Vanta.js with a slight delay to ensure DOM is ready
-            setTimeout(() => {
-                vantaEffect = VANTA.TRUNK({
-                    el: "#vanta-background",
-                    mouseControls: true,
-                    touchControls: true,
-                    gyroControls: false,
-                    minHeight: 10,
-                    minWidth: 10,
-                    scale: 0.5,
-                    scaleMobile: 0.05,
-                    color: 0xf7f0f2,
-                    spacing: 0.20,
-                    chaos: 6.00
-                });
-
-                // Add resize handler to update scale
-                window.addEventListener('resize', () => {
-                    if (vantaEffect) {
-                        vantaEffect.setOptions({
-                            scale: 0.05,
-                            scaleMobile: 0.05,
-                            spacing: 0.50,
-                            chaos: 3.00
-                        });
-                    }
-                });
-            }, 100);
+            
 
             // Start everything after logo animation
             setTimeout(() => {
