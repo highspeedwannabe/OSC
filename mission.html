@@ -30,11 +30,27 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             padding: 2rem;
             position: relative;
             z-index: 2;
+            padding-top: 30vh;
+        }
+
+        .mission-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #fff;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3), 0 0 20px rgba(255,255,255,0.2), 0 0 30px rgba(255,255,255,0.1);
+            background: linear-gradient(120deg, #ffffff, #f0f0f0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: glow 3s ease-in-out infinite;
         }
 
         .hero-subheader {
@@ -131,6 +147,11 @@
             mix-blend-mode: difference;
             width: 100px;
             opacity: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
         }
 
         .logo img {
@@ -145,7 +166,25 @@
             transform: scale(1.1);
         }
 
+        .home-text {
+            color: white;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover .home-text {
+            opacity: 1;
+        }
+
         @media (max-width: 768px) {
+            .mission-title {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
             .hero-subheader {
                 font-size: 1.2rem;
                 max-width: 90vw;
@@ -170,6 +209,14 @@
                 border: none;
                 padding: 0;
             }
+
+            .hero-section {
+                padding-top: 12vh;
+            }
+
+            .home-text {
+                font-size: 0.9rem;
+            }
         }
 
         @keyframes glow {
@@ -181,9 +228,11 @@
 <body>
     <a href="index.html" class="logo">
         <img src="./assets/OSC.png" alt="Conference Logo">
+        <span class="home-text">HOME</span>
     </a>
 
     <div class="hero-section">
+        <h1 class="mission-title">Mission</h1>
         <p class="hero-subheader">The Oxford Semiconductor Conference is a forum bringing together global leaders to discuss semiconductor policy, geopolitics, and AI, with a focus on economic statecraft and national security.</p>
         
         <div class="navigation">
