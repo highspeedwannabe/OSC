@@ -22,6 +22,7 @@
         height: 100%;
         z-index: 1;
         color: #222426;
+        pointer-events: auto;
         }
         * {
             margin: 0;
@@ -253,22 +254,103 @@
         .logo:hover img {
             transform: scale(1.1);
         }
+
+        .committee-title {
+            font-size: 4.5rem;
+            font-weight: 300;
+            text-align: center;
+            margin-top: 22vh;
+            margin-bottom: 2rem;
+            color: #fff;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3), 0 0 20px rgba(255,255,255,0.2), 0 0 30px rgba(255,255,255,0.1);
+            background: linear-gradient(120deg, #ffffff, #f0f0f0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: glow 3s ease-in-out infinite;
+            background: transparent;
+            pointer-events: none;
+        }
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        .home-text {
+            color: white;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        .logo:hover .home-text {
+            opacity: 1;
+        }
+        @media (max-width: 768px) {
+            .committee-title {
+                font-size: 3rem;
+                margin-top: 16vh;
+                margin-bottom: 1.5rem;
+            }
+            .home-text {
+                font-size: 0.9rem;
+            }
+        }
+        @keyframes randomPulse {
+            0% {
+                filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+            }
+            25% {
+                filter: drop-shadow(0 0 35px rgba(255, 255, 255, 0.9));
+            }
+            50% {
+                filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+            }
+            75% {
+                filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.7));
+            }
+            100% {
+                filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+            }
+        }
+        .pulse-glow {
+            animation: randomPulse 6s infinite;
+            filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+        }
+        .staff-section {
+            background: transparent;
+            pointer-events: none;
+        }
+        .staff-section a,
+        .staff-section button,
+        .staff-section .staff-info,
+        .staff-section .staff-image {
+            pointer-events: auto;
+        }
+        #particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+            pointer-events: auto;
+        }
     </style>
 </head>
 <body>
-    <a href="index.html" class="logo">
+    <a href="mission.html" class="logo">
         <img src="./assets/OSC.png" alt="Conference Logo">
+        <span class="home-text">BACK</span>
     </a>
 
     <div class="light-effect"></div>
 
-    <div class="hero-section">
-        <p class="hero-subheader" style="color: #fff; font-weight: 200; line-height: 1.6; letter-spacing: 0.05em; max-width: 75%; margin: 0 auto; text-shadow: 0 0 10px rgba(255,255,255,0.3), 0 0 20px rgba(255,255,255,0.2), 0 0 30px rgba(255,255,255,0.1); background: linear-gradient(120deg, #ffffff, #f0f0f0); -webkit-background-clip: text; background-clip: text; animation: glow 3s ease-in-out infinite;">The Oxford Semiconductor Conference is a forum bringing together global leaders to discuss semiconductor policy, geopolitics, and AI, with a focus on economic statecraft and national security.</p>
-        <div class="scroll-prompt">
-            <p style="margin-bottom: 10px; font-size: 1.2rem; color: #888;">COMMITTEE</p>
-            <div class="scroll-arrow">↓</div>
-        </div>
-    </div>
+    <h1 class="committee-title">Committee</h1>
 
     <div class="staff-section">
         <div class="staff-member">
@@ -276,7 +358,7 @@
                 <img src="./assets/tommy.jpg" alt="Staff Member 1" class="staff-image">
             </a>
             <div class="staff-info">
-                <h2>Tommy Hall</h2>
+                <h2 class="pulse-glow">Tommy Hall</h2>
                 <p class="title">Founder & Director</p>
                 <p>Tommy serves as a First Lieutenant in U.S. Army (Logistics) currently at Army Sustainment University before an overseas assignment in the Republic of Korea. His prior roles included an assignment as a deputy military advisor at the U.S. Mission to the United Nations' military staff committee where he assisted the team liaise with interagency colleagues in synthesizing complex diplomatic issues. Tommy holds a MSt. Diplomatic Studies from the University of Oxford, a MA in Chinese Studies from SOAS, University of London and a BSc in Chinese from the United States Military Academy at West Point. He is proficient in Mandarin.</p>
             </div>
@@ -287,7 +369,7 @@
                 <img src="./assets/adeel.jpg" alt="Staff Member 2" class="staff-image">
             </a>
             <div class="staff-info">
-                <h2>Adeel Hussain</h2>
+                <h2 class="pulse-glow">Adeel Hussain</h2>
                 <p class="title">Co-Founder & Director</p>
                 <p>Adeel Hussain is the Co-Founder and Director of the Oxford Semiconductor Conference and a British Civil Servant. He is currently leading on aspects of the UK's innovation policy at the Department for Business and Trade (DBT). Prior to this his focus was on advanced manufacturing FDI where he was also was part of the team that created the British 'Office for Investment' (OfI), a joint DBT, HM Treasury and Number 10 unit which works across government to land top-tier investment. In 2024 he co-founded the Oxford Semiconductor Conference, an annual event focused on building industrial policy cohesion between like-minded partners in the semiconductor and AI space. Adeel holds a MSt. Diplomatic Studies from the University of Oxford, a MA in Chinese Studies from the University of Edinburgh and a Bachelor's degree in Politics and International Relations from the University of Exeter.</p>
             </div>
@@ -297,7 +379,7 @@
                 <img src="./assets/aidan.jpg" alt="Staff Member 3" class="staff-image">
             </a>
             <div class="staff-info">
-                <h2>Aidan Powers-Riggs</h2>
+                <h2 class="pulse-glow">Aidan Powers-Riggs</h2>
                 <p class="title">US Partnerships Lead</p>
                 <p>Aidan Powers-Riggs is an Associate Fellow for China Analysis at the Center for Strategic and International Studies (CSIS) in Washington D.C. His research applies open-source intelligence (OSINT) methods to explore China's use of non-conventional tools to expand its overseas influence. Previously, he has helped inform government and policy leaders on Chinese foreign and technology policies at the U.S. Senate Foreign Relations Committee, the National Bureau of Asian Research (NBR), and the Asia Society Policy Institute. Aidan holds an M.A. from the Edmund A. Walsh School of Foreign Service (SFS) at Georgetown University.</p>
             </div>
@@ -307,7 +389,7 @@
                 <img src="./assets/paco.jpg" alt="Staff Member 4" class="staff-image">
             </a>
             <div class="staff-info">
-                <h2>Francisco Javier Nicolas Felix</h2>
+                <h2 class="pulse-glow">Francisco Javier Nicolas Felix</h2>
                 <p class="title">Mexico and Japan Partnerships Lead</p>
                 <p>Francisco Javier is an international cooperation and development professional. For the past four and a half years, he was a Technical Cooperation Programme Officer at the Japan International Cooperation Agency's (JICA) Mexico Office, managing projects in the areas of disaster risk reduction, health, and inter-municipal cooperation. He is an active proponent of closer Mexican-Japanese ties. In 2018, He was selected as a member of the Mexican committee to participate in the "Global Next Leaders Forum" in Tokyo. He is also a member and former Social Communication Director of the Mexican Association of Japan Goverment Scholars (AMEJ).He holds a MSt. in Diplomatic Studies at the University of Oxford. He holds a Bachelor's Degree in International Relations from the Faculty of Political and Social Sciences of the National Autonomous University of Mexico. His main interests are Japanese foreign policy, East Asia Politics, Latin American  politics, international development, international cooperation and technical assistance.</p>
             </div>
@@ -338,7 +420,7 @@
         });
 
         // Smooth scroll with mobile adjustment
-        document.querySelector('.scroll-prompt').addEventListener('click', () => {
+        document.querySelector('.scroll-prompt')?.addEventListener('click', () => {
             if (window.innerWidth <= 768) {
                 // For mobile: scroll to first staff member
                 const firstStaffMember = document.querySelector('.staff-member');
@@ -431,6 +513,12 @@
             } else {
                 console.error('tsParticles library not loaded');
             }
+
+            // Assign random animation delays to each .pulse-glow element
+            document.querySelectorAll('.pulse-glow').forEach(el => {
+                const delay = (Math.random() * 6).toFixed(2) + 's';
+                el.style.animationDelay = delay;
+            });
         });
     </script>
 </body>
