@@ -155,7 +155,7 @@
             }
 
             .title {
-                font-size: 3.5vw;
+                font-size: 4vw;
                 font-weight: 400;
             }
 
@@ -169,9 +169,8 @@
             }
 
             .nav-button {
-                font-size: 0.8rem;
+                font-size: 0.6rem;
                 padding: 6px 10px;
-                width: 70px;
             }
 
             .menu {
@@ -200,69 +199,6 @@
                 animation: fadeIn 2s 4s forwards;
             }
         }
-
-        @media screen and (max-width: 480px) {
-            .logo-container {
-                animation: none;
-                opacity: 1;
-            }
-
-            .logo {
-                max-width: 200px;
-                animation: randomPulse 6s infinite;
-                opacity: 1;
-            }
-
-            .content {
-                width: 100%;
-                bottom: 5vh;
-                padding: 0 8px;
-            }
-
-            .title {
-                font-size: 3vw;
-                font-weight: 400;
-            }
-
-            .text-wrapper {
-                gap: 2vw;
-            }
-
-            .nav-button {
-                font-size: 1.6rem;
-            }
-        }
-
-        @keyframes fadeInOut {
-            0% { opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes randomPulse {
-            0% {
-                filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
-            }
-            25% {
-                filter: drop-shadow(0 0 35px rgba(255, 255, 255, 0.9));
-            }
-            50% {
-                filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
-            }
-            75% {
-                filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.7));
-            }
-            100% {
-                filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
-            }
-        }
-      
     </style>
 </head>
 <body oncontextmenu="return false">
