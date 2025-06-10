@@ -38,7 +38,7 @@
             transform: translate(-50%, -50%);
             z-index: 3;
             opacity: 0;
-            animation: fadeIn 2s forwards;
+            animation: fadeIn 1s forwards;
         }
 
         .logo {
@@ -54,7 +54,7 @@
             transform: translateX(-50%);
             z-index: 4;
             opacity: 0;
-            animation: fadeIn 2s 2s forwards;
+            animation: fadeIn 1s 1s forwards;
             width: 100px;
             text-align: center;
             margin: 0 auto;
@@ -76,7 +76,7 @@
             text-align: center;
             z-index: 2;
             opacity: 0;
-            animation: fadeIn 2s 2s forwards;
+            animation: fadeIn 1s 1s forwards;
             width: 100%;
         }
 
@@ -106,7 +106,7 @@
             right: 40px;
             z-index: 3;
             opacity: 0;
-            animation: fadeIn 2s 2s forwards;
+            animation: fadeIn 1s 1s forwards;
         }
 
         .menu-left {
@@ -115,7 +115,7 @@
             left: 40px;
             z-index: 3;
             opacity: 0;
-            animation: fadeIn 2s 2s forwards;
+            animation: fadeIn 1s 1s forwards;
         }
 
         .nav-button {
@@ -152,6 +152,7 @@
                 bottom: 5vh;
                 padding: 0 10px;
                 box-sizing: border-box;
+                animation: fadeIn 1s 2s forwards;
             }
 
             .title {
@@ -177,27 +178,17 @@
             .menu {
                 right: 20px;
                 top: 30px;
+                animation: fadeIn 1s 2s forwards;
             }
 
             .menu-left {
                 left: 20px;
                 top: 30px;
+                animation: fadeIn 1s 2s forwards;
             }
 
             .small-logo-container {
-                animation: fadeIn 2s 4s forwards;
-            }
-
-            .content {
-                animation: fadeIn 2s 4s forwards;
-            }
-
-            .menu {
-                animation: fadeIn 2s 4s forwards;
-            }
-
-            .menu-left {
-                animation: fadeIn 2s 4s forwards;
+                animation: fadeIn 1s 2s forwards;
             }
         }
 
@@ -217,6 +208,7 @@
                 width: 100%;
                 bottom: 5vh;
                 padding: 0 8px;
+                animation: fadeIn 1s 2s forwards;
             }
 
             .title {
@@ -307,7 +299,7 @@
                 document.querySelector('.menu-left').style.opacity = '1';
                 document.querySelector('.small-logo-container').style.opacity = '1';
                 document.querySelector('#vanta-background').style.opacity = '1';
-            }, window.innerWidth <= 768 ? 4500 : 2500);
+            }, window.innerWidth <= 768 ? 2500 : 1500);
         });
 
         // Prevent keyboard shortcuts for saving/downloading
