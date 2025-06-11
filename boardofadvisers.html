@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Conference</title>
+    <title>Board of Advisers - Conference</title>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -125,57 +125,9 @@
                 line-height: 1.6;
             }
 
-            /* Disable text effect on mobile */
-            .dynamic-text span {
-                display: inline;
-                transition: none;
-                padding: 0;
-                text-shadow: none !important;
-            }
-
             .staff-section {
                 padding: 4rem 1rem;
             }
-        }
-
-        /* Even smaller screens */
-        @media (max-width: 480px) {
-            .dynamic-text {
-                font-size: 0.8rem;
-                line-height: 1.5;
-            }
-        }
-
-        .scroll-prompt {
-            position: absolute;
-            bottom: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-
-        .scroll-prompt:hover {
-
-            opacity: 1;
-        }
-
-        .scroll-arrow {
-            width: 30px;
-            height: 30px;
-            border: 2px solid white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: float 2s infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(10px); }
-            100% { transform: translateY(0px); }
         }
 
         .staff-member {
@@ -245,6 +197,11 @@
             mix-blend-mode: difference;
             width: 100px;
             opacity: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
         }
 
         .logo img {
@@ -257,6 +214,19 @@
 
         .logo:hover img {
             transform: scale(1.1);
+        }
+
+        .home-text {
+            color: white;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover .home-text {
+            opacity: 1;
         }
 
         .committee-title {
@@ -276,24 +246,7 @@
             background: transparent;
             pointer-events: none;
         }
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-        }
-        .home-text {
-            color: white;
-            font-size: 1rem;
-            font-weight: 300;
-            letter-spacing: 0.1em;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-        .logo:hover .home-text {
-            opacity: 1;
-        }
+
         @media (max-width: 768px) {
             .committee-title {
                 font-size: 3rem;
@@ -304,6 +257,7 @@
                 font-size: 0.9rem;
             }
         }
+
         @keyframes randomPulse {
             0% {
                 filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
@@ -321,20 +275,24 @@
                 filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
             }
         }
+
         .pulse-glow {
             animation: randomPulse 6s infinite;
             filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
         }
+
         .staff-section {
             background: transparent;
             pointer-events: none;
         }
+
         .staff-section a,
         .staff-section button,
         .staff-section .staff-info,
         .staff-section .staff-image {
             pointer-events: auto;
         }
+
         #particles-container {
             position: fixed;
             top: 0;
@@ -354,56 +312,56 @@
 
     <div class="light-effect"></div>
 
-    <h1 class="committee-title">Committee</h1>
+    <h1 class="committee-title">Board of Advisers</h1>
 
     <div class="staff-section">
         <div class="staff-member">
-            <a href="https://www.linkedin.com/in/hall-tommy/" target="_blank" rel="noopener noreferrer">
-                <img src="./assets/tommy.jpg" alt="Staff Member 1" class="staff-image">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/tommy.jpg" alt="Adviser 1" class="staff-image">
             </a>
             <div class="staff-info">
-                <h2 class="pulse-glow">Tommy Hall</h2>
-                <p class="title">Founder & Director</p>
-                <p>Tommy serves as a First Lieutenant in U.S. Army (Logistics) currently at Army Sustainment University before an overseas assignment in the Republic of Korea. His prior roles included an assignment as a deputy military advisor at the U.S. Mission to the United Nations' military staff committee where he assisted the team liaise with interagency colleagues in synthesizing complex diplomatic issues. Tommy holds a MSt. Diplomatic Studies from the University of Oxford, a MA in Chinese Studies from SOAS, University of London and a BSc in Chinese from the United States Military Academy at West Point. He is proficient in Mandarin.</p>
+                <h2 class="pulse-glow">John Smith</h2>
+                <p class="title">Senior Technology Advisor</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
         </div>
 
         <div class="staff-member">
-            <a href="https://www.linkedin.com/in/adeel-hussain-%E7%8E%8B%E5%BF%97%E8%BF%9C%EF%BC%89-6375a079/" target="_blank" rel="noopener noreferrer">
-                <img src="./assets/adeel.jpg" alt="Staff Member 2" class="staff-image">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/adeel.jpg" alt="Adviser 2" class="staff-image">
             </a>
             <div class="staff-info">
-                <h2 class="pulse-glow">Adeel Hussain</h2>
-                <p class="title">Co-Founder & Director</p>
-                <p>Adeel Hussain is the Co-Founder and Director of the Oxford Semiconductor Conference and a British Civil Servant. He is currently leading on aspects of the UK's innovation policy at the Department for Business and Trade (DBT). Prior to this his focus was on advanced manufacturing FDI where he was also was part of the team that created the British 'Office for Investment' (OfI), a joint DBT, HM Treasury and Number 10 unit which works across government to land top-tier investment. In 2024 he co-founded the Oxford Semiconductor Conference, an annual event focused on building industrial policy cohesion between like-minded partners in the semiconductor and AI space. Adeel holds a MSt. Diplomatic Studies from the University of Oxford, a MA in Chinese Studies from the University of Edinburgh and a Bachelor's degree in Politics and International Relations from the University of Exeter.</p>
+                <h2 class="pulse-glow">Sarah Johnson</h2>
+                <p class="title">Policy Director</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
         </div>
+
         <div class="staff-member">
-            <a href="https://www.linkedin.com/in/aidanpowers-riggs/" target="_blank" rel="noopener noreferrer">
-                <img src="./assets/aidan.jpg" alt="Staff Member 3" class="staff-image">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/aidan.jpg" alt="Adviser 3" class="staff-image">
             </a>
             <div class="staff-info">
-                <h2 class="pulse-glow">Aidan Powers-Riggs</h2>
-                <p class="title">US Partnerships Lead</p>
-                <p>Aidan Powers-Riggs is an Associate Fellow for China Analysis at the Center for Strategic and International Studies (CSIS) in Washington D.C. His research applies open-source intelligence (OSINT) methods to explore China's use of non-conventional tools to expand its overseas influence. Previously, he has helped inform government and policy leaders on Chinese foreign and technology policies at the U.S. Senate Foreign Relations Committee, the National Bureau of Asian Research (NBR), and the Asia Society Policy Institute. Aidan holds an M.A. from the Edmund A. Walsh School of Foreign Service (SFS) at Georgetown University.</p>
+                <h2 class="pulse-glow">Michael Chen</h2>
+                <p class="title">Research Lead</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
         </div>
+
         <div class="staff-member">
-            <a href="https://www.linkedin.com/in/francisconicolasmx/" target="_blank" rel="noopener noreferrer">
-                <img src="./assets/paco.jpg" alt="Staff Member 4" class="staff-image">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/paco.jpg" alt="Adviser 4" class="staff-image">
             </a>
             <div class="staff-info">
-                <h2 class="pulse-glow">Francisco Javier Nicolas Felix</h2>
-                <p class="title">Mexico and Japan Partnerships Lead</p>
-                <p>Francisco Javier is an international cooperation and development professional. For the past four and a half years, he was a Technical Cooperation Programme Officer at the Japan International Cooperation Agency's (JICA) Mexico Office, managing projects in the areas of disaster risk reduction, health, and inter-municipal cooperation. He is an active proponent of closer Mexican-Japanese ties. In 2018, He was selected as a member of the Mexican committee to participate in the "Global Next Leaders Forum" in Tokyo. He is also a member and former Social Communication Director of the Mexican Association of Japan Goverment Scholars (AMEJ).He holds a MSt. in Diplomatic Studies at the University of Oxford. He holds a Bachelor's Degree in International Relations from the Faculty of Political and Social Sciences of the National Autonomous University of Mexico. His main interests are Japanese foreign policy, East Asia Politics, Latin American  politics, international development, international cooperation and technical assistance.</p>
+                <h2 class="pulse-glow">Emily Rodriguez</h2>
+                <p class="title">International Relations Expert</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
         </div>
     </div>
 
-    <!-- Canvas for particles background -->
     <div id="particles-container"></div>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
     <script>
         // Scroll animation for staff members
@@ -421,27 +379,6 @@
 
         document.querySelectorAll('.staff-member').forEach(member => {
             observer.observe(member);
-        });
-
-        // Smooth scroll with mobile adjustment
-        document.querySelector('.scroll-prompt')?.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                // For mobile: scroll to first staff member
-                const firstStaffMember = document.querySelector('.staff-member');
-                const headerOffset = 20; // Small offset from the top
-                const elementPosition = firstStaffMember.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            } else {
-                // For desktop: keep existing behavior
-                document.querySelector('.staff-section').scrollIntoView({ 
-                    behavior: 'smooth' 
-                });
-            }
         });
 
         // Initialize particles with tsParticles
@@ -526,5 +463,4 @@
         });
     </script>
 </body>
-</html>
-
+</html> 

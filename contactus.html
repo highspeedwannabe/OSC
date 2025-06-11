@@ -14,7 +14,8 @@
             background-color: #222426;
             color: #ffffff;
             font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
+            overflow: hidden;
+            height: 100vh;
         }
         .logo {
             position: absolute;
@@ -56,7 +57,6 @@
             font-size: 4.5rem;
             font-weight: 300;
             text-align: center;
-            margin-top: 22vh;
             margin-bottom: 2rem;
             color: #fff;
             letter-spacing: 0.1em;
@@ -75,14 +75,40 @@
             font-size: 3rem;
             font-weight: 400;
             color: #fff;
-            margin-top: 6vh;
-            margin-bottom: 6vh;
             text-shadow: 0 0 10px rgba(255,255,255,0.3), 0 0 20px rgba(255,255,255,0.2), 0 0 30px rgba(255,255,255,0.1);
             background: linear-gradient(120deg, #ffffff, #f0f0f0);
             -webkit-background-clip: text;
             background-clip: text;
             animation: glow 3s ease-in-out infinite;
             word-break: break-all;
+        }
+        .contact-email a {
+            color: inherit;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
+        }
+        .contact-email a:hover {
+            border-color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+        .contact-email a:active {
+            transform: scale(0.98);
+        }
+        .content-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+            z-index: 10;
         }
         @keyframes glow {
             0%, 100% { text-shadow: 0 0 10px rgba(255,255,255,0.3), 0 0 20px rgba(255,255,255,0.2), 0 0 30px rgba(255,255,255,0.1); }
@@ -91,13 +117,10 @@
         @media (max-width: 768px) {
             .contact-title {
                 font-size: 3rem;
-                margin-top: 25vh;
                 margin-bottom: 1.5rem;
             }
             .contact-email {
                 font-size: 2rem;
-                margin-top: 4vh;
-                margin-bottom: 4vh;
             }
             .back-text {
                 font-size: 0.9rem;
@@ -110,9 +133,11 @@
         <img src="./assets/OSC.png" alt="Conference Logo">
         <span class="back-text">BACK</span>
     </a>
-    <h1 class="contact-title">Contact</h1>
-    <div class="contact-email">
-        <a href="mailto:admin@oxfordsemi.org" style="color:inherit;text-decoration:underline;">admin@oxfordsemi.org</a>
+    <div class="content-container">
+        <h1 class="contact-title">Contact</h1>
+        <div class="contact-email">
+            <a href="mailto:admin@oxfordsemi.org">admin@oxfordsemi.org</a>
+        </div>
     </div>
     <div id="particles-container"></div>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
