@@ -17,6 +17,16 @@
             overflow-x: hidden;
         }
 
+        #particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+            pointer-events: auto;
+        }
+
         .background {
             position: absolute;
             top: 0;
@@ -24,6 +34,8 @@
             width: 100%;
             height: 100%;
             z-index: 1;
+            color: #222426;
+            pointer-events: auto;
         }
 
         .hero-section {
@@ -274,7 +286,6 @@
                 <label for="past" class="nav-label">Past Conferences</label>
                 <div class="dropdown-content">
                     <a href="2024.html" class="dropdown-item">2024</a>
-                    <a href="2025.html" class="dropdown-item">2025</a>
                 </div>
             </div>
         </div>
@@ -353,6 +364,8 @@
                     },
                     retina_detect: true
                 });
+            } else {
+                console.error('tsParticles library not loaded');
             }
         });
     </script>
