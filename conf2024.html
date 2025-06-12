@@ -73,24 +73,30 @@
             overflow: hidden;
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(0,0,0,0.3);
-            height: 400px;
+            height: 600px;
+            background: #1a1a1a;
         }
 
         .carousel {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            height: 100%;
         }
 
         .carousel-slide {
             min-width: 100%;
-            height: 400px;
+            height: 100%;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .carousel-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .carousel-caption {
@@ -250,19 +256,19 @@
         <div class="carousel-container">
             <div class="carousel">
                 <div class="carousel-slide">
-                    <img src="../assets/Opening.png" alt="Conference Image 1">
+                    <img src="./assets/Opening.png" alt="Conference Image 1" onerror="this.onerror=null; this.src='./assets/OSC.png';">
                     <div class="carousel-caption">Opening Ceremony</div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="../assets/Reception.png" alt="Conference Image 2">
+                    <img src="./assets/Reception.png" alt="Conference Image 2" onerror="this.onerror=null; this.src='./assets/OSC.png';">
                     <div class="carousel-caption">Conference Reception</div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="../assets/fireside.png" alt="Conference Image 3">
+                    <img src="./assets/fireside.png" alt="Conference Image 3" onerror="this.onerror=null; this.src='./assets/OSC.png';">
                     <div class="carousel-caption">Blacktie Dinner</div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="../assets/keynote.png" alt="Conference Image 4">
+                    <img src="./assets/keynote.png" alt="Conference Image 4" onerror="this.onerror=null; this.src='./assets/OSC.png';">
                     <div class="carousel-caption">Keynote Address by Mr. Joseph Lyu</div>
                 </div>
             </div>
