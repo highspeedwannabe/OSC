@@ -397,7 +397,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
     <script>
-        // Scroll animation for staff members
+        // Make first staff member visible immediately
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstStaffMember = document.querySelector('.staff-member');
+            if (firstStaffMember) {
+                firstStaffMember.classList.add('visible');
+            }
+        });
+
+        // Scroll animation for remaining staff members
         const observerOptions = {
             threshold: 0.2
         };
@@ -410,7 +418,8 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.staff-member').forEach(member => {
+        // Observe all staff members except the first one
+        document.querySelectorAll('.staff-member:not(:first-child)').forEach(member => {
             observer.observe(member);
         });
 
