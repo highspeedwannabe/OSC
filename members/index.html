@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSC Members Portal</title>
+    <title>OSC Conference Information</title>
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
         * {
             margin: 0;
@@ -15,246 +15,239 @@
         }
 
         body {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-            color: #ffffff;
-            font-family: 'Space Grotesk', sans-serif;
+            background: #0f0f0f;
+            color: #e5e5e5;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         /* Header */
         .header {
-            text-align: center;
-            padding: 60px 0 40px;
-            position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid #333;
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #ffffff, transparent);
-            animation: glow 2s ease-in-out infinite alternate;
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .logo {
-            width: 120px;
+            width: 80px;
             height: auto;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3));
+            filter: brightness(0) invert(1);
         }
 
-        .title {
-            font-size: 3.5rem;
-            font-weight: 600;
-            background: linear-gradient(45deg, #ffffff, #cccccc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-            letter-spacing: -0.02em;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: #888;
-            font-weight: 300;
-        }
-
-        /* Navigation */
-        .nav-back {
-            position: fixed;
-            top: 30px;
-            left: 30px;
-            z-index: 100;
-        }
-
-        .back-btn {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1rem;
-            padding: 12px 24px;
-            border: 2px solid #ffffff;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            background: transparent;
-        }
-
-        .back-btn:hover {
-            background: #ffffff;
-            color: #000;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
-        }
-
-        /* Pillars Grid */
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin: 60px 0;
-        }
-
-        .pillars-grid-bottom {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin: 30px auto;
-            max-width: 800px;
-        }
-
-        .pillar-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 40px 30px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-
-        .pillar-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .pillar-card:hover::before {
-            left: 100%;
-        }
-
-        .pillar-card:hover {
-            transform: translateY(-10px);
-            border-color: #ffffff;
-            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
-        }
-
-        .pillar-number {
-            display: none;
-        }
-
-        .pillar-title {
+        .header-title {
             font-size: 1.8rem;
             font-weight: 600;
-            margin-bottom: 20px;
-            color: #ffffff;
-            position: relative;
-            z-index: 1;
-            text-align: center;
+            margin-left: 20px;
         }
 
-        .pillar-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-        }
-
-        .pillar-list {
-            list-style: none;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .pillar-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .back-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
             transition: all 0.3s ease;
-            text-align: center;
         }
 
-        .pillar-list li:hover {
-            color: #ffffff;
-            padding-left: 10px;
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
-        .pillar-list li:last-child {
+        /* Navigation Menu */
+        .nav-menu {
+            background: #1a1a1a;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 0;
+        }
+
+        .nav-item {
+            border-right: 1px solid #333;
+        }
+
+        .nav-item:last-child {
+            border-right: none;
+        }
+
+        .nav-link {
+            display: block;
+            color: #999;
+            text-decoration: none;
+            padding: 20px 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff;
+            background: #2d2d2d;
+            border-bottom-color: #666;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+            min-height: 70vh;
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+            border: 1px solid #333;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #666;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .info-card {
+            background: #2d2d2d;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border-color: #666;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .venue-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .card-content {
+            color: #ccc;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #333;
+            color: #ccc;
+        }
+
+        .info-list li:last-child {
             border-bottom: none;
+        }
+
+        .info-list li:hover {
+            color: #fff;
+            padding-left: 10px;
         }
 
         /* Contact Section */
         .contact-section {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 40px;
-            margin: 60px 0;
-            text-align: center;
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            border: 1px solid #333;
         }
 
         .contact-title {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #ffffff;
+            color: #fff;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            margin-top: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .contact-content {
+            text-align: center;
+            padding: 20px;
         }
 
-        .contact-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            border-color: #ffffff;
-        }
-
-        .contact-label {
-            font-size: 1.1rem;
-            color: #ffffff;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        .contact-value {
-            font-size: 1rem;
-            color: #ffffff;
-        }
-
-        .contact-value.email {
+        .contact-email {
             font-size: 1.5rem;
-            font-weight: 500;
-            color: #ffffff;
+            font-weight: 600;
+            color: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            background: #1a1a1a;
+            border-radius: 8px;
+            border: 2px solid #666;
+            display: inline-block;
         }
 
         /* Animations */
-        @keyframes glow {
-            0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
-            100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
-        }
-
-        @keyframes fadeInUp {
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -262,253 +255,528 @@
             }
         }
 
-        .pillar-card {
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
-
-        .pillar-card:nth-child(1) { animation-delay: 0.1s; }
-        .pillar-card:nth-child(2) { animation-delay: 0.2s; }
-        .pillar-card:nth-child(3) { animation-delay: 0.3s; }
-        .pillar-card:nth-child(4) { animation-delay: 0.4s; }
-        .pillar-card:nth-child(5) { animation-delay: 0.5s; }
-
         /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
             }
 
-            .header {
-                padding: 40px 0 30px;
+            .header-title {
+                margin-left: 0;
             }
 
-            .title {
-                font-size: 2.5rem;
+            .nav-list {
+                flex-direction: column;
             }
 
-            .subtitle {
-                font-size: 1rem;
+            .nav-item {
+                border-right: none;
+                border-bottom: 1px solid #333;
             }
 
-            .pillars-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                margin: 40px 0;
+            .nav-item:last-child {
+                border-bottom: none;
             }
 
-            .pillars-grid-bottom {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                margin: 20px 0;
+            .nav-link {
+                padding: 15px 20px;
+                text-align: center;
             }
 
-            .pillar-card {
-                padding: 30px 20px;
+            .section {
+                padding: 25px 20px;
+                margin-bottom: 40px;
             }
 
-            .pillar-title {
+            .section-title {
                 font-size: 1.5rem;
             }
 
-            .contact-section {
-                padding: 30px 20px;
-                margin: 40px 0;
-            }
-
-            .contact-title {
-                font-size: 2rem;
-            }
-
-            .contact-grid {
+            .content-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
 
-            .nav-back {
-                top: 20px;
-                left: 20px;
-            }
-
-            .back-btn {
-                font-size: 0.9rem;
-                padding: 10px 20px;
+            .contact-email {
+                font-size: 1.2rem;
+                padding: 15px;
             }
         }
 
         @media (max-width: 480px) {
-            .title {
-                font-size: 2rem;
+            .container {
+                padding: 0 15px;
             }
 
-            .pillar-card {
-                padding: 25px 15px;
+            .header-title {
+                font-size: 1.4rem;
             }
 
-            .pillar-number {
-                font-size: 2.5rem;
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .info-card {
+                padding: 20px;
+            }
+}
+        .map-placeholder img {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .map-placeholder img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 2px solid #666;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #fff;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50%) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(-50%) scale(1);
             }
         }
 
-        /* Scrollbar Styling */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
+        .modal.show .modal-content {
+            animation: modalFadeIn 0.3s ease-out;
         }
 
-                ::-webkit-scrollbar-thumb {
-            background: #ffffff;
-            border-radius: 4px;
+        /* Formalwear Button */
+        .formalwear-btn {
+            background: #666;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            width: 100%;
         }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #cccccc;
+        .formalwear-btn:hover {
+            background: #888;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
+
+        /* Formalwear Modal Content */
+        .formalwear-content {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            color: #e5e5e5;
+        }
+
+        .formalwear-content h2 {
+            color: #fff;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #666;
+            padding-bottom: 10px;
+        }
+
+        .formalwear-content h3 {
+            color: #fff;
+            margin: 25px 0 15px 0;
+            font-size: 1.4rem;
+        }
+
+        .formalwear-content h4 {
+            color: #ccc;
+            margin: 20px 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .formalwear-content p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .formalwear-content a {
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px solid #666;
+            transition: color 0.3s ease;
+        }
+
+        .formalwear-content a:hover {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+
+        .hire-section {
+            background: #2d2d2d;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #666;
+}
 </style>
 </head>
 <body>
-    <nav class="nav-back">
-        <a href="../index.html" class="back-btn">← Back to OSC</a>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div style="display: flex; align-items: center;">
+                    <img src="../assets/OSC.png" alt="OSC Logo" class="logo">
+                    <h1 class="header-title">Oxford Semiconductor Conference</h1>
+                </div>
+                <a href="../" class="back-link">← Back to OSC</a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-menu">
+        <div class="container">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-link active" data-section="planning">Planning</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-section="venue">Venue</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-section="accommodation">Accommodation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-section="policies">Policies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-section="contact">Contact</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 
-    <div class="container">
-        <header class="header">
-            <img src="../assets/OSC.png" alt="OSC Logo" class="logo">
-            <h1 class="title">Oxford Semiconductor Conference</h1>
-            <p class="subtitle"></p>
-        </header>
-
-        <div class="pillars-grid">
-            <!-- Pillar 1: Plan Your Visit -->
-            <div class="pillar-card">
-                <h2 class="pillar-title">Plan Your Visit</h2>
-                <div class="pillar-content">
-                    <ul class="pillar-list">
-                        <li>Conference Agenda</li>
-                        <li>Travel and Venue Access</li>
-                        <li>How to get to FCDO, Oxford sites such as Lincoln College</li>
-                        <li>Accommodation Options</li>
-                        <li>College options and hotel options</li>
-                        <li>Formalwear & Local Services</li>
-                        <li>Local taxis, tuxedo booking locations, chemists, emergency numbers, nearby shops</li>
-                        <li>Conference Policies</li>
-                        <li>Chatham House Rule</li>
-                    </ul>
+    <main class="main-content">
+        <div class="container">
+            <!-- Planning Section -->
+            <div id="planning" class="content-section active">
+                <div class="section">
+                    <h2 class="section-title">Planning Your Visit</h2>
+                    <div class="content-grid">
+                        <div class="info-card">
+                            <h3 class="card-title">Conference Agenda</h3>
+                            <div class="card-content">
+                                <p>Detailed schedule and program information for the conference.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h3 class="card-title">Travel Information</h3>
+                            <div class="card-content">
+                                <ul class="info-list">
+                                    <li>Getting to FCDO, Oxford</li>
+                                    <li>Lincoln College access</li>
+                                    <li>Local transportation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h3 class="card-title">Local Services</h3>
+                            <div class="card-content">
+                                <ul class="info-list">
+                                    <li>Formalwear rental</li>
+                                    <li>Local taxis</li>
+                                    <li>Emergency services</li>
+                                    <li>Nearby amenities</li>
+                                </ul>
+                                <button class="formalwear-btn" onclick="openFormalwearModal()">Formalwear Rental</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Pillar 2: Past Conferences -->
-            <div class="pillar-card">
-                <h2 class="pillar-title">Past Conferences</h2>
-                <div class="pillar-content">
-                    <ul class="pillar-list">
-                        <li>2025</li>
-                        <li>2024</li>
-                    </ul>
+            <!-- Venue Section -->
+            <div id="venue" class="content-section">
+                <div class="section">
+                    <h2 class="section-title">Key Locations</h2>
+                    <div class="content-grid">
+                        <div class="info-card">
+                            <h3 class="venue-title">St Hilda's College</h3>
+                            <div class="card-content">
+                                <p style="font-size: 1.3rem; font-weight: 500; margin-bottom: 20px;">Cowley Pl, Oxford OX4 1DY</p>
+                                <div class="map-placeholder">
+                                    <img src="./sthildas.png" alt="Map of St Hilda's College Location" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666;" onclick="openModal('./sthildas.png', 'St Hilda\'s College')">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h3 class="venue-title">Lincoln College</h3>
+                            <div class="card-content">
+                                <p style="font-size: 1.3rem; font-weight: 500; margin-bottom: 20px;">Turl St, Oxford OX1 3DR</p>
+                                <div class="map-placeholder">
+                                    <img src="./lincoln.png" alt="Map of Lincoln College Location" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666;" onclick="openModal('./lincoln.png', 'Lincoln College')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Pillar 3: Contact Us -->
-            <div class="pillar-card">
-                <h2 class="pillar-title">Contact Us</h2>
-                <div class="pillar-content">
-                    <ul class="pillar-list">
-                        <li>Phone Numbers & Email Addresses</li>
-                        <li>Our personal phone numbers</li>
-                        <li>Private e-mail</li>
-                        <li>OSC e-mail</li>
-                    </ul>
+            <!-- Accommodation Section -->
+            <div id="accommodation" class="content-section">
+                <div class="section">
+                    <h2 class="section-title">Accommodation Options</h2>
+                    <div class="content-grid">
+                        <div class="info-card">
+                            <h3 class="card-title">College Accommodation</h3>
+                            <div class="card-content">
+                                <p>Traditional Oxford college rooms with modern conveniences.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h3 class="card-title">Hotel Options</h3>
+                            <div class="card-content">
+                                <p>Local hotels ranging from budget to luxury accommodations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Policies Section -->
+            <div id="policies" class="content-section">
+                <div class="section">
+                    <h2 class="section-title">Conference Policies</h2>
+                    <div class="content-grid">
+                        <div class="info-card">
+                            <h3 class="card-title">Chatham House Rule</h3>
+                            <div class="card-content">
+                                <p>Participants are free to use the information received, but neither the identity nor the affiliation of the speaker(s), nor that of any other participant, may be revealed.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h3 class="card-title">Code of Conduct</h3>
+                            <div class="card-content">
+                                <p>Professional behavior and mutual respect are expected from all participants throughout the conference.</p>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+
+            <!-- Contact Section -->
+            <div id="contact" class="content-section">
+                <div class="section contact-section">
+                    <h2 class="section-title contact-title">Contact Information</h2>
+                    <div class="contact-content">
+                        <div class="contact-email">admin@oxfordsemi.org</div>
+                        <p>For all conference-related inquiries and support</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </main>
 
-        <div class="pillars-grid-bottom">
-            <!-- Pillar 4: Conference Working Papers -->
-            <div class="pillar-card">
-                <h2 class="pillar-title">Conference Working Papers</h2>
-                <div class="pillar-content">
-                    <p>Access to conference proceedings and research papers from past events.</p>
+    <!-- Modal -->
+    <div id="mapModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modalImage" src="" alt="">
+        </div>
+    </div>
+
+    <!-- Formalwear Modal -->
+    <div id="formalwearModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeFormalwearModal()">&times;</span>
+            <div class="formalwear-content">
+                <h2>Formalwear Rental Options</h2>
+                
+                <h3>Premium Hire</h3>
+                
+                <div class="hire-section">
+                    <h4>Walters of Oxford</h4>
+                    <p><strong>Address:</strong> 10 Turl St, Oxford OX1 3DN, United Kingdom</p>
+                    <p><strong>Phone:</strong> <a href="tel:+441865241848">+44 1865 241848</a></p>
+                    <p><strong>Hire Link:</strong> <a href="https://www.walters-oxford.co.uk/store/hire-evening-wear-dinner-suit/" target="_blank">https://www.walters-oxford.co.uk/store/hire-evening-wear-dinner-suit/</a></p>
+                    <p><strong>Hours of Operation:</strong></p>
+                    <p>Monday through Saturday, 10am to 6pm.</p>
+                    <p>Closed Sundays.</p>
                 </div>
-            </div>
 
-            <!-- Pillar 5: Delegate Directory -->
-            <div class="pillar-card">
-                <h2 class="pillar-title">Delegate Directory</h2>
-                <div class="pillar-content">
-                    <ul class="pillar-list">
-                        <li>Alumni</li>
-                        <li>Upcoming Delegates</li>
-                    </ul>
+                <div class="hire-section">
+                    <h4>Shepherd & Woodward</h4>
+                    <p><strong>Address:</strong> 109-113 High St, Oxford OX1 4BT, United Kingdom</p>
+                    <p><strong>Phone:</strong> <a href="tel:+441865249491">+44 1865 249491</a></p>
+                    <p><strong>Hire Link:</strong> <a href="https://www.shepherdandwoodward.co.uk/collections/evening-wear-hire" target="_blank">https://www.shepherdandwoodward.co.uk/collections/evening-wear-hire</a></p>
+                    <p><strong>Hours of Operation:</strong></p>
+                    <p>Monday through Saturday, 10am to 6pm.</p>
+                    <p>Closed Sundays.</p>
+                </div>
+
+                <h3>Standard Hire</h3>
+                
+                <div class="hire-section">
+                    <h4>Moss Bros</h4>
+                    <p><strong>Address:</strong> The Westgate, 16 Queen St, Oxford OX1 1PB, United Kingdom</p>
+                    <p><strong>Phone:</strong> <a href="tel:+441865410827">+44 1865 410827</a></p>
+                    <p><strong>Hire Link:</strong> <a href="https://www.mossbroshire.co.uk/" target="_blank">https://www.mossbroshire.co.uk/</a></p>
+                    <p><strong>Hours of Operation:</strong></p>
+                    <p>Monday through Friday, 10am to 8pm.</p>
+                    <p>Saturday, 9am to 8pm.</p>
+                    <p>Sunday, 11am to 5pm.</p>
                 </div>
             </div>
         </div>
-
-        <section class="contact-section">
-            <h2 class="contact-title">Quick Contact</h2>
-                        <div class="contact-grid">
-                <div class="contact-item">
-                    <div class="contact-label">OSC Email</div>
-                    <div class="contact-value email">admin@oxfordsemi.org</div>
-                </div>
-            </div>
-        </section>
     </div>
 
     <script>
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all pillar cards
-        document.querySelectorAll('.pillar-card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Single page application functionality
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                
+                // Remove active class from all nav links and content sections
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+                
+                // Add active class to clicked nav link
+                this.classList.add('active');
+                
+                // Show corresponding content section
+                const sectionId = this.getAttribute('data-section');
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
                 }
             });
         });
 
-        // Add hover effects to list items
-        document.querySelectorAll('.pillar-list li').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateX(10px)';
-            });
+        // Modal functionality
+        function openModal(imageSrc, title) {
+            const modal = document.getElementById('mapModal');
+            const modalImage = document.getElementById('modalImage');
             
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateX(0)';
-            });
+            modalImage.src = imageSrc;
+            modalImage.alt = `Map of ${title} Location`;
+            
+            modal.classList.add('show');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mapModal');
+            modal.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking the close button
+        document.querySelector('.close-modal').addEventListener('click', closeModal);
+
+        // Close modal when clicking outside the modal content
+        document.getElementById('mapModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
         });
 
-        // Parallax effect for header
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const header = document.querySelector('.header');
-            const rate = scrolled * -0.5;
-            header.style.transform = `translateY(${rate}px)`;
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeFormalwearModal();
+            }
+        });
+
+        // Formalwear modal functionality
+        function openFormalwearModal() {
+            const modal = document.getElementById('formalwearModal');
+            modal.classList.add('show');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFormalwearModal() {
+            const modal = document.getElementById('formalwearModal');
+            modal.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close formalwear modal when clicking outside the modal content
+        document.getElementById('formalwearModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeFormalwearModal();
+            }
         });
     </script>
 </body>
