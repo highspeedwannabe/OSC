@@ -216,6 +216,48 @@
             padding-left: 10px;
         }
 
+        /* Agenda Styles */
+        .agenda-item {
+            border-bottom: 1px solid #333;
+            padding: 15px 0;
+            margin-bottom: 10px;
+        }
+
+        .agenda-item:last-child {
+            border-bottom: none;
+        }
+
+        .time-slot {
+            font-weight: 600;
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .location {
+            color: #666;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .event-title {
+            color: #ccc;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .agenda-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            padding: 15px;
+            margin: 0 -15px 10px -15px;
+        }
+
+        .agenda-item:hover .event-title {
+            color: #fff;
+        }
+
         /* Contact Section */
         .contact-section {
             background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
@@ -605,6 +647,31 @@
                 font-size: 0.95rem;
             }
 
+            /* Mobile Agenda Styles */
+            .agenda-item {
+                padding: 12px 0;
+                margin-bottom: 8px;
+            }
+
+            .time-slot {
+                font-size: 1rem;
+                margin-bottom: 4px;
+            }
+
+            .location {
+                font-size: 0.85rem;
+                margin-bottom: 6px;
+            }
+
+            .event-title {
+                font-size: 0.95rem;
+            }
+
+            .agenda-item:hover {
+                padding: 12px;
+                margin: 0 -12px 8px -12px;
+            }
+
             /* Mobile Buttons */
             .formalwear-btn, .policy-btn {
                 padding: 15px 20px;
@@ -715,6 +782,30 @@
                 font-size: 0.9rem;
             }
 
+            .agenda-item {
+                padding: 10px 0;
+                margin-bottom: 6px;
+            }
+
+            .time-slot {
+                font-size: 0.95rem;
+                margin-bottom: 3px;
+            }
+
+            .location {
+                font-size: 0.8rem;
+                margin-bottom: 5px;
+            }
+
+            .event-title {
+                font-size: 0.9rem;
+            }
+
+            .agenda-item:hover {
+                padding: 10px;
+                margin: 0 -10px 6px -10px;
+            }
+
             .formalwear-btn, .policy-btn {
                 padding: 12px 16px;
                 font-size: 0.95rem;
@@ -804,7 +895,7 @@
                     <img src="../assets/OSC.png" alt="OSC Logo" class="logo">
                     <h1 class="header-title" style="font-family: Gotham, sans-serif;">Oxford Semiconductor Conference</h1>
                 </div>
-                <a href="../" class="back-link">← Back to OSC</a>
+                <a href="../" class="back-link">← Back</a>
             </div>
         </div>
     </header>
@@ -839,12 +930,6 @@
                     <h2 class="section-title">Planning Your Visit</h2>
                     <div class="content-grid">
                         <div class="info-card">
-                            <h3 class="card-title">Conference Agenda</h3>
-                            <div class="card-content">
-                                <p>Detailed schedule and program information for the conference.</p>
-                            </div>
-                        </div>
-                        <div class="info-card">
                             <h3 class="card-title">Travel Information</h3>
                             <div class="card-content">
                                 <ul class="info-list">
@@ -852,18 +937,17 @@
                                     <li>Lincoln College access</li>
                                     <li>Local transportation</li>
                                 </ul>
+                                <button class="formalwear-btn" onclick="openAirportModal()">Traveling from Airport to Oxford</button>
+                                <button class="formalwear-btn" onclick="openLondonModal()" style="margin-top: 10px;">Traveling from London to Oxford</button>
                             </div>
                         </div>
                         <div class="info-card">
                             <h3 class="card-title">Local Services</h3>
                             <div class="card-content">
-                                <ul class="info-list">
-                                    <li>Formalwear rental</li>
-                                    <li>Local taxis</li>
-                                    <li>Emergency services</li>
-                                    <li>Nearby amenities</li>
-                                </ul>
                                 <button class="formalwear-btn" onclick="openFormalwearModal()">Formalwear Rental</button>
+                                <button class="formalwear-btn" onclick="openLodgingModal()" style="margin-top: 10px;">Lodging Recommendations</button>
+                                <button class="formalwear-btn" onclick="openEmergencyModal()" style="margin-top: 10px;">Emergency Services</button>
+                                <button class="formalwear-btn" onclick="openAmenitiesModal()" style="margin-top: 10px;">Nearby Amenities</button>
                             </div>
                         </div>
                     </div>
@@ -873,18 +957,147 @@
             <!-- Agenda Section -->
             <div id="agenda" class="content-section">
                 <div class="section">
-                    <h2 class="section-title">Conference Agenda</h2>
+                    <h2 class="section-title">OSC 2025 Agenda</h2>
                     <div class="content-grid">
                         <div class="info-card">
-                            <h3 class="card-title">Day 1</h3>
+                            <h3 class="card-title">Day 1 - 15 September 2025</h3>
                             <div class="card-content">
-                                <p>Detailed schedule for the first day of the conference.</p>
+                                <div class="agenda-item">
+                                    <div class="time-slot">09:00 - 09:45</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">Arrival, Registration, and Breakfast</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">09:45 - 10:20</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">Opening Keynote Speech and Q&A</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">10:20 - 10:30</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">Comfort Break</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">10:30 - 12:00</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">Mining Leverage: Securing Critical Inputs for Semiconductor Sovereignty</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">12:00 - 13:15</div>
+                                    <div class="location">Lunch</div>
+                                    <div class="event-title"></div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">13:15 - 14:45</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">Power and Compute: Energy Security in the Age of AI Infrastructure</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">14:45 - 15:15</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">Transition Coffee Break</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">15:15 - 16:45</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">Strategic Frontiers: New Players and Alliances Reshaping the Semiconductor Map</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">16:45 - 17:15</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">Day 1 Closing Remarks</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">18:15 - 19:00</div>
+                                    <div class="location">Lincoln College Front Quad</div>
+                                    <div class="event-title">Drinks Reception - Lincoln College</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">19:00 - 22:00</div>
+                                    <div class="location">Lincoln College Hall</div>
+                                    <div class="event-title">Black-Tie Dinner Banquet</div>
+                                </div>
                             </div>
                         </div>
+                        
                         <div class="info-card">
-                            <h3 class="card-title">Day 2</h3>
+                            <h3 class="card-title">Day 2 - 16 September 2025</h3>
                             <div class="card-content">
-                                <p>Detailed schedule for the second day of the conference.</p>
+                                <div class="agenda-item">
+                                    <div class="time-slot">09:00 - 09:45</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">Arrival, Registration, and Breakfast</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">09:45 - 10:10</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">Day 2 Keynote Speech</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">10:10 - 11:30</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">The AI Stack in Allied Defence: Chips, Models, and Military Readiness</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">11:30 - 12:15</div>
+                                    <div class="location">Invite Only, Lady Brodie Room</div>
+                                    <div class="event-title">Israel - UK - U.S. Trilateral</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">11:30 - 12:15</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">Beyond CHIP Acts: Investing in a Technological Leap</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">12:15 - 13:15</div>
+                                    <div class="location">Lunch</div>
+                                    <div class="event-title"></div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">13:15 - 14:45</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">Infrastructure as Influence: The Geopolitics of AI Buildout</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">14:45 - 15:15</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">Transition Coffee Break</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">15:15 - 16:45</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">Export Controls and Economic Security: The Road Ahead After Global Elections</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">16:45 - 17:15</div>
+                                    <div class="location">St Hilda's, Riverside Pavilion</div>
+                                    <div class="event-title">Conference Closing Speech</div>
+                                </div>
+                                
+                                <div class="agenda-item">
+                                    <div class="time-slot">17:15 - UTC</div>
+                                    <div class="location">Lamb & Flag</div>
+                                    <div class="event-title">Informal Drinks</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1119,6 +1332,375 @@
         </div>
     </div>
 
+    <!-- Lodging Recommendations Modal -->
+    <div id="lodgingModal" class="modal">
+        <div class="modal-content">
+            <div class="formalwear-content">
+                <h2>Lodging Recommendations</h2>
+                
+                <h3>Five Star Hotels</h3>
+                
+                <div class="hire-section">
+                    <h4>Old Bank</h4>
+                    <p><strong>Address:</strong> 92-94 High St, Oxford OX1 4BJ, United Kingdom</p>
+                    <p><strong>Phone:</strong> <a href="tel:+4418657999599">+44 1865 7999599</a></p>
+                    <p><strong>Distance from St. Hilda's:</strong> 0.5 miles (0.8km)</p>
+                </div>
+
+                <div class="hire-section">
+                    <h4>The Randolph</h4>
+                    <p><strong>Address:</strong> Beaumont St, Oxford OX1 2LN, United Kingdom</p>
+                    <p><strong>Phone:</strong> <a href="tel:+443448799132">+44 344 879 9132</a></p>
+                    <p><strong>Distance from St. Hilda's:</strong> 1 mile (1.6km)</p>
+                </div>
+
+                <h3>Four Star Hotels</h3>
+                
+                <div class="hire-section">
+                    <h4>Mercure Oxford Eastgate</h4>
+                    <p><strong>Address:</strong> 73 High St, Oxford OX1 4BE, United Kingdom</p>
+                    <p><strong>Phone:</strong> <a href="tel:+441865248322">+44 1865 248322</a></p>
+                    <p><strong>Distance from St. Hilda's:</strong> 0.4 miles (0.6km)</p>
+                </div>
+
+                <div class="hire-section">
+                    <h4>Courtyard by Marriott Oxford City Centre</h4>
+                    <p><strong>Address:</strong> 15 Paradise St, Oxford OX1 1LD, United Kingdom</p>
+                    <p><strong>Phone:</strong> <a href="tel:+441865306900">+44 1865 306900</a></p>
+                    <p><strong>Distance from St. Hilda's:</strong> 1.1 miles (1.8km)</p>
+                </div>
+
+                <div class="hire-section">
+                    <h4>Malmaison Oxford</h4>
+                    <p><strong>Address:</strong> Oxford Castle, 3 New Rd, Oxford OX1 1AY, United Kingdom</p>
+                    <p><strong>Phone:</strong> <a href="tel:+441865689944">+44 1865 689944</a></p>
+                    <p><strong>Distance from St. Hilda's:</strong> 0.9 miles (1.4km)</p>
+                </div>
+
+                <h3>Other Hotels</h3>
+                
+                <div class="hire-section">
+                    <h4>Easy Hotel</h4>
+                    <p><strong>Address:</strong> 280 Banbury Rd, Summertown, Oxford OX2 7DY, United Kingdom</p>
+                    <p><strong>Phone:</strong> <a href="tel:+441865634602">+44 1865 634602</a></p>
+                    <p><strong>Distance from St. Hilda's:</strong> 2.4 miles (3.8km)</p>
+                </div>
+
+                <h3>Budget College Accommodation</h3>
+                <p>If these hotels are out of your budget, please email <a href="mailto:admin@oxfordsemi.org">admin@oxfordsemi.org</a> who can direct you to potential college accommodations.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Services Modal -->
+    <div id="emergencyModal" class="modal">
+        <div class="modal-content">
+            <div class="formalwear-content">
+                <h2>Emergency Services</h2>
+                
+                <h3>Emergency Numbers</h3>
+                <div class="hire-section">
+                    <p><strong>For emergency situations:</strong> Call <a href="tel:999">999</a> to contact the police, ambulance and fire services.</p>
+                    <p><strong>For non-emergency situations:</strong> Call <a href="tel:101">101</a>.</p>
+                </div>
+
+                <h3>Hospitals and Healthcare Services in Oxford</h3>
+                
+                <div class="hire-section">
+                    <h4>Major Hospital</h4>
+                    <p><strong>John Radcliffe Hospital</strong></p>
+                    <p><strong>Address:</strong> Headley Way, Headington, Oxford OX3 9DU</p>
+                    <p><strong>Phone:</strong> <a href="tel:+443003047777">+44 0300 304 7777</a></p>
+                </div>
+
+                <h3>Pharmacies</h3>
+                
+                <div class="hire-section">
+                    <h4>Boots Pharmacy</h4>
+                    <p><strong>Address:</strong> 8-10 Cornmarket St, Oxford OX1 3HL</p>
+                </div>
+
+                <div class="hire-section">
+                    <h4>Boots Pharmacy</h4>
+                    <p><strong>Address:</strong> 151A Cowley Rd, Oxford OX4 1UT</p>
+                </div>
+
+                <div class="hire-section">
+                    <h4>Jericho Pharmacy</h4>
+                    <p><strong>Address:</strong> 116 Walton St, Oxford OX2 6AJ</p>
+                </div>
+
+                <div class="hire-section">
+                    <h4>Wellbeing Pharmacy Oxford</h4>
+                    <p><strong>Address:</strong> 190 Abingdon Rd, Oxford OX1 4RA</p>
+                </div>
+
+                <div class="hire-section">
+                    <h4>Woodlands Pharmacy</h4>
+                    <p><strong>Address:</strong> 82 Botley Rd, Oxford OX2 0BU</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nearby Amenities Modal -->
+    <div id="amenitiesModal" class="modal">
+        <div class="modal-content">
+            <div class="formalwear-content">
+                <h2>Nearby Amenities</h2>
+                
+                <h3>Cafés</h3>
+                
+                <div class="hire-section">
+                    <h4>Mostro Coffee (inside Truck Store)</h4>
+                    <p><strong>Address:</strong> 101 Cowley Road, Oxford OX4 1HU</p>
+                    <p><strong>Description:</strong> Specialty café in a record‑shop setting</p>
+                    <p><strong>Walk:</strong> ~ 5–6 minutes</p>
+                </div>
+
+                <div class="hire-section">
+                    <h4>Peloton Espresso</h4>
+                    <p><strong>Address:</strong> 76 Cowley Road, Oxford OX4 1JB</p>
+                    <p><strong>Description:</strong> Cyclist‑themed café with excellent espresso and banana bread</p>
+                    <p><strong>Walk:</strong> ~ 5 minutes</p>
+                </div>
+
+                <h3>Grocery Stores</h3>
+                
+                <div class="hire-section">
+                    <h4>Sainsbury's Local (Cowley Road)</h4>
+                    <p><strong>Address:</strong> 134b Cowley Road, Oxford OX4 1JH</p>
+                    <p><strong>Description:</strong> Convenient small-format supermarket for everyday items</p>
+                    <p><strong>Walk:</strong> ~ 6 minutes</p>
+                </div>
+
+                <div class="hire-section">
+                    <h4>Tesco Express (Cowley Road)</h4>
+                    <p><strong>Address:</strong> 159–161 Cowley Road, Oxford OX4 1UT</p>
+                    <p><strong>Description:</strong> Compact grocery & convenience store</p>
+                    <p><strong>Walk:</strong> ~ 6 minutes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Airport Travel Modal -->
+    <div id="airportModal" class="modal">
+        <div class="modal-content">
+            <div class="formalwear-content">
+                <h2>Traveling from Airport to Oxford</h2>
+                
+                <div style="display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap;">
+                    <button class="formalwear-btn" onclick="showAirportInfo('heathrow')" style="margin: 0; flex: 1; min-width: 120px;">Heathrow (LHR)</button>
+                    <button class="formalwear-btn" onclick="showAirportInfo('gatwick')" style="margin: 0; flex: 1; min-width: 120px;">Gatwick (LGW)</button>
+                    <button class="formalwear-btn" onclick="showAirportInfo('stansted')" style="margin: 0; flex: 1; min-width: 120px;">Stansted (STN)</button>
+                </div>
+
+                <div id="heathrow-info" class="airport-info" style="display: block;">
+                    <h3>London Heathrow Airport → Oxford</h3>
+                    
+                    <p><strong>We highly recommend using the coach to travel to Oxford, as it is the most convenient and affordable option.</strong></p>
+                    <p>Trains are the most inconvenient option as you will first need to head to London before transferring to Oxford. Taxis are an expensive option.</p>
+                    
+                    <h4>1. Coach to Oxford</h4>
+                    <div class="hire-section">
+                        <p><strong>Details:</strong></p>
+                        <p><strong>Departure:</strong> Heathrow Airport Central Bus Station / Heathrow Airport Compass Centre / Heathrow Airport Terminal 5</p>
+                        <p><strong>Price:</strong> one way approx. £25 / return from £31.50</p>
+                        <p><strong>Duration:</strong> 1 hour 10 minutes - 1 hour 25 minutes</p>
+                        <p><strong>Booking link:</strong> <a href="https://www.theairlineoxford.co.uk/tickets/book-online/" target="_blank">https://www.theairlineoxford.co.uk/tickets/book-online/</a></p>
+                        
+                        <p><strong>Where to board your coach:</strong></p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>Heathrow Terminal 5</li>
+                            <li>Heathrow Airport Central Bus Station (next to Heathrow Terminal 2/3)</li>
+                            <li>Heathrow Airport Compass Centre</li>
+                        </ul>
+                        
+                        <p><strong>Reaching place of departure:</strong></p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>From Terminal 5: bus departs from stand 10 (a short walk from departures)</li>
+                            <li>From Terminal 1/2/3: follow signs for 'Central Bus Station'</li>
+                            <li>From Terminal 4: take an underground shuttle to terminals 2/3</li>
+                        </ul>
+                    </div>
+
+                    <h4>2. Taxi / Uber to Oxford</h4>
+                    <div class="hire-section">
+                        <p><strong>Uber</strong></p>
+                        <p><strong>Prices:</strong> Approx. £58 - £105 (price subject to fluctuations)</p>
+                        
+                        <p><strong>Taxi</strong></p>
+                        <p><strong>Black cab:</strong> £160+</p>
+                        <p><strong>Airport Pickups London:</strong> Approx. £85 - £150 (depending on vehicle booked)</p>
+                        <p><strong>Booking link:</strong> <a href="https://www.airport-pickups-london.com/heathrow-to-oxford-taxi" target="_blank">https://www.airport-pickups-london.com/heathrow-to-oxford-taxi</a></p>
+                    </div>
+
+                    <h4>3. Train to Oxford</h4>
+                    <div class="hire-section">
+                        <p><strong>Details:</strong></p>
+                        <p><strong>Departure from Heathrow Terminal 5</strong></p>
+                        <p><strong>Price:</strong> Approx. £60 (First Class Approx. £100)</p>
+                        <p><strong>Travel time:</strong> Approx. 1 hour 30 minutes</p>
+                        <p><strong>Booking link:</strong> <a href="https://www.thetrainline.com/" target="_blank">https://www.thetrainline.com/</a></p>
+                        
+                        <p><strong>Reaching Oxford:</strong></p>
+                        
+                        <p><strong>Option 1:</strong> Catch Elizabeth Line from either Heathrow Terminals 2 & 3, Terminal 4, and Terminal 5 to London Paddington. There are frequent trains from London Paddington to Oxford. <a href="https://www.thetrainline.com/" target="_blank">Booking link</a></p>
+                        
+                        <p><strong>Option 2:</strong> Catch Heathrow Express from either Terminals 2 & 3, Terminal 4, and Terminal 5 to London Paddington. There are frequent trains from London Paddington to Oxford. <a href="https://www.heathrowexpress.com/" target="_blank">Booking link</a></p>
+                        
+                        <p><em>If you are confused about reaching London Paddington, feel free to reach out to a member of Heathrow Airport Staff.</em></p>
+                    </div>
+                </div>
+
+                <div id="gatwick-info" class="airport-info" style="display: none;">
+                    <h3>London Gatwick Airport → Oxford</h3>
+                    
+                    <p><strong>We highly recommend using the coach to travel to Oxford, as it is the most convenient and affordable option.</strong></p>
+                    <p>Trains are the most inconvenient option as you might have multiple transfers. Taxis are an expensive option.</p>
+                    
+                    <h4>1. Coach to Oxford</h4>
+                    <div class="hire-section">
+                        <p><strong>Details:</strong></p>
+                        <p><strong>Departure:</strong> Gatwick Airport</p>
+                        <p><strong>Price:</strong> from £21 (prices fluctuate between £21 - £50)</p>
+                        <p><strong>Duration:</strong> 2 - 3 hours</p>
+                        <p><strong>Booking link:</strong> <a href="https://www.nationalexpress.com/en/destinations/oxford/gatwick-to-oxford" target="_blank">https://www.nationalexpress.com/en/destinations/oxford/gatwick-to-oxford</a></p>
+                    </div>
+
+                    <h4>2. Taxi / Uber to Oxford</h4>
+                    <div class="hire-section">
+                        <p><strong>Uber</strong></p>
+                        <p><strong>Prices:</strong> £110 - £200 (price fluctuates depending on the vehicle chosen)</p>
+                        
+                        <p><strong>Taxi</strong></p>
+                        <p><strong>Surrey Airport Transfers:</strong></p>
+                        <p><strong>Price:</strong> Approx. £156 (price subject to fluctuations)</p>
+                        <p><strong>Phone:</strong> <a href="tel:+441293972472">+44 1293972472</a></p>
+                        <p><strong>Booking link:</strong> <a href="https://gatwickairportcabs.co.uk/gatwick-to-oxford-taxi/" target="_blank">https://gatwickairportcabs.co.uk/gatwick-to-oxford-taxi/</a></p>
+                    </div>
+
+                    <h4>3. Train to Oxford</h4>
+                    <div class="hire-section">
+                        <p><strong>Details:</strong></p>
+                        <p><strong>Departure:</strong> Gatwick Airport</p>
+                        <p><strong>Price:</strong> Approx. £25 - £50 (standard) / Approx. £45 - £90 (1st class)</p>
+                        <p><strong>Travel time:</strong> Approx. 2 hours - 2 hours 30 minutes</p>
+                        <p><strong>Booking link:</strong> <a href="https://www.thetrainline.com/en-us" target="_blank">https://www.thetrainline.com/en-us</a></p>
+                        
+                        <p><strong>Options:</strong></p>
+                        <p><strong>Either:</strong></p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>London Gatwick → Reading</li>
+                            <li>Reading → Oxford</li>
+                        </ul>
+                        
+                        <p><strong>Or:</strong></p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>London Gatwick → Farringdon</li>
+                            <li>Farringdon → Paddington</li>
+                            <li>Paddington → Oxford</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="stansted-info" class="airport-info" style="display: none;">
+                    <h3>London Stansted Airport → Oxford</h3>
+                    
+                    <p><strong>We highly recommend using the coach to travel to Oxford, as it is the most convenient and affordable option.</strong></p>
+                    <p>It is likely that you will have to transfer in London.</p>
+                    <p>Trains are the most inconvenient option as you will need to transfer 2 times, but it will save you travel time overall. Taxis are an expensive option.</p>
+                    
+                    <h4>1. Coach to Oxford</h4>
+                    <div class="hire-section">
+                        <p><strong>Details:</strong></p>
+                        <p><strong>Departure:</strong> London Stansted Airport Coach Station</p>
+                        <p><strong>Price:</strong> from £18 (price often fluctuates between £22 - £40)</p>
+                        <p><strong>Duration:</strong> fastest journey is 3 hours 40 minutes (more likely to be 4 hours)</p>
+                        <p><strong>Booking link:</strong> <a href="https://www.nationalexpress.com/en/destinations/oxford/stansted-to-oxford" target="_blank">https://www.nationalexpress.com/en/destinations/oxford/stansted-to-oxford</a></p>
+                    </div>
+
+                    <h4>2. Taxi / Uber to Oxford</h4>
+                    <div class="hire-section">
+                        <p><strong>Uber</strong></p>
+                        <p><strong>Price:</strong> £124 - £200 (price fluctuates depending on the vehicle chosen)</p>
+                        
+                        <p><strong>Taxi</strong></p>
+                        <p><strong>Stansted Airport Taxis:</strong></p>
+                        <p><strong>Price:</strong> Approx. £166 - £200 (price subject to fluctuations)</p>
+                        <p><strong>Booking link:</strong> <a href="https://www.stanstedairporttaxi.com/oxford-taxi" target="_blank">https://www.stanstedairporttaxi.com/oxford-taxi</a></p>
+                        
+                        <p><strong>Westway Ride (premium cars):</strong></p>
+                        <p><strong>Price:</strong> Approx. £326 - £500 (price subject to fluctuations)</p>
+                        <p><strong>Booking link:</strong> <a href="https://www.westwayride.com/airport-transfers/" target="_blank">https://www.westwayride.com/airport-transfers/</a></p>
+                    </div>
+
+                    <h4>3. Train to Oxford</h4>
+                    <div class="hire-section">
+                        <p><strong>Stansted Airport does not have the best railway connection to Oxford. You will have to make two changes. Once you reach London Paddington, there are frequent trains to Oxford.</strong></p>
+                        
+                        <p><strong>Details:</strong></p>
+                        <p><strong>Departure:</strong> Stansted Airport</p>
+                        <p><strong>Price:</strong> £58 - £70 (standard) / Approx. £100 - £115 (1st class)</p>
+                        <p><strong>Travel time:</strong> Approx. 2 hours 30 minutes</p>
+                        <p><strong>Booking link:</strong> <a href="https://www.thetrainline.com/en-us" target="_blank">https://www.thetrainline.com/en-us</a></p>
+                        
+                        <p><strong>Transfers:</strong></p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>Stansted Airport → London Liverpool Street</li>
+                            <li>London Liverpool Street → London Paddington</li>
+                            <li>London Paddington → Oxford</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- London Travel Modal -->
+    <div id="londonModal" class="modal">
+        <div class="modal-content">
+            <div class="formalwear-content">
+                <h2>Traveling from London to Oxford</h2>
+                
+                <h3>Train Options</h3>
+                
+                <h4>1. London Paddington</h4>
+                <div class="hire-section">
+                    <p><strong>There is a direct train connection from London Paddington to Oxford</strong></p>
+                    <p><strong>Details:</strong></p>
+                    <p><strong>Departure:</strong> London Paddington</p>
+                    <p><strong>Price:</strong> Approx. £13 - £38 (standard) / Approx. £40 - £80 (1st class)</p>
+                    <p><strong>Travel time:</strong> 50 Minutes - 1 hour 40 minutes (depends on the train)</p>
+                    <p><strong>Booking link:</strong> <a href="https://www.thetrainline.com/en-us" target="_blank">https://www.thetrainline.com/en-us</a></p>
+                </div>
+
+                <h4>2. London Marylebone</h4>
+                <div class="hire-section">
+                    <p><strong>There is a direct train connection from London Marylebone to Oxford</strong></p>
+                    <p><strong>Details:</strong></p>
+                    <p><strong>Departure:</strong> London Marylebone</p>
+                    <p><strong>Price:</strong> Approx. £5 - £40 (standard) / Approx. £50 - £80 (1st class)</p>
+                    <p><strong>Travel time:</strong> Approx. 1 hour 10 minutes - 1 hour 20 minutes</p>
+                    <p><strong>Booking link:</strong> <a href="https://www.thetrainline.com/en-us" target="_blank">https://www.thetrainline.com/en-us</a></p>
+                </div>
+
+                <h3>Coach Options</h3>
+                
+                <h4>The Oxford Tube</h4>
+                <div class="hire-section">
+                    <p><strong>The Oxford Tube offers flexible coach travel between London and Oxford (Gloucester Green)</strong></p>
+                    <p><strong>Details:</strong></p>
+                    <p><strong>Departure:</strong> Shepherd's Bush, Notting Hill Gate, Victoria Station, White City, Hillingdon, Marble Arch</p>
+                    <p><strong>Price:</strong> Approx. £15</p>
+                    <p><strong>Travel time:</strong> 1 hour 25 minutes - 2 hours 10 minutes</p>
+                    <p><strong>Booking link:</strong> <a href="https://www.oxfordtube.com/" target="_blank">https://www.oxfordtube.com/</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Single page application functionality
         document.querySelectorAll('.nav-link').forEach(link => {
@@ -1175,6 +1757,11 @@
             if (e.key === 'Escape') {
                 closeModal();
                 closeFormalwearModal();
+                closeLodgingModal();
+                closeEmergencyModal();
+                closeAmenitiesModal();
+                closeAirportModal();
+                closeLondonModal();
                 closeChathamHouseModal();
                 closeCodeOfConductModal();
             }
@@ -1201,6 +1788,146 @@
         document.getElementById('formalwearModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeFormalwearModal();
+            }
+        });
+
+        // Lodging modal functionality
+        function openLodgingModal() {
+            const modal = document.getElementById('lodgingModal');
+            modal.classList.add('show');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLodgingModal() {
+            const modal = document.getElementById('lodgingModal');
+            modal.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lodging modal when clicking outside the modal content
+        document.getElementById('lodgingModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLodgingModal();
+            }
+        });
+
+        // Emergency modal functionality
+        function openEmergencyModal() {
+            const modal = document.getElementById('emergencyModal');
+            modal.classList.add('show');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeEmergencyModal() {
+            const modal = document.getElementById('emergencyModal');
+            modal.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close emergency modal when clicking outside the modal content
+        document.getElementById('emergencyModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeEmergencyModal();
+            }
+        });
+
+        // Amenities modal functionality
+        function openAmenitiesModal() {
+            const modal = document.getElementById('amenitiesModal');
+            modal.classList.add('show');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAmenitiesModal() {
+            const modal = document.getElementById('amenitiesModal');
+            modal.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close amenities modal when clicking outside the modal content
+        document.getElementById('amenitiesModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAmenitiesModal();
+            }
+        });
+
+        // Airport modal functionality
+        function openAirportModal() {
+            const modal = document.getElementById('airportModal');
+            modal.classList.add('show');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAirportModal() {
+            const modal = document.getElementById('airportModal');
+            modal.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close airport modal when clicking outside the modal content
+        document.getElementById('airportModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAirportModal();
+            }
+        });
+
+        // Airport info switching functionality
+        function showAirportInfo(airport) {
+            // Hide all airport info sections
+            document.querySelectorAll('.airport-info').forEach(info => {
+                info.style.display = 'none';
+            });
+            
+            // Show the selected airport info
+            document.getElementById(airport + '-info').style.display = 'block';
+            
+            // Update button styles to show which is active
+            const buttons = document.querySelectorAll('#airportModal .formalwear-btn');
+            buttons.forEach(btn => {
+                btn.style.background = '#666';
+            });
+            
+            // Highlight the clicked button
+            event.target.style.background = '#888';
+        }
+
+        // London modal functionality
+        function openLondonModal() {
+            const modal = document.getElementById('londonModal');
+            modal.classList.add('show');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLondonModal() {
+            const modal = document.getElementById('londonModal');
+            modal.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close London modal when clicking outside the modal content
+        document.getElementById('londonModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLondonModal();
             }
         });
 
