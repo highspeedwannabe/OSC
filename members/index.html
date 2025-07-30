@@ -412,11 +412,11 @@
         @keyframes modalFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(-50%) scale(0.9);
+                transform: scale(0.9);
             }
             to {
                 opacity: 1;
-                transform: translateY(-50%) scale(1);
+                transform: scale(1);
             }
         }
 
@@ -428,6 +428,7 @@
 
         .modal.show .modal-content {
             animation: modalFadeIn 0.3s ease-out;
+            transform: scale(1);
         }
 
         /* Policy Buttons */
@@ -932,13 +933,12 @@
                         <div class="info-card">
                             <h3 class="card-title">Travel Information</h3>
                             <div class="card-content">
-                                <ul class="info-list">
-                                    <li>Getting to FCDO, Oxford</li>
-                                    <li>Lincoln College access</li>
-                                    <li>Local transportation</li>
-                                </ul>
                                 <button class="formalwear-btn" onclick="openAirportModal()">Traveling from Airport to Oxford</button>
                                 <button class="formalwear-btn" onclick="openLondonModal()" style="margin-top: 10px;">Traveling from London to Oxford</button>
+                                <button class="formalwear-btn" onclick="openDirectionsModal()" style="margin-top: 10px;">Directions to St Hilda's College</button>
+                                <button class="formalwear-btn" onclick="openLincolnDirectionsModal()" style="margin-top: 10px;">Directions to Lincoln College</button>
+                                <button class="formalwear-btn" onclick="openHildaToLincolnModal()" style="margin-top: 10px;">Directions from St Hilda's to Lincoln College</button>
+                                <button class="formalwear-btn" onclick="openLocalTransportModal()" style="margin-top: 10px;">Local Transportation</button>
                             </div>
                         </div>
                         <div class="info-card">
@@ -1701,6 +1701,212 @@
         </div>
     </div>
 
+    <!-- Directions to St Hilda's College Modal -->
+    <div id="directionsModal" class="modal">
+        <div class="modal-content">
+            <div class="formalwear-content">
+                <h2>Directions to St Hilda's College</h2>
+                
+                <h3>Oxford Train Station to St Hilda's College</h3>
+                
+                <h4>Uber</h4>
+                <div class="hire-section">
+                    <p><strong>Uber can be ordered in Oxford from the train railway station to the college</strong></p>
+                    <p><strong>Approx. cost:</strong> £10</p>
+                </div>
+
+                <h4>Bus</h4>
+                <div class="hire-section">
+                    <p><strong>Directly outside Oxford Rail Station is the bus stop.</strong></p>
+                    <p>From bus stop R2 take line 5 towards 'Blackbird Leys, Sandy Lane West'.</p>
+                    <p>Get off at 'The Plain'.</p>
+                    <p>When stepping off the bus, turn left and walk back towards the roundabout. Take the second exit to Cowley Pl. Walk along Cowley Pl and St Hilda's College is on the left.</p>
+                                    <div style="margin-top: 15px;">
+                    <img src="./sthildabus.png" alt="Bus route from Oxford Train Station to St Hilda's College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./sthildabus.png', 'Bus Route from Oxford Train Station to St Hilda\'s College')">
+                </div>
+                </div>
+
+                <h4>Walking</h4>
+                <div class="hire-section">
+                    <p><strong>Alternatively, you can walk 29 minutes (1.3 miles) to St Hilda's College.</strong></p>
+                    <div style="margin-top: 15px;">
+                        <img src="./sthildawalking.png" alt="Walking route from Oxford Train Station to St Hilda's College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./sthildawalking.png', 'Walking Route from Oxford Train Station to St Hilda\'s College')">
+                    </div>
+                </div>
+
+                <h3>Gloucester Green to St Hilda's College</h3>
+                
+                <h4>Uber</h4>
+                <div class="hire-section">
+                    <p><strong>Uber can be ordered in Oxford from the bus station to the college</strong></p>
+                    <p><strong>Approx. cost:</strong> £10</p>
+                </div>
+
+                <h4>Bus</h4>
+                <div class="hire-section">
+                    <p>Take the 'Oxford Tube' bus (towards London Victoria) from Gloucester Green Bus Station.</p>
+                    <p>Ride 4 stops and get off the bus at St Clements Street (Stop A).</p>
+                    <p>When getting off the bus, walk back towards the roundabout and take the exit onto Cowley Pl.</p>
+                    <p>Walk along Cowley Pl and St Hilda's College is on the left.</p>
+                    <div style="margin-top: 15px;">
+                        <img src="./ggsthildabus.png" alt="Bus route from Gloucester Green to St Hilda's College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./ggsthildabus.png', 'Bus Route from Gloucester Green to St Hilda\'s College')">
+                    </div>
+                </div>
+
+                <h4>Walking</h4>
+                <div class="hire-section">
+                    <p><strong>Alternatively, you can walk from Gloucester Green to St Hilda's College.</strong></p>
+                    <div style="margin-top: 15px;">
+                        <img src="./ggsthildawalking.png" alt="Walking route from Gloucester Green to St Hilda's College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./ggsthildawalking.png', 'Walking Route from Gloucester Green to St Hilda\'s College')">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lincoln College Directions Modal -->
+    <div id="lincolnDirectionsModal" class="modal">
+        <div class="modal-content">
+            <div class="formalwear-content">
+                <h2>Directions to Lincoln College</h2>
+                
+                <h3>Oxford Train Station to Lincoln College</h3>
+                
+                <h4>Uber</h4>
+                <div class="hire-section">
+                    <p><strong>Uber can be ordered in Oxford from the railway station to the college</strong></p>
+                    <p><strong>Approx. cost:</strong> £7</p>
+                </div>
+
+                <h4>Bus</h4>
+                <div class="hire-section">
+                    <p><strong>Directly outside Oxford Rail Station is the bus stop.</strong></p>
+                    <p>From bus stop R2 take line 5 towards 'Blackbird Leys, Sandy Lane West'.</p>
+                    <p>Ride two stops and then get off the bus at the 'Westgate' stop.</p>
+                    <p>When you get off the bus, turn left and walk towards Bonn Square and then onto Queen Street.</p>
+                    <p>Then walk on the left side of the High Street and then turn left onto Turl Street.</p>
+                    <p>Walk up Turl Street and Lincoln College is on the right.</p>
+                    <div style="margin-top: 15px;">
+                        <img src="./lincolnbus.png" alt="Bus route from Oxford Train Station to Lincoln College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./lincolnbus.png', 'Bus Route from Oxford Train Station to Lincoln College')">
+                    </div>
+                </div>
+
+                <h4>Walking</h4>
+                <div class="hire-section">
+                    <p><strong>Alternatively, you can walk 16 minutes (0.7 miles) to Lincoln College.</strong></p>
+                    <div style="margin-top: 15px;">
+                        <img src="./lincolnwalking.png" alt="Walking route from Oxford Train Station to Lincoln College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./lincolnwalking.png', 'Walking Route from Oxford Train Station to Lincoln College')">
+                    </div>
+                </div>
+
+                <h3>Gloucester Green to Lincoln College</h3>
+                
+                <h4>Uber</h4>
+                <div class="hire-section">
+                    <p><strong>Uber can be ordered in Oxford from the bus station to the college</strong></p>
+                    <p><strong>Approx. cost:</strong> £7</p>
+                </div>
+
+                <h4>Bus</h4>
+                <div class="hire-section">
+                    <p><strong>Taking the bus from Gloucester Green to Lincoln College is not possible as it would require you to walk away from the college adding significant time to the journey. Walking is the most efficient option.</strong></p>
+                </div>
+
+                <h4>Walking</h4>
+                <div class="hire-section">
+                    <p><strong>The fastest way from Gloucester Green to Lincoln College is an 8 minute walk (0.3 miles).</strong></p>
+                    <p>When exiting the bus, follow St George's Pl until you reach George Street.</p>
+                    <p>Turn left onto George Street.</p>
+                    <p>Walk along George Street and head to the right onto Broad Street.</p>
+                    <p>Walk along Broad Street and then turn right onto Turl Street.</p>
+                    <p>Walk along Turl Street for approximately 150m, Lincoln College will be on the left.</p>
+                    <div style="margin-top: 15px;">
+                        <img src="./gglincolnwalking.png" alt="Walking route from Gloucester Green to Lincoln College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./gglincolnwalking.png', 'Walking Route from Gloucester Green to Lincoln College')">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- St Hilda's to Lincoln College Directions Modal -->
+    <div id="hildaToLincolnModal" class="modal">
+        <div class="modal-content">
+            <div class="formalwear-content">
+                <h2>Directions from St Hilda's to Lincoln College</h2>
+                
+                <h3>Uber</h3>
+                <div class="hire-section">
+                    <p><strong>Uber can be ordered in Oxford from one college to another</strong></p>
+                    <p><strong>Approx. cost:</strong> £6</p>
+                </div>
+
+                <h3>Bus</h3>
+                <div class="hire-section">
+                    <p>When leaving St Hilda's College, turn left and head north on Cowley Pl.</p>
+                    <p>At the roundabout, take the 3rd exit onto Cowley Rd/B480.</p>
+                    <p>At the bus stop 'The Plain', take the bus 5, 10, 46 or 500.</p>
+                    <p>Ride two stops and get off the 'High Street' stop L2.</p>
+                    <p>When exiting the bus, turn left and cross the road at the traffic lights.</p>
+                    <p>Turn left onto Turl St, walk down and Lincoln College will be on the right.</p>
+                    <div style="margin-top: 15px;">
+                        <img src="./hildatolincolnbus.png" alt="Bus route from St Hilda's to Lincoln College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./hildatolincolnbus.png', 'Bus Route from St Hilda\'s to Lincoln College')">
+                    </div>
+                </div>
+
+                <h3>Walking</h3>
+                <div class="hire-section">
+                    <p><strong>Alternatively, you can walk 16 minutes (0.7 miles) to Lincoln College.</strong></p>
+                    <div style="margin-top: 15px;">
+                        <img src="./hildatolincolnwalk.png" alt="Walking route from St Hilda's to Lincoln College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./hildatolincolnwalk.png', 'Walking Route from St Hilda\'s to Lincoln College')">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Local Transportation Modal -->
+    <div id="localTransportModal" class="modal">
+        <div class="modal-content">
+            <div class="formalwear-content">
+                <h2>Local Transportation in Oxford</h2>
+                
+                <h3>Taxis</h3>
+                <div class="hire-section">
+                    <p><strong>Royal Cars (App)</strong></p>
+                    <p>We recommend using the Royal Cars app for taxi services in Oxford. This is a reliable local taxi service that can be booked through their mobile application.</p>
+                    
+                    <p><strong>Uber</strong></p>
+                    <p>Uber is available in Oxford but service can be limited, especially during peak times or in certain areas of the city.</p>
+                </div>
+
+                <h3>Electric Scooters & E-Bikes</h3>
+                <div class="hire-section">
+                    <p><strong>Voi</strong></p>
+                    <p>Voi offers electric scooters and e-bikes throughout Oxford. You can download the Voi app to locate and rent these vehicles for short trips around the city.</p>
+                </div>
+
+                <h3>Buses</h3>
+                <div class="hire-section">
+                    <p><strong>Bus Services</strong></p>
+                    <p>Oxford has plentiful bus services connecting all parts of the city. Buses run frequently and provide an efficient way to travel between different areas of Oxford.</p>
+                </div>
+
+                <h3>Walking</h3>
+                <div class="hire-section">
+                    <p><strong>Walking in Oxford</strong></p>
+                    <p>Oxford is compact, scenic, and mostly pedestrian-friendly, making walking an excellent option for getting around the city. Many of the most beautiful and historic areas are best explored on foot.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Directions Image Modal -->
+    <div id="directionsImageModal" class="modal">
+        <div class="modal-content">
+            <img id="directionsModalImage" src="" alt="">
+        </div>
+    </div>
+
     <script>
         // Single page application functionality
         document.querySelectorAll('.nav-link').forEach(link => {
@@ -1762,6 +1968,11 @@
                 closeAmenitiesModal();
                 closeAirportModal();
                 closeLondonModal();
+                closeDirectionsModal();
+                closeLincolnDirectionsModal();
+                closeHildaToLincolnModal();
+                closeLocalTransportModal();
+                closeDirectionsImageModal();
                 closeChathamHouseModal();
                 closeCodeOfConductModal();
             }
@@ -1928,6 +2139,131 @@
         document.getElementById('londonModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeLondonModal();
+            }
+        });
+
+        // Directions modal functionality
+        function openDirectionsModal() {
+            const modal = document.getElementById('directionsModal');
+            modal.classList.add('show');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDirectionsModal() {
+            const modal = document.getElementById('directionsModal');
+            modal.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close directions modal when clicking outside the modal content
+        document.getElementById('directionsModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDirectionsModal();
+            }
+        });
+
+        // Lincoln directions modal functionality
+        function openLincolnDirectionsModal() {
+            const modal = document.getElementById('lincolnDirectionsModal');
+            modal.classList.add('show');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLincolnDirectionsModal() {
+            const modal = document.getElementById('lincolnDirectionsModal');
+            modal.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close Lincoln directions modal when clicking outside the modal content
+        document.getElementById('lincolnDirectionsModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLincolnDirectionsModal();
+            }
+        });
+
+        // St Hilda's to Lincoln modal functionality
+        function openHildaToLincolnModal() {
+            const modal = document.getElementById('hildaToLincolnModal');
+            modal.classList.add('show');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeHildaToLincolnModal() {
+            const modal = document.getElementById('hildaToLincolnModal');
+            modal.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close St Hilda's to Lincoln modal when clicking outside the modal content
+        document.getElementById('hildaToLincolnModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeHildaToLincolnModal();
+            }
+        });
+
+        // Local Transportation modal functionality
+        function openLocalTransportModal() {
+            const modal = document.getElementById('localTransportModal');
+            modal.classList.add('show');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLocalTransportModal() {
+            const modal = document.getElementById('localTransportModal');
+            modal.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close Local Transportation modal when clicking outside the modal content
+        document.getElementById('localTransportModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLocalTransportModal();
+            }
+        });
+
+        // Directions image modal functionality
+        function openDirectionsImageModal(imageSrc, title) {
+            const modal = document.getElementById('directionsImageModal');
+            const modalImage = document.getElementById('directionsModalImage');
+            
+            modalImage.src = imageSrc;
+            modalImage.alt = title;
+            
+            modal.classList.add('show');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDirectionsImageModal() {
+            const modal = document.getElementById('directionsImageModal');
+            modal.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close directions image modal when clicking outside the modal content
+        document.getElementById('directionsImageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDirectionsImageModal();
             }
         });
 
