@@ -2111,11 +2111,15 @@
             // Update button styles to show which is active
             const buttons = document.querySelectorAll('#airportModal .formalwear-btn');
             buttons.forEach(btn => {
-                btn.style.background = '#666';
+                btn.style.background = 'linear-gradient(135deg, #4a5568 0%, #2d3748 100%)';
+                btn.style.transform = 'none';
+                btn.style.boxShadow = 'none';
             });
             
             // Highlight the clicked button
-            event.target.style.background = '#888';
+            event.target.style.background = 'linear-gradient(135deg, #5a6778 0%, #3d4758 100%)';
+            event.target.style.transform = 'translateY(-2px)';
+            event.target.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.3)';
         }
 
         // London modal functionality
