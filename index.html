@@ -95,7 +95,7 @@
 
         .subtitle {
             font-family: 'Arial', sans-serif;
-            font-size: 0.5vw;
+            font-size: 0.8vw;
             font-weight: 300;
             color: rgba(255, 255, 255, 0.8);
             text-align: center;
@@ -145,6 +145,65 @@
             background: white;
             color: #222426;
         }
+
+        /* Language Switcher Styles */
+        .language-switcher {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            opacity: 0;
+            animation: fadeIn 1s 1s forwards;
+            display: flex;
+            gap: 8px;
+            background: rgba(128, 128, 128, 0.4);
+            padding: 8px 12px;
+            border-radius: 10px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .flag-button {
+            width: 32px;
+            height: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .flag-button:hover {
+            transform: scale(1.15);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .flag-button.active {
+            border-color: white;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+
+        .flag-uk {
+            background-image: url('https://flagcdn.com/w80/gb.png');
+        }
+
+        .flag-mx {
+            background-image: url('https://flagcdn.com/w80/mx.png');
+        }
+
+        .flag-jp {
+            background-image: url('https://flagcdn.com/w80/jp.png');
+        }
+
+        .flag-tw {
+            background-image: url('https://flagcdn.com/w80/tw.png');
+        }
+
   /* Mobile Styles */
   @media screen and (max-width: 768px) {
             .logo-container {
@@ -203,6 +262,20 @@
                 animation: fadeIn 1s 2s forwards;
             }
 
+            .language-switcher {
+                top: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                animation: fadeIn 1s 2s forwards;
+                gap: 6px;
+                padding: 6px 10px;
+            }
+
+            .flag-button {
+                width: 28px;
+                height: 21px;
+            }
+
             .small-logo-container {
                 animation: fadeIn 1s 2s forwards;
             }
@@ -243,6 +316,19 @@
 
             .nav-button {
                 font-size: 1.05rem;
+            }
+
+            .language-switcher {
+                top: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                gap: 5px;
+                padding: 5px 8px;
+            }
+
+            .flag-button {
+                width: 24px;
+                height: 18px;
             }
         }
 
@@ -288,25 +374,80 @@
     <div class="content">
         <h1 class="title">
             <span class="text-wrapper">
-                <span>Oxford</span>
-                <span>Semiconductor</span>
-                <span>Conference</span>
+                <span data-en="Oxford" data-es="Oxford" data-ja="オックスフォード" data-zh="牛津">Oxford</span>
+                <span data-en="Semiconductor" data-es="Semiconductor" data-ja="半導体" data-zh="半導體">Semiconductor</span>
+                <span data-en="Conference" data-es="Conferencia" data-ja="会議" data-zh="會議">Conference</span>
             </span>
         </h1>
-        <div class="subtitle">A 501(c)3 Non-profit Organization</div>
+        <div class="subtitle" data-en="A 501(c)3 Non-profit Organization" data-es="Una Organización Sin Fines de Lucro 501(c)3" data-ja="501(c)3非営利団体" data-zh="501(c)3非營利組織">A 501(c)3 Non-profit Organization</div>
     </div>
 
     <nav class="menu-left">
-        <a href="/mission" class="nav-button">About OSC</a>
+        <a href="/mission" class="nav-button" data-en="About OSC" data-es="Acerca de OSC" data-ja="OSCについて" data-zh="關於OSC">About OSC</a>
     </nav>
 
     <nav class="menu">
-        <a href="/auth" class="nav-button">Delegate Login</a>
+        <a href="/auth" class="nav-button" data-en="Delegate Login" data-es="Inicio de Sesión de Delegado" data-ja="代表者ログイン" data-zh="代表登入">Delegate Login</a>
     </nav>
+
+    <div class="language-switcher">
+        <div class="flag-button flag-uk active" data-lang="en" title="English"></div>
+        <div class="flag-button flag-mx" data-lang="es" title="Español"></div>
+        <div class="flag-button flag-jp" data-lang="ja" title="日本語"></div>
+        <div class="flag-button flag-tw" data-lang="zh" title="繁體中文"></div>
+    </div>
 
     <script src="p5.min.js"></script>
     <script src="vanta.trunk.min.js"></script>
     <script>
+        // Language translations
+        const translations = {
+            en: {
+                title: "Oxford Semiconductor Conference",
+                subtitle: "A 501(c)3 Non-profit Organization",
+                aboutButton: "About OSC",
+                loginButton: "Delegate Login"
+            },
+            es: {
+                title: "Conferencia de Semiconductores de Oxford",
+                subtitle: "Una Organización Sin Fines de Lucro 501(c)3",
+                aboutButton: "Acerca de OSC",
+                loginButton: "Inicio de Sesión de Delegado"
+            },
+            ja: {
+                title: "オックスフォード半導体会議",
+                subtitle: "501(c)3非営利団体",
+                aboutButton: "OSCについて",
+                loginButton: "代表者ログイン"
+            },
+            zh: {
+                title: "牛津半導體會議",
+                subtitle: "501(c)3非營利組織",
+                aboutButton: "關於OSC",
+                loginButton: "代表登入"
+            }
+        };
+
+        // Language switcher functionality
+        function switchLanguage(lang) {
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-' + lang + ']').forEach(element => {
+                element.textContent = element.getAttribute('data-' + lang);
+            });
+
+            // Update document language
+            document.documentElement.lang = lang;
+
+            // Update active flag
+            document.querySelectorAll('.flag-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector('[data-lang="' + lang + '"]').classList.add('active');
+
+            // Update page title
+            document.title = translations[lang].title;
+        }
+
         // Initialize Vanta.js trunk effect
         let vantaEffect;
         
@@ -319,9 +460,18 @@
                 document.querySelector('.content').style.opacity = '1';
                 document.querySelector('.menu').style.opacity = '1';
                 document.querySelector('.menu-left').style.opacity = '1';
+                document.querySelector('.language-switcher').style.opacity = '1';
                 document.querySelector('.small-logo-container').style.opacity = '1';
                 document.querySelector('#vanta-background').style.opacity = '1';
             }, window.innerWidth <= 768 ? 2500 : 1500);
+
+            // Add click event listeners to flag buttons
+            document.querySelectorAll('.flag-button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
         });
 
         // Prevent keyboard shortcuts for saving/downloading
