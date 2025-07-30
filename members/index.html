@@ -388,6 +388,27 @@
             animation: modalFadeIn 0.3s ease-out;
         }
 
+        /* Policy Buttons */
+        .policy-btn {
+            background: #666;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .policy-btn:hover {
+            background: #888;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
         /* Formalwear Button */
         .formalwear-btn {
             background: #666;
@@ -584,8 +605,8 @@
                 font-size: 0.95rem;
             }
 
-            /* Mobile Button */
-            .formalwear-btn {
+            /* Mobile Buttons */
+            .formalwear-btn, .policy-btn {
                 padding: 15px 20px;
                 font-size: 1rem;
                 margin-top: 20px;
@@ -694,7 +715,7 @@
                 font-size: 0.9rem;
             }
 
-            .formalwear-btn {
+            .formalwear-btn, .policy-btn {
                 padding: 12px 16px;
                 font-size: 0.95rem;
             }
@@ -781,7 +802,7 @@
             <div class="header-content">
                 <div style="display: flex; align-items: center;">
                     <img src="../assets/OSC.png" alt="OSC Logo" class="logo">
-                    <h1 class="header-title">Oxford Semiconductor Conference</h1>
+                    <h1 class="header-title" style="font-family: Gotham, sans-serif;">Oxford Semiconductor Conference</h1>
                 </div>
                 <a href="../" class="back-link">← Back to OSC</a>
             </div>
@@ -906,17 +927,19 @@
                             <h3 class="card-title">Chatham House Rule</h3>
                             <div class="card-content">
                                 <p>Participants are free to use the information received, but neither the identity nor the affiliation of the speaker(s), nor that of any other participant, may be revealed.</p>
+                                <button class="policy-btn" onclick="openChathamHouseModal()">Read Full Policy</button>
                             </div>
                         </div>
                         <div class="info-card">
                             <h3 class="card-title">Code of Conduct</h3>
                             <div class="card-content">
                                 <p>Professional behavior and mutual respect are expected from all participants throughout the conference.</p>
+                                <button class="policy-btn" onclick="openCodeOfConductModal()">Read Full Policy</button>
                             </div>
                         </div>
                     </div>
-        </div>
-    </div>
+                </div>
+            </div>
 
             <!-- Contact Section -->
             <div id="contact" class="content-section">
@@ -982,6 +1005,120 @@
         </div>
     </div>
 
+    <!-- Chatham House Rules Modal -->
+    <div id="chathamHouseModal" class="modal">
+        <div class="modal-content">
+            <div class="formalwear-content">
+                <h2>Chatham House Rules</h2>
+                
+                <h3>Overview</h3>
+                <p>The Chatham House Rule is a core principle that governs the conduct of discussions at the Oxford Semiconductor Conference. It is designed to encourage open and honest dialogue while protecting the privacy and confidentiality of participants.</p>
+                
+                <h3>Core Principle</h3>
+                <p><strong>"When a meeting, or part thereof, is held under the Chatham House Rule, participants are free to use the information received, but neither the identity nor the affiliation of the speaker(s), nor that of any other participant, may be revealed."</strong></p>
+                
+                <h3>What This Means</h3>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li style="margin: 8px 0;">You may freely share the information and insights discussed during the conference</li>
+                    <li style="margin: 8px 0;">You may not attribute specific comments or statements to any individual</li>
+                    <li style="margin: 8px 0;">You may not reveal who attended the conference or their organizational affiliations</li>
+                    <li style="margin: 8px 0;">This applies to all forms of communication: social media, publications, conversations, etc.</li>
+                </ul>
+                
+                <h3>Benefits</h3>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li style="margin: 8px 0;">Encourages candid discussion of sensitive topics</li>
+                    <li style="margin: 8px 0;">Allows participants to speak freely without fear of attribution</li>
+                    <li style="margin: 8px 0;">Facilitates open exchange of ideas and experiences</li>
+                    <li style="margin: 8px 0;">Protects commercial and personal interests</li>
+                </ul>
+                
+                <h3>Examples of Permitted Sharing</h3>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li style="margin: 8px 0;">"The conference discussed emerging trends in semiconductor manufacturing"</li>
+                    <li style="margin: 8px 0;">"Participants shared insights about supply chain challenges"</li>
+                    <li style="margin: 8px 0;">"The discussion covered regulatory developments in the industry"</li>
+                </ul>
+                
+                <h3>Examples of Prohibited Sharing</h3>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li style="margin: 8px 0;">"John from Company X said that..."</li>
+                    <li style="margin: 8px 0;">"A representative from Intel mentioned..."</li>
+                    <li style="margin: 8px 0;">"The CEO of ABC Corp attended and discussed..."</li>
+                </ul>
+                
+                <h3>Compliance</h3>
+                <p>All participants are expected to respect and adhere to the Chatham House Rule throughout the conference and in any subsequent communications about the event. Violation of this rule may result in exclusion from future conferences.</p>
+                
+                <h3>Questions</h3>
+                <p>If you have any questions about the Chatham House Rule or how it applies to specific situations, please contact the conference organizers at <a href="mailto:admin@oxfordsemi.org">admin@oxfordsemi.org</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Code of Conduct Modal -->
+    <div id="codeOfConductModal" class="modal">
+        <div class="modal-content">
+            <div class="formalwear-content">
+                <h2>Code of Conduct</h2>
+                
+                <h3>Our Commitment</h3>
+                <p>The Oxford Semiconductor Conference is committed to providing a professional, respectful, and inclusive environment for all participants. We believe that diversity of thought, experience, and background enhances the quality of our discussions and the value of our conference.</p>
+                
+                <h3>Expected Behavior</h3>
+                <p>All participants are expected to:</p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li style="margin: 8px 0;">Treat all individuals with respect and dignity</li>
+                    <li style="margin: 8px 0;">Engage in constructive and professional dialogue</li>
+                    <li style="margin: 8px 0;">Listen actively and consider diverse perspectives</li>
+                    <li style="margin: 8px 0;">Maintain confidentiality as required by the Chatham House Rule</li>
+                    <li style="margin: 8px 0;">Respect the venue and facilities</li>
+                    <li style="margin: 8px 0;">Follow all applicable laws and regulations</li>
+                </ul>
+                
+                <h3>Unacceptable Behavior</h3>
+                <p>The following behaviors are considered unacceptable and will not be tolerated:</p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li style="margin: 8px 0;">Harassment, discrimination, or bullying of any kind</li>
+                    <li style="margin: 8px 0;">Inappropriate or offensive comments, gestures, or materials</li>
+                    <li style="margin: 8px 0;">Intimidation or threats directed at other participants</li>
+                    <li style="margin: 8px 0;">Disruption of presentations or discussions</li>
+                    <li style="margin: 8px 0;">Unauthorized recording or photography</li>
+                    <li style="margin: 8px 0;">Violation of the Chatham House Rule</li>
+                    <li style="margin: 8px 0;">Any behavior that creates an unsafe or unwelcoming environment</li>
+                </ul>
+                
+                <h3>Reporting Violations</h3>
+                <p>If you experience or witness behavior that violates this Code of Conduct, please report it immediately to conference organizers. Reports can be made:</p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li style="margin: 8px 0;">In person to any conference organizer</li>
+                    <li style="margin: 8px 0;">Via email to <a href="mailto:admin@oxfordsemi.org">admin@oxfordsemi.org</a></li>
+                    <li style="margin: 8px 0;">Through the designated reporting channels at the venue</li>
+                </ul>
+                
+                <h3>Consequences</h3>
+                <p>Violations of this Code of Conduct may result in:</p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li style="margin: 8px 0;">Immediate removal from the conference</li>
+                    <li style="margin: 8px 0;">Exclusion from future conferences</li>
+                    <li style="margin: 8px 0;">Notification to relevant authorities if required by law</li>
+                    <li style="margin: 8px 0;">Other appropriate actions as determined by conference organizers</li>
+                </ul>
+                
+                <h3>Confidentiality</h3>
+                <p>All reports of Code of Conduct violations will be handled confidentially to the extent possible while ensuring appropriate action is taken. The privacy of all parties involved will be respected.</p>
+                
+                <h3>Commitment to Improvement</h3>
+                <p>We are committed to continuously improving our conference environment. Feedback on this Code of Conduct and suggestions for improvement are welcome and can be sent to <a href="mailto:admin@oxfordsemi.org">admin@oxfordsemi.org</a>.</p>
+                
+                <h3>Contact Information</h3>
+                <p>For questions about this Code of Conduct or to report violations:</p>
+                <p><strong>Email:</strong> <a href="mailto:admin@oxfordsemi.org">admin@oxfordsemi.org</a></p>
+                <p><strong>Emergency:</strong> Contact venue security or call emergency services (999 in the UK)</p>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Single page application functionality
         document.querySelectorAll('.nav-link').forEach(link => {
@@ -1038,6 +1175,8 @@
             if (e.key === 'Escape') {
                 closeModal();
                 closeFormalwearModal();
+                closeChathamHouseModal();
+                closeCodeOfConductModal();
             }
         });
 
@@ -1062,6 +1201,53 @@
         document.getElementById('formalwearModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeFormalwearModal();
+            }
+        });
+
+        // Chatham House Rules modal functionality
+        function openChathamHouseModal() {
+            const modal = document.getElementById('chathamHouseModal');
+            modal.classList.add('show');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeChathamHouseModal() {
+            const modal = document.getElementById('chathamHouseModal');
+            modal.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Code of Conduct modal functionality
+        function openCodeOfConductModal() {
+            const modal = document.getElementById('codeOfConductModal');
+            modal.classList.add('show');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCodeOfConductModal() {
+            const modal = document.getElementById('codeOfConductModal');
+            modal.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close policy modals when clicking outside the modal content
+        document.getElementById('chathamHouseModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeChathamHouseModal();
+            }
+        });
+
+        document.getElementById('codeOfConductModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCodeOfConductModal();
             }
         });
     </script>
