@@ -258,14 +258,14 @@
             }
 
             .nav-button {
-                font-size: 1.2rem;
-                padding: 6px 10px;
-                width: 70px;
+                font-size: 1.4rem;
+                padding: 8px 12px;
+                width: 80px;
             }
 
             /* Spanish language specific styles for mobile */
             .nav-button[data-es] {
-                font-size: 0.72rem; /* 40% smaller than 1.2rem */
+                font-size: 0.84rem; /* 40% smaller than 1.4rem */
             }
 
             .menu {
@@ -294,13 +294,13 @@
             }
 
             .flag-button {
-                width: 4.5vw;
-                height: 3.375vw;
-                min-width: 24px;
-                min-height: 18px;
-                max-width: 32px;
-                max-height: 24px;
-                margin: 0.5vw;
+                width: 3.5vw;
+                height: 2.625vw;
+                min-width: 20px;
+                min-height: 15px;
+                max-width: 26px;
+                max-height: 19px;
+                margin: 0.3vw;
             }
 
             .small-logo-container {
@@ -342,34 +342,34 @@
             }
 
             .nav-button {
-                font-size: 1.05rem;
+                font-size: 1.2rem;
             }
 
             /* Spanish language specific styles for small mobile */
             .nav-button[data-es] {
-                font-size: 0.63rem; /* 40% smaller than 1.05rem */
+                font-size: 0.72rem; /* 40% smaller than 1.2rem */
             }
 
             .language-switcher {
                 top: 15vh;
                 left: 50%;
                 transform: translateX(-50%);
-                gap: 2vw;
-                padding: 1.0vw 2vw;
-                max-width: 110vw;
+                gap: 1.2vw;
+                padding: 0.8vw 1.2vw;
+                max-width: 80vw;
                 flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
             }
 
             .flag-button {
-                width: 5.5vw;
-                height: 4.125vw;
-                min-width: 20px;
-                min-height: 15px;
-                max-width: 28px;
-                max-height: 21px;
-                margin: 0.8vw;
+                width: 4vw;
+                height: 3vw;
+                min-width: 18px;
+                min-height: 13px;
+                max-width: 24px;
+                max-height: 18px;
+                margin: 0.4vw;
             }
         }
 
@@ -501,9 +501,9 @@
                 if (lang === 'es') {
                     // 40% smaller font sizes for Spanish
                     if (window.innerWidth <= 480) {
-                        button.style.fontSize = '0.63rem'; // Small mobile
+                        button.style.fontSize = '0.72rem'; // Small mobile
                     } else if (window.innerWidth <= 768) {
-                        button.style.fontSize = '0.72rem'; // Tablet
+                        button.style.fontSize = '0.84rem'; // Tablet
                     } else {
                         button.style.fontSize = '0.96rem'; // Desktop
                     }
