@@ -382,7 +382,7 @@
 <body>
     <a href="index.html" class="logo">
         <img src="./assets/OSC.png" alt="Conference Logo">
-        <span class="home-text">HOME</span>
+        <span class="home-text" data-en="Back to Home" data-es="Volver al Inicio" data-ja="ホームに戻る" data-zh="返回首頁" data-hi="होम पर वापस जाएं">Back to Home</span>
     </a>
 
     <div class="language-switcher">
@@ -399,17 +399,17 @@
         
         <div class="navigation">
             <div class="nav-item">
-                <a href="committee.html" class="nav-label">Committee</a>
+                <a href="committee.html" class="nav-label" data-en="Committee" data-es="Comité" data-ja="委員会" data-zh="委員會" data-hi="समिति">Committee</a>
             </div>
             <div class="nav-item">
-                <a href="boardofadvisers.html" class="nav-label">Board of Advisers</a>
+                <a href="boardofadvisers.html" class="nav-label" data-en="Board of Advisers" data-es="Junta de Asesores" data-ja="諮問委員会" data-zh="顧問委員會" data-hi="सलाहकार बोर्ड">Board of Advisers</a>
             </div>
             <div class="nav-item">
-                <a href="contactus.html" class="nav-label">Contact Us</a>
+                <a href="contactus.html" class="nav-label" data-en="Contact Us" data-es="Contáctanos" data-ja="お問い合わせ" data-zh="聯絡我們" data-hi="हमसे संपर्क करें">Contact Us</a>
             </div>
             <div class="nav-item">
                 <input type="radio" name="nav" id="past" class="nav-radio">
-                <label for="past" class="nav-label">Past Conferences</label>
+                <label for="past" class="nav-label" data-en="Past Conferences" data-es="Conferencias Pasadas" data-ja="過去の会議" data-zh="過往會議" data-hi="पिछले सम्मेलन">Past Conferences</label>
                 <div class="dropdown-content">
                     <a href="conf2024.html" class="dropdown-item">2024</a>
                 </div>
@@ -420,65 +420,9 @@
     <div id="particles-container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+    <script src="language-manager.js"></script>
     <script>
-        // Language translations
-        const translations = {
-            en: {
-                title: "Mission - Oxford Semiconductor Conference",
-                missionTitle: "Mission Statement",
-                missionText: "Harnessing the United Kingdom and the University of Oxford's unrivaled convening power, the Oxford Semiconductor Conference brings together senior figures from government, industry, academia, and think tanks to tackle pressing challenges in the semiconductor and AI sectors. Through private, solutions-focused dialogue, the event cultivates strategic partnerships, shapes policy, and bolsters high-tech resilience across like-minded international stakeholders, amidst geopolitical flux."
-            },
-            es: {
-                title: "Misión - Conferencia de Semiconductores de Oxford",
-                missionTitle: "Declaración de Misión",
-                missionText: "Aprovechando el poder de convocatoria sin igual del Reino Unido y la Universidad de Oxford, la Conferencia de Semiconductores de Oxford reúne a figuras senior del gobierno, la industria, la academia y los think tanks para abordar los desafíos apremiantes en los sectores de semiconductores e IA. A través del diálogo privado y centrado en soluciones, el evento cultiva asociaciones estratégicas, da forma a las políticas y fortalece la resiliencia de alta tecnología entre las partes interesadas internacionales afines, en medio del flujo geopolítico."
-            },
-            ja: {
-                title: "ミッション - オックスフォード半導体会議",
-                missionTitle: "ミッションステートメント",
-                missionText: "イギリスとオックスフォード大学の比類なき招集力を活用し、オックスフォード半導体会議は、政府、産業界、学界、シンクタンクから上級幹部を集め、半導体とAIセクターの緊急課題に取り組みます。プライベートで解決策に焦点を当てた対話を通じて、このイベントは戦略的パートナーシップを育み、政策を形成し、地政学的変動の中で、志を同じくする国際的なステークホルダー間のハイテクレジリエンスを強化します。"
-            },
-            zh: {
-                title: "使命 - 牛津半導體會議",
-                missionTitle: "使命宣言",
-                missionText: "利用英國和牛津大學無與倫比的召集力，牛津半導體會議匯集來自政府、工業界、學術界和智庫的高級人物，以應對半導體和人工智能領域的緊迫挑戰。通過私密、以解決方案為重點的對話，該活動在地緣政治動盪中培養戰略夥伴關係，塑造政策，並在志同道合的國際利益相關者中增強高科技韌性。"
-            },
-            hi: {
-                title: "मिशन - ऑक्सफोर्ड सेमीकंडक्टर सम्मेलन",
-                missionTitle: "मिशन स्टेटमेंट",
-                missionText: "यूनाइटेड किंगडम और ऑक्सफोर्ड विश्वविद्यालय की अद्वितीय आमंत्रण शक्ति का लाभ उठाते हुए, ऑक्सफोर्ड सेमीकंडक्टर सम्मेलन सरकार, उद्योग, शिक्षाविदों और थिंक टैंकों के वरिष्ठ व्यक्तियों को एक साथ लाता है ताकि सेमीकंडक्टर और AI क्षेत्रों में दबाव वाली चुनौतियों का सामना किया जा सके। निजी, समाधान-केंद्रित संवाद के माध्यम से, यह कार्यक्रम रणनीतिक साझेदारी को विकसित करता है, नीति को आकार देता है, और भू-राजनीतिक उथल-पुथल के बीच समान विचारधारा वाले अंतरराष्ट्रीय हितधारकों में उच्च-तकनीकी लचीलापन को मजबूत करता है।"
-            }
-        };
-
-        // Language switcher functionality
-        function switchLanguage(lang) {
-            // Update all elements with data attributes
-            document.querySelectorAll('[data-' + lang + ']').forEach(element => {
-                element.textContent = element.getAttribute('data-' + lang);
-            });
-
-            // Update document language
-            document.documentElement.lang = lang;
-
-            // Update active flag
-            document.querySelectorAll('.flag-button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector('[data-lang="' + lang + '"]').classList.add('active');
-
-            // Update page title
-            document.title = translations[lang].title;
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
-            // Add click event listeners to flag buttons
-            document.querySelectorAll('.flag-button').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const lang = this.getAttribute('data-lang');
-                    switchLanguage(lang);
-                });
-            });
-
             if (typeof tsParticles !== 'undefined') {
                 tsParticles.load("particles-container", {
                     particles: {
