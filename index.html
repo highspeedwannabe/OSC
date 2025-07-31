@@ -204,6 +204,10 @@
             background-image: url('https://flagcdn.com/w80/tw.png');
         }
 
+        .flag-in {
+            background-image: url('https://flagcdn.com/w80/in.png');
+        }
+
   /* Mobile Styles */
   @media screen and (max-width: 768px) {
             .logo-container {
@@ -374,28 +378,29 @@
     <div class="content">
         <h1 class="title">
             <span class="text-wrapper">
-                <span data-en="Oxford" data-es="Oxford" data-ja="オックスフォード" data-zh="牛津">Oxford</span>
-                <span data-en="Semiconductor" data-es="Semiconductor" data-ja="半導体" data-zh="半導體">Semiconductor</span>
-                <span data-en="Conference" data-es="Conferencia" data-ja="会議" data-zh="會議">Conference</span>
+                <span data-en="Oxford" data-es="Oxford" data-ja="オックスフォード" data-zh="牛津" data-hi="ऑक्सफोर्ड">Oxford</span>
+                <span data-en="Semiconductor" data-es="Semiconductor" data-ja="半導体" data-zh="半導體" data-hi="सेमीकंडक्टर">Semiconductor</span>
+                <span data-en="Conference" data-es="Conferencia" data-ja="会議" data-zh="會議" data-hi="सम्मेलन">Conference</span>
             </span>
         </h1>
-        <div class="subtitle" data-en="A 501(c)3 Non-profit Organization" data-es="Una Organización Sin Fines de Lucro 501(c)3" data-ja="501(c)3非営利団体" data-zh="501(c)3非營利組織">A 501(c)3 Non-profit Organization</div>
+        <div class="subtitle" data-en="A 501(c)3 Non-profit Organization" data-es="Una Organización Sin Fines de Lucro 501(c)3" data-ja="501(c)3非営利団体" data-zh="501(c)3非營利組織" data-hi="501(c)3 गैर-लाभकारी संगठन">A 501(c)3 Non-profit Organization</div>
     </div>
 
     <nav class="menu-left">
-        <a href="/mission" class="nav-button" data-en="About OSC" data-es="Acerca de OSC" data-ja="OSCについて" data-zh="關於OSC">About OSC</a>
+        <a href="/mission" class="nav-button" data-en="About OSC" data-es="Acerca de OSC" data-ja="OSCについて" data-zh="關於OSC" data-hi="OSC के बारे में">About OSC</a>
     </nav>
 
     <nav class="menu">
-        <a href="/auth" class="nav-button" data-en="Delegate Login" data-es="Inicio de Sesión de Delegado" data-ja="代表者ログイン" data-zh="代表登入">Delegate Login</a>
+        <a href="/auth" class="nav-button" data-en="Delegate Login" data-es="Inicio de Sesión de Delegado" data-ja="代表者ログイン" data-zh="代表登入" data-hi="प्रतिनिधि लॉगिन">Delegate Login</a>
     </nav>
 
-    <div class="language-switcher">
-        <div class="flag-button flag-uk active" data-lang="en" title="English"></div>
-        <div class="flag-button flag-mx" data-lang="es" title="Español"></div>
-        <div class="flag-button flag-jp" data-lang="ja" title="日本語"></div>
-        <div class="flag-button flag-tw" data-lang="zh" title="繁體中文"></div>
-    </div>
+            <div class="language-switcher">
+            <div class="flag-button flag-uk active" data-lang="en" title="English"></div>
+            <div class="flag-button flag-mx" data-lang="es" title="Español"></div>
+            <div class="flag-button flag-jp" data-lang="ja" title="日本語"></div>
+            <div class="flag-button flag-tw" data-lang="zh" title="繁體中文"></div>
+            <div class="flag-button flag-in" data-lang="hi" title="हिंदी"></div>
+        </div>
 
     <script src="p5.min.js"></script>
     <script src="vanta.trunk.min.js"></script>
@@ -425,6 +430,12 @@
                 subtitle: "501(c)3非營利組織",
                 aboutButton: "關於OSC",
                 loginButton: "代表登入"
+            },
+            hi: {
+                title: "ऑक्सफोर्ड सेमीकंडक्टर सम्मेलन",
+                subtitle: "501(c)3 गैर-लाभकारी संगठन",
+                aboutButton: "OSC के बारे में",
+                loginButton: "प्रतिनिधि लॉगिन"
             }
         };
 
