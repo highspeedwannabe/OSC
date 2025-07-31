@@ -257,28 +257,7 @@
                 font-size: 0.9rem;
             }
 
-            .language-switcher {
-                top: 25vh;
-                left: 50%;
-                transform: translateX(-50%);
-                animation: fadeIn 1s 2s forwards;
-                gap: 1.5vw;
-                padding: 1vw 1.5vw;
-                max-width: 85vw;
-                flex-wrap: wrap;
-                justify-content: center;
-                align-items: center;
-            }
 
-            .flag-button {
-                width: 4.5vw;
-                height: 3.375vw;
-                min-width: 24px;
-                min-height: 18px;
-                max-width: 32px;
-                max-height: 24px;
-                margin: 0.5vw;
-            }
         }
 
         @media (min-width: 769px) and (max-width: 1800px) {
@@ -307,71 +286,7 @@
             50% { text-shadow: 0 0 20px rgba(255,255,255,0.4), 0 0 30px rgba(255,255,255,0.3), 0 0 40px rgba(255,255,255,0.2); }
         }
 
-        /* Language Switcher Styles */
-        .language-switcher {
-            position: fixed;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 5;
-            opacity: 0;
-            animation: fadeIn 1s 1s forwards;
-            display: flex;
-            gap: 0.6vw;
-            background: rgba(128, 128, 128, 0.4);
-            padding: 0.6vw 1vw;
-            border-radius: 8px;
-            backdrop-filter: blur(15px);
-            border: 2px solid white;
-        }
 
-        .flag-button {
-            width: 2.5vw;
-            height: 1.875vw;
-            min-width: 24px;
-            min-height: 18px;
-            max-width: 40px;
-            max-height: 30px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        .flag-button:hover {
-            transform: scale(1.15);
-            border-color: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-        }
-
-        .flag-button.active {
-            border-color: white;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-        }
-
-        .flag-uk {
-            background-image: url('https://flagcdn.com/w80/gb.png');
-        }
-
-        .flag-mx {
-            background-image: url('https://flagcdn.com/w80/mx.png');
-        }
-
-        .flag-jp {
-            background-image: url('https://flagcdn.com/w80/jp.png');
-        }
-
-        .flag-tw {
-            background-image: url('https://flagcdn.com/w80/tw.png');
-        }
-
-        .flag-in {
-            background-image: url('https://flagcdn.com/w80/in.png');
-        }
 
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -385,13 +300,7 @@
         <span class="home-text">HOME</span>
     </a>
 
-    <div class="language-switcher">
-        <div class="flag-button flag-uk active" data-lang="en" title="English"></div>
-        <div class="flag-button flag-mx" data-lang="es" title="Español"></div>
-        <div class="flag-button flag-jp" data-lang="ja" title="日本語"></div>
-        <div class="flag-button flag-tw" data-lang="zh" title="繁體中文"></div>
-        <div class="flag-button flag-in" data-lang="hi" title="हिंदी"></div>
-    </div>
+
 
     <div class="hero-section">
         <h1 class="mission-title" data-en="Mission Statement" data-es="Declaración de Misión" data-ja="ミッションステートメント" data-zh="使命宣言" data-hi="मिशन स्टेटमेंट">Mission Statement</h1>
