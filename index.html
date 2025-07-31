@@ -132,18 +132,21 @@
         .nav-button {
             color: white;
             text-decoration: none;
-            font-size: 1.6rem;
+            font-size: 2rem;
             padding: 15px 30px;
             border: 2px solid white;
             border-radius: 8px;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            white-space: normal;
+            text-align: center;
+            line-height: 1.2;
         }
 
         /* Spanish language specific styles */
         .nav-button[data-es] {
-            font-size: 0.96rem; /* 40% smaller than 1.6rem */
+            font-size: 1.2rem; /* 40% smaller than 2rem */
         }
 
         .nav-button:hover {
@@ -258,14 +261,20 @@
             }
 
             .nav-button {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
                 padding: 8px 12px;
                 width: 80px;
+                white-space: normal;
+                word-wrap: break-word;
+                min-height: 45px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             /* Spanish language specific styles for mobile */
             .nav-button[data-es] {
-                font-size: 0.84rem; /* 40% smaller than 1.4rem */
+                font-size: 0.96rem; /* 40% smaller than 1.6rem */
             }
 
             .menu {
@@ -342,12 +351,18 @@
             }
 
             .nav-button {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
+                white-space: normal;
+                word-wrap: break-word;
+                min-height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             /* Spanish language specific styles for small mobile */
             .nav-button[data-es] {
-                font-size: 0.72rem; /* 40% smaller than 1.2rem */
+                font-size: 0.84rem; /* 40% smaller than 1.4rem */
             }
 
             .language-switcher {
@@ -501,11 +516,11 @@
                 if (lang === 'es') {
                     // 40% smaller font sizes for Spanish
                     if (window.innerWidth <= 480) {
-                        button.style.fontSize = '0.72rem'; // Small mobile
+                        button.style.fontSize = '0.84rem'; // Small mobile
                     } else if (window.innerWidth <= 768) {
-                        button.style.fontSize = '0.84rem'; // Tablet
+                        button.style.fontSize = '0.96rem'; // Tablet
                     } else {
-                        button.style.fontSize = '0.96rem'; // Desktop
+                        button.style.fontSize = '1.2rem'; // Desktop
                     }
                 } else {
                     button.style.fontSize = ''; // Reset to default
