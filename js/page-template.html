@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title - Oxford Semiconductor Conference</title>
+    <!-- Your existing head content -->
+</head>
+<body>
+    <!-- Your page content with data attributes for translations -->
+    <h1 data-en="English Title" data-es="Título en Español" data-ja="日本語タイトル" data-zh="中文標題" data-hi="हिंदी शीर्षक">English Title</h1>
+    <p data-en="English content" data-es="Contenido en español" data-ja="日本語コンテンツ" data-zh="中文內容" data-hi="हिंदी सामग्री">English content</p>
+
+    <!-- Your existing scripts -->
+    <script src="js/language-manager.js"></script>
+    <script>
+        // Add page-specific translations to the language manager
+        document.addEventListener('DOMContentLoaded', function() {
+            const pageTranslations = {
+                en: {
+                    title: "Page Title - Oxford Semiconductor Conference",
+                    // Add your page-specific translations here
+                },
+                es: {
+                    title: "Título de Página - Conferencia de Semiconductores de Oxford",
+                    // Add your page-specific translations here
+                },
+                ja: {
+                    title: "ページタイトル - オックスフォード半導体会議",
+                    // Add your page-specific translations here
+                },
+                zh: {
+                    title: "頁面標題 - 牛津半導體會議",
+                    // Add your page-specific translations here
+                },
+                hi: {
+                    title: "पेज शीर्षक - ऑक्सफोर्ड सेमीकंडक्टर सम्मेलन",
+                    // Add your page-specific translations here
+                }
+            };
+            
+            // Add translations to the language manager
+            if (window.languageManager) {
+                window.languageManager.addTranslations(pageTranslations);
+            }
+        });
+    </script>
+</body>
+</html> 

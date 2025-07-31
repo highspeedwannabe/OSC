@@ -456,51 +456,8 @@
 
     <script src="p5.min.js"></script>
     <script src="vanta.trunk.min.js"></script>
-    <script src="language-manager.js"></script>
+    <script src="js/language-manager.js"></script>
     <script>
-        // Language switcher functionality for main page
-        function switchLanguage(lang) {
-            // Store language preference
-            localStorage.setItem('osc-language', lang);
-            
-            // Update all elements with data attributes
-            document.querySelectorAll('[data-' + lang + ']').forEach(element => {
-                element.textContent = element.getAttribute('data-' + lang);
-            });
-
-            // Update document language
-            document.documentElement.lang = lang;
-
-            // Update active flag
-            document.querySelectorAll('.flag-button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector('[data-lang="' + lang + '"]').classList.add('active');
-
-            // Update page title
-            const translations = siteTranslations[lang];
-            if (translations && translations.title) {
-                document.title = translations.title;
-            }
-
-            // Apply Spanish-specific styling
-            const navButtons = document.querySelectorAll('.nav-button');
-            navButtons.forEach(button => {
-                if (lang === 'es') {
-                    // 40% smaller font sizes for Spanish
-                    if (window.innerWidth <= 480) {
-                        button.style.fontSize = '0.84rem'; // Small mobile
-                    } else if (window.innerWidth <= 768) {
-                        button.style.fontSize = '0.96rem'; // Tablet
-                    } else {
-                        button.style.fontSize = '1.2rem'; // Desktop
-                    }
-                } else {
-                    button.style.fontSize = ''; // Reset to default
-                }
-            });
-        }
-
         // Initialize Vanta.js trunk effect
         let vantaEffect;
         
@@ -517,14 +474,6 @@
                 document.querySelector('.small-logo-container').style.opacity = '1';
                 document.querySelector('#vanta-background').style.opacity = '1';
             }, window.innerWidth <= 768 ? 2500 : 1500);
-
-            // Add click event listeners to flag buttons
-            document.querySelectorAll('.flag-button').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const lang = this.getAttribute('data-lang');
-                    switchLanguage(lang);
-                });
-            });
         });
 
         // Prevent keyboard shortcuts for saving/downloading

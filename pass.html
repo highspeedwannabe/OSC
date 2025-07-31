@@ -71,17 +71,16 @@
     <div class="password-container">
         <img src="./assets/OSC.png" alt="OSC Logo" class="logo">
         <input type="password" id="password" placeholder="Enter Password" onkeyup="checkPassword(event)">
-        <div class="incorrect" id="incorrect" data-en="Incorrect Password" data-es="Contraseña Incorrecta" data-ja="パスワードが間違っています" data-zh="密碼錯誤" data-hi="गलत पासवर्ड">Incorrect Password</div>
+        <div class="incorrect" id="incorrect">Incorrect Password</div>
         <div class="letters">O S C</div>
     </div>
 
     <div id="content">
         <!-- Content that appears after correct password -->
-        <h1 data-en="Welcome to OSC Members Area" data-es="Bienvenido al Área de Miembros de OSC" data-ja="OSCメンバーエリアへようこそ" data-zh="歡迎來到OSC會員區" data-hi="OSC सदस्य क्षेत्र में आपका स्वागत है">Welcome to OSC Members Area</h1>
+        <h1>Welcome to OSC Members Area</h1>
         <!-- Add your protected content here -->
     </div>
 
-    <script src="language-manager.js"></script>
     <script>
         function checkPassword(event) {
             const password = document.getElementById('password').value;
