@@ -118,6 +118,16 @@ class LanguageManager {
                     this.applyLanguage(lang);
                 });
             });
+        } else {
+            // Hide any language switcher elements that might exist on non-index pages
+            const anyLanguageSwitcher = document.querySelector('.language-switcher');
+            if (anyLanguageSwitcher) {
+                anyLanguageSwitcher.style.display = 'none';
+            }
+            const anyFlagButtons = document.querySelectorAll('.flag-button');
+            anyFlagButtons.forEach(btn => {
+                btn.style.display = 'none';
+            });
         }
     }
 
