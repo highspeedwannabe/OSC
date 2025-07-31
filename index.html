@@ -141,6 +141,11 @@
             letter-spacing: 0.05em;
         }
 
+        /* Spanish language specific styles */
+        .nav-button[data-es] {
+            font-size: 0.96rem; /* 40% smaller than 1.6rem */
+        }
+
         .nav-button:hover {
             background: white;
             color: #222426;
@@ -258,6 +263,11 @@
                 width: 70px;
             }
 
+            /* Spanish language specific styles for mobile */
+            .nav-button[data-es] {
+                font-size: 0.72rem; /* 40% smaller than 1.2rem */
+            }
+
             .menu {
                 right: 20px;
                 top: 30px;
@@ -271,13 +281,13 @@
             }
 
             .language-switcher {
-                top: 25vh;
+                top: 15vh;
                 left: 50%;
                 transform: translateX(-50%);
                 animation: fadeIn 1s 2s forwards;
                 gap: 1.5vw;
                 padding: 1vw 1.5vw;
-                max-width: 85vw;
+                max-width: 100vw;
                 flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
@@ -333,6 +343,11 @@
 
             .nav-button {
                 font-size: 1.05rem;
+            }
+
+            /* Spanish language specific styles for small mobile */
+            .nav-button[data-es] {
+                font-size: 0.63rem; /* 40% smaller than 1.05rem */
             }
 
             .language-switcher {
@@ -479,6 +494,23 @@
 
             // Update page title
             document.title = translations[lang].title;
+
+            // Apply Spanish-specific styling
+            const navButtons = document.querySelectorAll('.nav-button');
+            navButtons.forEach(button => {
+                if (lang === 'es') {
+                    // 40% smaller font sizes for Spanish
+                    if (window.innerWidth <= 480) {
+                        button.style.fontSize = '0.63rem'; // Small mobile
+                    } else if (window.innerWidth <= 768) {
+                        button.style.fontSize = '0.72rem'; // Tablet
+                    } else {
+                        button.style.fontSize = '0.96rem'; // Desktop
+                    }
+                } else {
+                    button.style.fontSize = ''; // Reset to default
+                }
+            });
         }
 
         // Initialize Vanta.js trunk effect
