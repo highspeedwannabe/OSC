@@ -15,43 +15,123 @@
         }
 
         body {
-            background: #0f0f0f;
+            background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
             color: #e5e5e5;
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background gradient */
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Floating particles effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-20px) rotate(1deg);
+            }
+            66% {
+                transform: translateY(10px) rotate(-1deg);
+            }
+        }
+
+        /* Subtle grid pattern overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Header */
+        /* Header with enhanced styling */
         .header {
-            background: linear-gradient(135deg, #1a2332 0%, #2d3748 100%);
+            background: linear-gradient(135deg, rgba(26, 35, 50, 0.95) 0%, rgba(45, 55, 72, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             color: white;
             padding: 20px 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-            border-bottom: 1px solid #2d3748;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
         }
+
+
 
         .header-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: relative;
+            z-index: 1;
         }
 
         .logo {
             width: 80px;
             height: auto;
             filter: brightness(0) invert(1);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         .header-title {
             font-size: 1.8rem;
             font-weight: 600;
             margin-left: 20px;
+            background: linear-gradient(45deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .back-link {
@@ -61,21 +141,27 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 6px;
             transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
         }
 
         .back-link:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
-        /* Navigation Menu */
+        /* Navigation Menu with enhanced styling */
         .nav-menu {
-            background: #1a2332;
-            border-bottom: 1px solid #2d3748;
+            background: rgba(26, 35, 50, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .nav-container {
@@ -90,7 +176,8 @@
         }
 
         .nav-item {
-            border-right: 1px solid #333;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
         }
 
         .nav-item:last-child {
@@ -106,24 +193,30 @@
             transition: all 0.3s ease;
             border-bottom: 3px solid transparent;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
+
+
 
         .nav-link:hover,
         .nav-link.active {
             color: #fff;
-            background: #2d3748;
+            background: rgba(255, 255, 255, 0.1);
             border-bottom-color: #4a5568;
+            transform: translateY(-2px);
         }
 
-        /* Main Content */
+        /* Main Content with enhanced styling */
         .main-content {
             padding: 60px 0;
             min-height: 70vh;
+            position: relative;
         }
 
         .content-section {
             display: none;
-            animation: fadeIn 0.3s ease-in;
+            animation: fadeIn 0.5s ease-in;
         }
 
         .content-section.active {
@@ -131,11 +224,25 @@
         }
 
         .section {
-            background: linear-gradient(135deg, #1a2332 0%, #1a1a1a 100%);
-            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(26, 35, 50, 0.9) 0%, rgba(26, 26, 26, 0.9) 100%);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 16px;
             padding: 40px;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
-            border: 1px solid #2d3748;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
         }
 
         .section-title {
@@ -144,8 +251,12 @@
             color: #fff;
             margin-bottom: 30px;
             padding-bottom: 15px;
-            border-bottom: 2px solid #333;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
             position: relative;
+            background: linear-gradient(45deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .section-title::after {
@@ -155,7 +266,8 @@
             left: 0;
             width: 60px;
             height: 2px;
-            background: #4a5568;
+            background: linear-gradient(90deg, #4a5568, #718096);
+            border-radius: 1px;
         }
 
         .content-grid {
@@ -166,17 +278,23 @@
         }
 
         .info-card {
-            background: linear-gradient(135deg, #2d3748 0%, #2d2d2d 100%);
-            border: 1px solid #2d3748;
-            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(45, 55, 72, 0.8) 0%, rgba(45, 45, 45, 0.8) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
             padding: 25px;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
 
+
+
         .info-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            border-color: #4a5568;
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .card-title {
@@ -184,6 +302,20 @@
             font-weight: 600;
             color: #fff;
             margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Category titles styling */
+        .info-card .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.5px;
         }
 
         .venue-title {
@@ -191,10 +323,14 @@
             font-weight: 600;
             color: #fff;
             margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .card-content {
             color: #ccc;
+            position: relative;
+            z-index: 1;
         }
 
         .info-list {
@@ -203,8 +339,9 @@
 
         .info-list li {
             padding: 8px 0;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             color: #ccc;
+            transition: all 0.3s ease;
         }
 
         .info-list li:last-child {
@@ -214,13 +351,17 @@
         .info-list li:hover {
             color: #fff;
             padding-left: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
         }
 
-        /* Agenda Styles */
+        /* Agenda Styles with enhanced effects */
         .agenda-item {
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding: 15px 0;
             margin-bottom: 10px;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .agenda-item:last-child {
@@ -232,10 +373,14 @@
             color: #fff;
             font-size: 1.1rem;
             margin-bottom: 5px;
+            background: linear-gradient(45deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .location {
-            color: #666;
+            color: #888;
             font-size: 0.9rem;
             font-style: italic;
             margin-bottom: 8px;
@@ -249,19 +394,20 @@
 
         .agenda-item:hover {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 6px;
+            border-radius: 8px;
             padding: 15px;
             margin: 0 -15px 10px -15px;
+            transform: translateX(5px);
         }
 
         .agenda-item:hover .event-title {
             color: #fff;
         }
 
-        /* Contact Section */
+        /* Contact Section with enhanced styling */
         .contact-section {
-            background: linear-gradient(135deg, #2d3748 0%, #1a2332 100%);
-            border: 1px solid #2d3748;
+            background: linear-gradient(135deg, rgba(45, 55, 72, 0.9) 0%, rgba(26, 35, 50, 0.9) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .contact-title {
@@ -279,22 +425,257 @@
             color: #fff;
             margin: 20px 0;
             padding: 20px;
-            background: #1a1a1a;
-            border-radius: 8px;
-            border: 2px solid #666;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
             display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Animations */
+
+
+        .contact-email:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Enhanced Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        /* Semiconductor circuit pattern overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.03) 0%, transparent 2px),
+                radial-gradient(circle at 80% 70%, rgba(0, 255, 255, 0.03) 0%, transparent 2px),
+                radial-gradient(circle at 40% 80%, rgba(0, 255, 255, 0.03) 0%, transparent 2px),
+                radial-gradient(circle at 90% 20%, rgba(0, 255, 255, 0.03) 0%, transparent 2px),
+                radial-gradient(circle at 10% 60%, rgba(0, 255, 255, 0.03) 0%, transparent 2px),
+                radial-gradient(circle at 70% 40%, rgba(0, 255, 255, 0.03) 0%, transparent 2px);
+            background-size: 50px 50px, 50px 50px, 200px 200px, 150px 150px, 180px 180px, 120px 120px, 250px 250px, 160px 160px;
+            pointer-events: none;
+            z-index: -1;
+            animation: circuitPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes circuitPulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(1.02);
+            }
+        }
+
+        /* Semiconductor pulse effect behind the main box */
+        .section::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, rgba(0, 255, 255, 0.05) 30%, transparent 70%);
+            border-radius: 20px;
+            z-index: -1;
+            animation: semiconductorPulse 4s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes semiconductorPulse {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+
+        /* Enhanced button styling */
+        .policy-btn, .formalwear-btn {
+            background: linear-gradient(135deg, rgba(74, 85, 104, 0.9) 0%, rgba(45, 55, 72, 0.9) 100%);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .policy-btn:hover, .formalwear-btn:hover {
+            background: linear-gradient(135deg, rgba(90, 103, 120, 0.9) 0%, rgba(61, 71, 88, 0.9) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Accommodation Styles */
+        .hotel-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hotel-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .hotel-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hotel-image-placeholder {
+            margin: 15px 0;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(45, 55, 72, 0.5) 0%, rgba(45, 45, 45, 0.5) 100%);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .image-placeholder:hover {
+            border-color: rgba(255, 255, 255, 0.5);
+            background: linear-gradient(135deg, rgba(45, 55, 72, 0.7) 0%, rgba(45, 45, 45, 0.7) 100%);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Hotel Carousel Styles */
+        .hotel-carousel {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            margin: 15px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-image.active {
+            opacity: 1;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: rgba(255, 255, 255, 0.9);
+            transform: scale(1.2);
+        }
+
+        .dot:hover {
+            background: rgba(255, 255, 255, 0.7);
         }
 
         /* Responsive Design */
@@ -519,6 +900,17 @@
         .formalwear-content a:hover {
             color: #fff;
             border-bottom-color: #fff;
+        }
+
+        /* Lighter phone number links */
+        .hotel-item a[href^="tel:"] {
+            color: #87CEEB;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .hotel-item a[href^="tel:"]:hover {
+            color: #B0E0E6;
         }
 
         .hire-section {
@@ -908,6 +1300,9 @@
                     <a class="nav-link active" data-section="planning">Planning</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" data-section="accommodations">Accommodations</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" data-section="agenda">Agenda</a>
                 </li>
                 <li class="nav-item">
@@ -945,7 +1340,6 @@
                             <h3 class="card-title">Local Services</h3>
                             <div class="card-content">
                                 <button class="formalwear-btn" onclick="openFormalwearModal()">Formalwear Rental</button>
-                                <button class="formalwear-btn" onclick="openLodgingModal()" style="margin-top: 10px;">Lodging Recommendations</button>
                                 <button class="formalwear-btn" onclick="openEmergencyModal()" style="margin-top: 10px;">Emergency Services</button>
                                 <button class="formalwear-btn" onclick="openAmenitiesModal()" style="margin-top: 10px;">Nearby Amenities</button>
                             </div>
@@ -1125,6 +1519,219 @@
                 </div>
             </div>
 
+            <!-- Accommodations Section -->
+            <div id="accommodations" class="content-section">
+                <div class="section">
+                    <h2 class="section-title">Accommodations</h2>
+                    <div class="content-grid">
+                        <div class="info-card">
+                            <h3 class="card-title">Five Star Hotels</h3>
+                            <div class="card-content">
+                                <div class="hotel-item">
+                                    <h4 class="hotel-name">Old Bank</h4>
+                                    <div class="hotel-carousel">
+                                        <button class="carousel-arrow carousel-prev" onclick="changeImage('oldbank', -1)">‹</button>
+                                        <div class="carousel-container">
+                                            <img src="./oldbank/0027-2017-Old-Bank-Hotel-Oxford-High-Res-Bedroom-Modern-Edited-Web-Hero.webp" alt="Old Bank Hotel" class="carousel-image active" data-hotel="oldbank">
+                                            <img src="./oldbank/0040-2016-Quod-Restaurant-Bar-Oxford-High-Res-Dining-Windows-High-Street-Web-Hero.webp" alt="Old Bank Restaurant" class="carousel-image" data-hotel="oldbank">
+                                            <img src="./oldbank/s1654x900.jpg" alt="Old Bank Hotel" class="carousel-image" data-hotel="oldbank">
+                                        </div>
+                                        <button class="carousel-arrow carousel-next" onclick="changeImage('oldbank', 1)">›</button>
+                                        <div class="carousel-dots">
+                                            <span class="dot active" onclick="goToImage('oldbank', 0)"></span>
+                                            <span class="dot" onclick="goToImage('oldbank', 1)"></span>
+                                            <span class="dot" onclick="goToImage('oldbank', 2)"></span>
+                                        </div>
+                                    </div>
+                                    <p><strong>Address:</strong> 92-94 High St, Oxford OX1 4BJ, United Kingdom</p>
+                                    <p><strong>Phone:</strong> <a href="tel:+4418657999599">+44 1865 7999599</a></p>
+                                    <p><strong>Distance from St. Hilda's:</strong> 0.5 miles (0.8km)</p>
+                                </div>
+                                
+                                <div class="hotel-item">
+                                    <h4 class="hotel-name">The Randolph</h4>
+                                    <div class="hotel-carousel">
+                                        <button class="carousel-arrow carousel-prev" onclick="changeImage('randolph', -1)">‹</button>
+                                        <div class="carousel-container">
+                                            <img src="./randolph/db15974d.avif" alt="The Randolph Hotel" class="carousel-image active" data-hotel="randolph">
+                                            <img src="./randolph/oxford-morse-bar-randolph-graduate.png" alt="The Randolph Bar" class="carousel-image" data-hotel="randolph">
+                                            <img src="./randolph/0bf45a97.png" alt="The Randolph Hotel" class="carousel-image" data-hotel="randolph">
+                                        </div>
+                                        <button class="carousel-arrow carousel-next" onclick="changeImage('randolph', 1)">›</button>
+                                        <div class="carousel-dots">
+                                            <span class="dot active" onclick="goToImage('randolph', 0)"></span>
+                                            <span class="dot" onclick="goToImage('randolph', 1)"></span>
+                                            <span class="dot" onclick="goToImage('randolph', 2)"></span>
+                                        </div>
+                                    </div>
+                                    <p><strong>Address:</strong> Beaumont St, Oxford OX1 2LN, United Kingdom</p>
+                                    <p><strong>Phone:</strong> <a href="tel:+443448799132">+44 344 879 9132</a></p>
+                                    <p><strong>Distance from St. Hilda's:</strong> 1 mile (1.6km)</p>
+                                </div>
+
+                                <div class="hotel-item">
+                                    <h4 class="hotel-name">Old Parsonage Hotel</h4>
+                                    <div class="hotel-carousel">
+                                        <button class="carousel-arrow carousel-prev" onclick="changeImage('oldparsonage', -1)">‹</button>
+                                        <div class="carousel-container">
+                                            <img src="./oldparsonage/198047895.jpg" alt="Old Parsonage Hotel" class="carousel-image active" data-hotel="oldparsonage">
+                                            <img src="./oldparsonage/001-2014-Parsonage-Grill-Oxford-Restaurant-Seating-Colourful-Paintings-Web-Hero.webp" alt="Old Parsonage Restaurant" class="carousel-image" data-hotel="oldparsonage">
+                                            <img src="./oldparsonage/old-parsonage-front.webp" alt="Old Parsonage Hotel Front" class="carousel-image" data-hotel="oldparsonage">
+                                        </div>
+                                        <button class="carousel-arrow carousel-next" onclick="changeImage('oldparsonage', 1)">›</button>
+                                        <div class="carousel-dots">
+                                            <span class="dot active" onclick="goToImage('oldparsonage', 0)"></span>
+                                            <span class="dot" onclick="goToImage('oldparsonage', 1)"></span>
+                                            <span class="dot" onclick="goToImage('oldparsonage', 2)"></span>
+                                        </div>
+                                    </div>
+                                    <p><strong>Address:</strong> 1 Banbury Rd, Oxford OX2 6NN, United Kingdom</p>
+                                    <p><strong>Phone:</strong> <a href="tel:+441865310210">+44 1865 310210</a></p>
+                                    <p><strong>Distance from St. Hilda's:</strong> 1.2 miles (1.9km)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h3 class="card-title">Four Star Hotels</h3>
+                            <div class="card-content">
+                                <div class="hotel-item">
+                                    <h4 class="hotel-name">Mercure Oxford Eastgate</h4>
+                                    <div class="hotel-carousel">
+                                        <button class="carousel-arrow carousel-prev" onclick="changeImage('mercure', -1)">‹</button>
+                                        <div class="carousel-container">
+                                            <img src="./mercure/6668_rodbd_00_p_1024x768.jpg" alt="Mercure Oxford Eastgate" class="carousel-image active" data-hotel="mercure">
+                                            <img src="./mercure/1320333-mercure-oxford-eastgate-oxford.jpg" alt="Mercure Oxford Eastgate" class="carousel-image" data-hotel="mercure">
+                                            <img src="./mercure/6668_ho_03_p_1024x768.jpg" alt="Mercure Oxford Eastgate" class="carousel-image" data-hotel="mercure">
+                                        </div>
+                                        <button class="carousel-arrow carousel-next" onclick="changeImage('mercure', 1)">›</button>
+                                        <div class="carousel-dots">
+                                            <span class="dot active" onclick="goToImage('mercure', 0)"></span>
+                                            <span class="dot" onclick="goToImage('mercure', 1)"></span>
+                                            <span class="dot" onclick="goToImage('mercure', 2)"></span>
+                                        </div>
+                                    </div>
+                                    <p><strong>Address:</strong> 73 High St, Oxford OX1 4BE, United Kingdom</p>
+                                    <p><strong>Phone:</strong> <a href="tel:+441865248322">+44 1865 248322</a></p>
+                                    <p><strong>Distance from St. Hilda's:</strong> 0.4 miles (0.6km)</p>
+                                </div>
+                                
+                                <div class="hotel-item">
+                                    <h4 class="hotel-name">Courtyard by Marriott Oxford City Centre</h4>
+                                    <div class="hotel-carousel">
+                                        <button class="carousel-arrow carousel-prev" onclick="changeImage('courtyard', -1)">‹</button>
+                                        <div class="carousel-container">
+                                            <img src="./courtyardoxford/cy-oxfcy-king-guest-rm-vw25491-24598_Feature-Hor.jpg" alt="Courtyard by Marriott" class="carousel-image active" data-hotel="courtyard">
+                                            <img src="./courtyardoxford/oxfcy-rooftop-terrace-2606-hor-clsc.avif" alt="Courtyard by Marriott Rooftop" class="carousel-image" data-hotel="courtyard">
+                                            <img src="./courtyardoxford/oxfcy-exterior-oxford-2612.avif" alt="Courtyard by Marriott Exterior" class="carousel-image" data-hotel="courtyard">
+                                        </div>
+                                        <button class="carousel-arrow carousel-next" onclick="changeImage('courtyard', 1)">›</button>
+                                        <div class="carousel-dots">
+                                            <span class="dot active" onclick="goToImage('courtyard', 0)"></span>
+                                            <span class="dot" onclick="goToImage('courtyard', 1)"></span>
+                                            <span class="dot" onclick="goToImage('courtyard', 2)"></span>
+                                        </div>
+                                    </div>
+                                    <p><strong>Address:</strong> 15 Paradise St, Oxford OX1 1LD, United Kingdom</p>
+                                    <p><strong>Phone:</strong> <a href="tel:+441865306900">+44 1865 306900</a></p>
+                                    <p><strong>Distance from St. Hilda's:</strong> 1.1 miles (1.8km)</p>
+                                </div>
+                                
+                                <div class="hotel-item">
+                                    <h4 class="hotel-name">Malmaison Oxford</h4>
+                                    <div class="hotel-carousel">
+                                        <button class="carousel-arrow carousel-prev" onclick="changeImage('malmaison', -1)">‹</button>
+                                        <div class="carousel-container">
+                                            <img src="./malmaison/163140-90399090-1.jpg" alt="Malmaison Oxford" class="carousel-image active" data-hotel="malmaison">
+                                            <img src="./malmaison/Malmaison-Oxford-review-1440x900.jpg.webp" alt="Malmaison Oxford" class="carousel-image" data-hotel="malmaison">
+                                            <img src="./malmaison/1024x563_CC7F3_77050exterior5817881939o.jpg" alt="Malmaison Oxford Exterior" class="carousel-image" data-hotel="malmaison">
+                                        </div>
+                                        <button class="carousel-arrow carousel-next" onclick="changeImage('malmaison', 1)">›</button>
+                                        <div class="carousel-dots">
+                                            <span class="dot active" onclick="goToImage('malmaison', 0)"></span>
+                                            <span class="dot" onclick="goToImage('malmaison', 1)"></span>
+                                            <span class="dot" onclick="goToImage('malmaison', 2)"></span>
+                                        </div>
+                                    </div>
+                                    <p><strong>Address:</strong> Oxford Castle, 3 New Rd, Oxford OX1 1AY, United Kingdom</p>
+                                    <p><strong>Phone:</strong> <a href="tel:+441865689944">+44 1865 689944</a></p>
+                                    <p><strong>Distance from St. Hilda's:</strong> 0.9 miles (1.4km)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h3 class="card-title">Other Options</h3>
+                            <div class="card-content">
+                                <div class="hotel-item">
+                                    <h4 class="hotel-name">St. Hilda College</h4>
+                                    <div class="hotel-carousel">
+                                        <button class="carousel-arrow carousel-prev" onclick="changeImage('sthilda', -1)">‹</button>
+                                        <div class="carousel-container">
+                                            <img src="./sthildas/pxl-20210907-110753441-mp.jpg" alt="St. Hilda College" class="carousel-image active" data-hotel="sthilda">
+                                            <img src="./sthildas/st-hilda-s-by-john-cairns-06-12-23-139.jpg" alt="St. Hilda College" class="carousel-image" data-hotel="sthilda">
+                                            <img src="./sthildas/hall-building-lawn.jpg" alt="St. Hilda College Hall and Lawn" class="carousel-image" data-hotel="sthilda">
+                                        </div>
+                                        <button class="carousel-arrow carousel-next" onclick="changeImage('sthilda', 1)">›</button>
+                                        <div class="carousel-dots">
+                                            <span class="dot active" onclick="goToImage('sthilda', 0)"></span>
+                                            <span class="dot" onclick="goToImage('sthilda', 1)"></span>
+                                            <span class="dot" onclick="goToImage('sthilda', 2)"></span>
+                                        </div>
+                                    </div>
+                                    <p><strong>Address:</strong> Cowley Pl, Oxford OX4 1DY, United Kingdom</p>
+                                    <p><strong>Phone:</strong> <a href="tel:+441865276884">+44 1865 276884</a></p>
+                                    <p><strong>Distance from Conference Venue:</strong> On-site</p>
+                                    <p><strong>Note:</strong> Availability on the 14th and 15th</p>
+                                </div>
+                                
+                                <div class="hotel-item">
+                                    <h4 class="hotel-name">Easy Hotel</h4>
+                                    <div class="hotel-carousel">
+                                        <button class="carousel-arrow carousel-prev" onclick="changeImage('easyhotel', -1)">‹</button>
+                                        <div class="carousel-container">
+                                            <img src="./easyhotel/easy_Hotel_Oxford_Double_1_a9f27d0bc8.avif" alt="Easy Hotel Oxford" class="carousel-image active" data-hotel="easyhotel">
+                                            <img src="./easyhotel/3_easy_Hotel_Oxford_158ba70194.avif" alt="Easy Hotel Oxford" class="carousel-image" data-hotel="easyhotel">
+                                            <img src="./easyhotel/1_easy_Hotel_Oxford_39a8a3ec20.avif" alt="Easy Hotel Oxford" class="carousel-image" data-hotel="easyhotel">
+                                        </div>
+                                        <button class="carousel-arrow carousel-next" onclick="changeImage('easyhotel', 1)">›</button>
+                                        <div class="carousel-dots">
+                                            <span class="dot active" onclick="goToImage('easyhotel', 0)"></span>
+                                            <span class="dot" onclick="goToImage('easyhotel', 1)"></span>
+                                            <span class="dot" onclick="goToImage('easyhotel', 2)"></span>
+                                        </div>
+                                    </div>
+                                    <p><strong>Address:</strong> 280 Banbury Rd, Summertown, Oxford OX2 7DY, United Kingdom</p>
+                                    <p><strong>Phone:</strong> <a href="tel:+441865634602">+44 1865 634602</a></p>
+                                    <p><strong>Distance from St. Hilda's:</strong> 2.4 miles (3.8km)</p>
+                                </div>
+                                
+                                <div class="hotel-item">
+                                    <h4 class="hotel-name">Tower House</h4>
+                                    <div class="hotel-carousel">
+                                        <button class="carousel-arrow carousel-prev" onclick="changeImage('towerhouse', -1)">‹</button>
+                                        <div class="carousel-container">
+                                            <img src="./towerhouse/520f4583.webp" alt="Tower House" class="carousel-image active" data-hotel="towerhouse">
+                                            <img src="./towerhouse/e76b435b.avif" alt="Tower House" class="carousel-image" data-hotel="towerhouse">
+                                            <img src="./towerhouse/0a28437e.webp" alt="Tower House" class="carousel-image" data-hotel="towerhouse">
+                                        </div>
+                                        <button class="carousel-arrow carousel-next" onclick="changeImage('towerhouse', 1)">›</button>
+                                        <div class="carousel-dots">
+                                            <span class="dot active" onclick="goToImage('towerhouse', 0)"></span>
+                                            <span class="dot" onclick="goToImage('towerhouse', 1)"></span>
+                                            <span class="dot" onclick="goToImage('towerhouse', 2)"></span>
+                                        </div>
+                                    </div>
+                                    <p><strong>Address:</strong> 15 Ship St, Oxford OX1 3DA, United Kingdom</p>
+                                    <p><strong>Phone:</strong> <a href="tel:+447402008003">+44 7402 008003</a></p>
+                                    <p><strong>Distance from St. Hilda's:</strong> 0.8 miles (1.3km)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Policies Section -->
             <div id="policies" class="content-section">
                 <div class="section">
@@ -1250,7 +1857,7 @@
                 <h3>Examples of Prohibited Sharing</h3>
                 <ul style="margin: 15px 0; padding-left: 20px;">
                     <li style="margin: 8px 0;">"John from Company X said that..."</li>
-                    <li style="margin: 8px 0;">"A representative from Intel mentioned..."</li>
+                    <li style="margin: 8px 0;">"A representative from X Company mentioned..."</li>
                     <li style="margin: 8px 0;">"The CEO of ABC Corp attended and discussed..."</li>
                 </ul>
                 
@@ -1337,7 +1944,7 @@
                 <div class="hire-section">
                     <h4>Old Bank</h4>
                     <p><strong>Address:</strong> 92-94 High St, Oxford OX1 4BJ, United Kingdom</p>
-                    <p><strong>Phone:</strong> <a href="tel:+4418657999599">+44 1865 7999599</a></p>
+                    <p><strong>Phone:</strong> <a href="tel:+441865276884">+44 1865 276884</a></p>
                     <p><strong>Distance from St. Hilda's:</strong> 0.5 miles (0.8km)</p>
                 </div>
 
@@ -2311,6 +2918,57 @@
                 closeCodeOfConductModal();
             }
         });
+
+        // Hotel Carousel Functionality
+        const carouselStates = {};
+
+        function changeImage(hotelId, direction) {
+            if (!carouselStates[hotelId]) {
+                carouselStates[hotelId] = 0;
+            }
+
+            const images = document.querySelectorAll(`[data-hotel="${hotelId}"]`);
+            const dots = document.querySelectorAll(`[onclick*="${hotelId}"]`);
+            
+            if (images.length === 0) return;
+
+            // Remove active class from current image and dot
+            images[carouselStates[hotelId]].classList.remove('active');
+            dots[carouselStates[hotelId]].classList.remove('active');
+
+            // Calculate new index
+            carouselStates[hotelId] += direction;
+            if (carouselStates[hotelId] >= images.length) {
+                carouselStates[hotelId] = 0;
+            } else if (carouselStates[hotelId] < 0) {
+                carouselStates[hotelId] = images.length - 1;
+            }
+
+            // Add active class to new image and dot
+            images[carouselStates[hotelId]].classList.add('active');
+            dots[carouselStates[hotelId]].classList.add('active');
+        }
+
+        function goToImage(hotelId, index) {
+            const images = document.querySelectorAll(`[data-hotel="${hotelId}"]`);
+            const dots = document.querySelectorAll(`[onclick*="${hotelId}"]`);
+            
+            if (images.length === 0 || index >= images.length) return;
+
+            // Remove active class from current image and dot
+            if (carouselStates[hotelId] !== undefined) {
+                images[carouselStates[hotelId]].classList.remove('active');
+                dots[carouselStates[hotelId]].classList.remove('active');
+            }
+
+            // Set new index
+            carouselStates[hotelId] = index;
+
+            // Add active class to new image and dot
+            images[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
     </script>
 </body>
+</html>
 </html>
