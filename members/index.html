@@ -2956,13 +2956,11 @@
             }
 
             const images = document.querySelectorAll(`[data-hotel="${hotelId}"]`);
-            const dots = document.querySelectorAll(`[onclick*="${hotelId}"]`);
             
             if (images.length === 0) return;
 
-            // Remove active class from current image and dot
+            // Remove active class from current image
             images[carouselStates[hotelId]].classList.remove('active');
-            dots[carouselStates[hotelId]].classList.remove('active');
 
             // Calculate new index
             carouselStates[hotelId] += direction;
@@ -2972,30 +2970,11 @@
                 carouselStates[hotelId] = images.length - 1;
             }
 
-            // Add active class to new image and dot
+            // Add active class to new image
             images[carouselStates[hotelId]].classList.add('active');
-            dots[carouselStates[hotelId]].classList.add('active');
         }
 
-        function goToImage(hotelId, index) {
-            const images = document.querySelectorAll(`[data-hotel="${hotelId}"]`);
-            const dots = document.querySelectorAll(`[onclick*="${hotelId}"]`);
-            
-            if (images.length === 0 || index >= images.length) return;
 
-            // Remove active class from current image and dot
-            if (carouselStates[hotelId] !== undefined) {
-                images[carouselStates[hotelId]].classList.remove('active');
-                dots[carouselStates[hotelId]].classList.remove('active');
-            }
-
-            // Set new index
-            carouselStates[hotelId] = index;
-
-            // Add active class to new image and dot
-            images[index].classList.add('active');
-            dots[index].classList.add('active');
-        }
     </script>
 </body>
 </html>
