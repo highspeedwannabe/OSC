@@ -223,7 +223,7 @@
             display: block;
         }
 
-        .section {
+                            .section {
             background: linear-gradient(135deg, rgba(26, 35, 50, 0.9) 0%, rgba(26, 26, 26, 0.9) 100%);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
@@ -729,6 +729,13 @@
                 flex-direction: column;
                 gap: 15px;
                 text-align: center;
+            }
+
+            /* Mobile section background fix */
+            .section {
+                background: linear-gradient(135deg, rgba(26, 35, 50, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
             }
 
             .header-title {
