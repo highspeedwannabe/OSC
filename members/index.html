@@ -1003,7 +1003,7 @@
                 padding: 8px 16px;
             }
 
-            /* Mobile Navigation - Keep Horizontal */
+            /* Mobile Navigation - 3 Rows Layout */
             .nav-menu {
                 position: sticky;
                 top: 0;
@@ -1020,24 +1020,36 @@
                 border-right: 1px solid #333;
                 border-bottom: none;
                 flex: 1;
-                min-width: 80px;
+                min-width: 120px;
             }
 
-            .nav-item:nth-child(3) {
+            /* First row: Planning and Accommodations */
+            .nav-item:nth-child(1),
+            .nav-item:nth-child(2) {
+                border-bottom: 1px solid #333;
+            }
+
+            .nav-item:nth-child(2) {
                 border-right: none;
+            }
+
+            /* Second row: Agenda and Venue */
+            .nav-item:nth-child(3),
+            .nav-item:nth-child(4) {
+                border-bottom: 1px solid #333;
             }
 
             .nav-item:nth-child(4) {
-                border-right: 1px solid #333;
-                border-top: 1px solid #333;
-            }
-
-            .nav-item:nth-child(5) {
                 border-right: none;
-                border-top: 1px solid #333;
             }
 
-            .nav-item:last-child {
+            /* Third row: Policies and Contact */
+            .nav-item:nth-child(5),
+            .nav-item:nth-child(6) {
+                border-bottom: none;
+            }
+
+            .nav-item:nth-child(6) {
                 border-right: none;
             }
 
