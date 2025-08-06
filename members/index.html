@@ -312,26 +312,122 @@
             margin: 0 auto;
         }
 
-        .planning-hero {
-            text-align: center;
-            margin-bottom: 50px;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, rgba(45, 55, 72, 0.3) 0%, rgba(45, 45, 45, 0.3) 100%);
+        .oxford-hero {
+            margin-bottom: 40px;
             border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-image {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            font-family: 'Gotham', 'Arial', sans-serif;
+            color: #f5f5f5 !important;
+            margin-bottom: 15px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+            letter-spacing: 1px;
+            opacity: 0.95;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            line-height: 1.6;
+            max-width: 600px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .venue-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .venue-card {
+            background: linear-gradient(135deg, rgba(45, 55, 72, 0.8) 0%, rgba(45, 45, 45, 0.8) 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
         }
 
-        .hero-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #fff, #e0e0e0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .venue-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.2);
         }
+
+        .venue-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .venue-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .venue-card:hover .venue-img {
+            transform: none;
+        }
+
+        .venue-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .venue-info h4 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #ccc;
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .venue-info p {
+            color: #ccc;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+
 
         .hero-subtitle {
             font-size: 1.2rem;
@@ -454,12 +550,33 @@
                 padding: 25px 20px;
             }
 
+            .hero-image {
+                height: 200px;
+            }
+
             .hero-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .hero-subtitle {
-                font-size: 1.1rem;
+                font-size: 1rem;
+            }
+
+            .venue-preview {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .venue-image {
+                height: 150px;
+            }
+
+            .venue-info {
+                padding: 15px;
+            }
+
+            .venue-info h4 {
+                font-size: 0.8rem;
             }
 
             .service-item {
@@ -1639,11 +1756,39 @@
 
     <main class="main-content">
         <div class="container">
-            <!-- Planning Section -->
+                        <!-- Planning Section -->
             <div id="planning" class="content-section active">
                 <div class="section">
                     <h2 class="section-title">Planning Your Visit</h2>
-                    <div class="planning-container">                        
+                    <div class="planning-container">
+                        <div class="oxford-hero">
+                            <div class="hero-image">
+                                <img src="./oxford/St Hilda's banner.jpg" alt="St Hilda's College Oxford" class="hero-img">
+                                <div class="hero-overlay">
+                                    <h3 class="hero-title">Welcome to Oxford</h3>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="venue-preview">
+                            <div class="venue-card">
+                                <div class="venue-image">
+                                    <img src="./oxford/DesignEngine_StHildas_1-e1582645924539-1500x1000.jpg" alt="St Hilda's College" class="venue-img">
+                                </div>
+                                <div class="venue-info">
+                                    <h4>St Hilda's College</h4>
+                                </div>
+                            </div>
+                            <div class="venue-card">
+                                <div class="venue-image">
+                                    <img src="./oxford/Lincoln_College_Quad.jpg" alt="Lincoln College" class="venue-img">
+                                </div>
+                                <div class="venue-info">
+                                    <h4>Lincoln College</h4>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="planning-grid">
                             <div class="planning-card travel-card">
                                 <div class="card-header">
@@ -2814,7 +2959,7 @@
                     <p>When exiting the bus, turn left and cross the road at the traffic lights.</p>
                     <p>Turn left onto Turl St, walk down and Lincoln College will be on the right.</p>
                     <div style="margin-top: 15px;">
-                        <img src="./hildatolincolnwalk.png" alt="Bus route from St Hilda's to Lincoln College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./hildatolincolnbus.png', 'Bus Route from St Hilda\'s to Lincoln College')">
+                        <img src="./hildatolincolnbus.png" alt="Bus route from St Hilda's to Lincoln College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./hildatolincolnbus.png', 'Bus Route from St Hilda\'s to Lincoln College')">
                     </div>
                 </div>
 
@@ -2822,7 +2967,7 @@
                 <div class="hire-section">
                     <p><strong>Alternatively, you can walk 16 minutes (0.7 miles) to Lincoln College.</strong></p>
                     <div style="margin-top: 15px;">
-                        <img src="./hildatolincolnbus.png" alt="Walking route from St Hilda's to Lincoln College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./hildatolincolnwalk.png', 'Walking Route from St Hilda\'s to Lincoln College')">
+                        <img src="./hildatolincolnwalk.png" alt="Walking route from St Hilda's to Lincoln College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./hildatolincolnwalk.png', 'Walking Route from St Hilda\'s to Lincoln College')">
                     </div>
                 </div>
             </div>
