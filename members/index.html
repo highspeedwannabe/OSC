@@ -297,6 +297,184 @@
             border-color: rgba(255, 255, 255, 0.2);
         }
 
+        /* Day-specific card colors */
+        .day-1-card {
+            background: linear-gradient(135deg, rgba(45, 55, 72, 0.8) 0%, rgba(45, 45, 45, 0.8) 100%);
+        }
+
+        .day-2-card {
+            background: linear-gradient(135deg, rgba(35, 45, 65, 0.8) 0%, rgba(35, 35, 45, 0.8) 100%);
+        }
+
+        /* Modern Planning Section Styles */
+        .planning-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .planning-hero {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(45, 55, 72, 0.3) 0%, rgba(45, 45, 45, 0.3) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #ccc;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .planning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .planning-card {
+            background: linear-gradient(135deg, rgba(45, 55, 72, 0.8) 0%, rgba(45, 45, 45, 0.8) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .planning-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .planning-card .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            margin: 0;
+            background: linear-gradient(45deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .service-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+        }
+
+        .service-text {
+            flex: 1;
+        }
+
+        .service-text h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin: 0 0 5px 0;
+        }
+
+        .service-text p {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .service-arrow {
+            font-size: 1.2rem;
+            color: #ccc;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover .service-arrow {
+            color: #fff;
+            transform: translateX(3px);
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            .planning-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .planning-card {
+                padding: 25px 20px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .service-item {
+                padding: 15px;
+            }
+
+            .service-text h4 {
+                font-size: 1rem;
+            }
+
+            .service-text p {
+                font-size: 0.85rem;
+            }
+        }
+
         .card-title {
             font-size: 1.2rem;
             font-weight: 600;
@@ -806,7 +984,7 @@
             transform: scale(1.02);
         }
 
-        /* Modal Styles */
+        /* Modern Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -815,10 +993,13 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             align-items: center;
             justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .modal-content {
@@ -827,8 +1008,14 @@
             display: block;
             max-width: 90%;
             max-height: 90%;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(25, 35, 52, 0.98) 0%, rgba(15, 25, 35, 0.98) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
         }
 
         .modal img {
@@ -845,11 +1032,11 @@
         @keyframes modalFadeIn {
             from {
                 opacity: 0;
-                transform: scale(0.9);
+                transform: scale(0.9) translateY(20px);
             }
             to {
                 opacity: 1;
-                transform: scale(1);
+                transform: scale(1) translateY(0);
             }
         }
 
@@ -857,11 +1044,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            opacity: 1;
         }
 
         .modal.show .modal-content {
-            animation: modalFadeIn 0.3s ease-out;
-            transform: scale(1);
+            animation: modalFadeIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: scale(1) translateY(0);
         }
 
         /* Policy Buttons */
@@ -906,52 +1094,96 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-        /* Formalwear Modal Content */
+        /* Modern Modal Content */
         .formalwear-content {
-            background: #1a1a1a;
-            padding: 30px;
-            border-radius: 12px;
+            background: transparent;
+            padding: 40px;
+            border-radius: 20px;
             max-width: 800px;
             max-height: 80vh;
             overflow-y: auto;
             color: #e5e5e5;
+            position: relative;
+        }
+
+        .formalwear-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .formalwear-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .formalwear-content::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        .formalwear-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
         }
 
         .formalwear-content h2 {
             color: #fff;
-            margin-bottom: 25px;
-            font-size: 1.8rem;
-            border-bottom: 2px solid #666;
-            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        .formalwear-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #4a5568, #718096);
+            border-radius: 1px;
         }
 
         .formalwear-content h3 {
             color: #fff;
-            margin: 25px 0 15px 0;
-            font-size: 1.4rem;
+            margin: 30px 0 20px 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(45deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .formalwear-content h4 {
             color: #ccc;
-            margin: 20px 0 10px 0;
-            font-size: 1.2rem;
+            margin: 25px 0 15px 0;
+            font-size: 1.3rem;
+            font-weight: 600;
         }
 
         .formalwear-content p {
-            margin: 8px 0;
-            line-height: 1.6;
+            margin: 12px 0;
+            line-height: 1.7;
+            color: #e5e5e5;
         }
 
         .formalwear-content a {
-            color: #666;
+            color: #87CEEB;
             text-decoration: none;
-            border-bottom: 1px solid #666;
-            transition: color 0.3s ease;
+            border-bottom: 1px solid rgba(135, 206, 235, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .formalwear-content a:hover {
-            color: #fff;
-            border-bottom-color: #fff;
+            color: #B0E0E6;
+            border-bottom-color: #B0E0E6;
         }
 
         /* Lighter phone number links */
@@ -966,11 +1198,33 @@
         }
 
         .hire-section {
-            background: linear-gradient(135deg, #2d3748 0%, #2d2d2d 100%);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #4a5568;
+            background: linear-gradient(135deg, rgba(55, 65, 82, 0.8) 0%, rgba(45, 45, 55, 0.8) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hire-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #4a5568, #718096);
+            border-radius: 2px;
+        }
+
+        .hire-section:hover {
+            transform: translateX(5px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
         /* Mobile Responsive Design */
@@ -1157,21 +1411,22 @@
                 max-width: 95%;
                 max-height: 85%;
                 margin: 20px;
+                border-radius: 15px;
             }
 
             .formalwear-content {
-                padding: 20px;
+                padding: 25px;
                 max-height: 70vh;
                 font-size: 0.9rem;
             }
 
             .formalwear-content h2 {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
                 margin-bottom: 20px;
             }
 
             .formalwear-content h3 {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 margin: 20px 0 12px 0;
             }
 
@@ -1388,24 +1643,103 @@
             <div id="planning" class="content-section active">
                 <div class="section">
                     <h2 class="section-title">Planning Your Visit</h2>
-                    <div class="content-grid">
-                        <div class="info-card">
-                            <h3 class="card-title">Travel Information</h3>
-                            <div class="card-content">
-                                <button class="formalwear-btn" onclick="openAirportModal()">Traveling from Airport to Oxford</button>
-                                <button class="formalwear-btn" onclick="openLondonModal()" style="margin-top: 10px;">Traveling from London to Oxford</button>
-                                <button class="formalwear-btn" onclick="openDirectionsModal()" style="margin-top: 10px;">Directions to St Hilda's College</button>
-                                <button class="formalwear-btn" onclick="openLincolnDirectionsModal()" style="margin-top: 10px;">Directions to Lincoln College</button>
-                                <button class="formalwear-btn" onclick="openHildaToLincolnModal()" style="margin-top: 10px;">Directions from St Hilda's to Lincoln College</button>
-                                <button class="formalwear-btn" onclick="openLocalTransportModal()" style="margin-top: 10px;">Local Transportation</button>
+                    <div class="planning-container">                        
+                        <div class="planning-grid">
+                            <div class="planning-card travel-card">
+                                <div class="card-header">
+                                    <div class="card-icon">✈️</div>
+                                    <h3 class="card-title">Getting Around</h3>
+                                </div>
+                                <div class="card-content">
+                                    <div class="service-item" onclick="openAirportModal()">
+                                        <span class="service-icon">🛬</span>
+                                        <div class="service-text">
+                                            <h4>Airport to Oxford</h4>
+                                            <p>Travel options from major airports</p>
+                                        </div>
+                                        <span class="service-arrow">→</span>
+                                    </div>
+                                    
+                                    <div class="service-item" onclick="openLondonModal()">
+                                        <span class="service-icon">🚂</span>
+                                        <div class="service-text">
+                                            <h4>London to Oxford</h4>
+                                            <p>Train and bus connections</p>
+                                        </div>
+                                        <span class="service-arrow">→</span>
+                                    </div>
+                                    
+                                    <div class="service-item" onclick="openDirectionsModal()">
+                                        <span class="service-icon">🏛️</span>
+                                        <div class="service-text">
+                                            <h4>St Hilda's College</h4>
+                                            <p>How to find the main venue</p>
+                                        </div>
+                                        <span class="service-arrow">→</span>
+                                    </div>
+                                    
+                                    <div class="service-item" onclick="openLincolnDirectionsModal()">
+                                        <span class="service-icon">🎓</span>
+                                        <div class="service-text">
+                                            <h4>Lincoln College</h4>
+                                            <p>Dinner venue directions</p>
+                                        </div>
+                                        <span class="service-arrow">→</span>
+                                    </div>
+                                    
+                                    <div class="service-item" onclick="openHildaToLincolnModal()">
+                                        <span class="service-icon">🚶</span>
+                                        <div class="service-text">
+                                            <h4>Between Venues</h4>
+                                            <p>Walking from St Hilda's to Lincoln</p>
+                                        </div>
+                                        <span class="service-arrow">→</span>
+                                    </div>
+                                    
+                                    <div class="service-item" onclick="openLocalTransportModal()">
+                                        <span class="service-icon">🚌</span>
+                                        <div class="service-text">
+                                            <h4>Local Transport</h4>
+                                            <p>Buses, taxis, and getting around</p>
+                                        </div>
+                                        <span class="service-arrow">→</span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="info-card">
-                            <h3 class="card-title">Local Services</h3>
-                            <div class="card-content">
-                                <button class="formalwear-btn" onclick="openFormalwearModal()">Formalwear Rental</button>
-                                <button class="formalwear-btn" onclick="openEmergencyModal()" style="margin-top: 10px;">Emergency Services</button>
-                                <button class="formalwear-btn" onclick="openAmenitiesModal()" style="margin-top: 10px;">Nearby Amenities</button>
+                            
+                            <div class="planning-card services-card">
+                                <div class="card-header">
+                                    <div class="card-icon">🛠️</div>
+                                    <h3 class="card-title">Local Services</h3>
+                                </div>
+                                <div class="card-content">
+                                    <div class="service-item" onclick="openFormalwearModal()">
+                                        <span class="service-icon">👔</span>
+                                        <div class="service-text">
+                                            <h4>Formalwear Rental</h4>
+                                            <p>Where to get your black-tie attire</p>
+                                        </div>
+                                        <span class="service-arrow">→</span>
+                                    </div>
+                                    
+                                    <div class="service-item" onclick="openEmergencyModal()">
+                                        <span class="service-icon">🚨</span>
+                                        <div class="service-text">
+                                            <h4>Emergency Services</h4>
+                                            <p>Important numbers and contacts</p>
+                                        </div>
+                                        <span class="service-arrow">→</span>
+                                    </div>
+                                    
+                                    <div class="service-item" onclick="openAmenitiesModal()">
+                                        <span class="service-icon">☕</span>
+                                        <div class="service-text">
+                                            <h4>Nearby Amenities</h4>
+                                            <p>Cafés, shops, and conveniences</p>
+                                        </div>
+                                        <span class="service-arrow">→</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1417,7 +1751,7 @@
                 <div class="section">
                     <h2 class="section-title">OSC 2025 Agenda</h2>
                     <div class="content-grid">
-                        <div class="info-card">
+                        <div class="info-card day-1-card">
                             <h3 class="card-title">Day 1 - 15 September 2025</h3>
                             <div class="card-content">
                                 <div class="agenda-item">
@@ -1488,7 +1822,7 @@
                             </div>
                         </div>
                         
-                        <div class="info-card">
+                        <div class="info-card day-2-card">
                             <h3 class="card-title">Day 2 - 16 September 2025</h3>
                             <div class="card-content">
                                 <div class="agenda-item">
@@ -2480,7 +2814,7 @@
                     <p>When exiting the bus, turn left and cross the road at the traffic lights.</p>
                     <p>Turn left onto Turl St, walk down and Lincoln College will be on the right.</p>
                     <div style="margin-top: 15px;">
-                        <img src="./hildatolincolnbus.png" alt="Bus route from St Hilda's to Lincoln College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./hildatolincolnbus.png', 'Bus Route from St Hilda\'s to Lincoln College')">
+                        <img src="./hildatolincolnwalk.png" alt="Bus route from St Hilda's to Lincoln College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./hildatolincolnbus.png', 'Bus Route from St Hilda\'s to Lincoln College')">
                     </div>
                 </div>
 
@@ -2488,7 +2822,7 @@
                 <div class="hire-section">
                     <p><strong>Alternatively, you can walk 16 minutes (0.7 miles) to Lincoln College.</strong></p>
                     <div style="margin-top: 15px;">
-                        <img src="./hildatolincolnwalk.png" alt="Walking route from St Hilda's to Lincoln College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./hildatolincolnwalk.png', 'Walking Route from St Hilda\'s to Lincoln College')">
+                        <img src="./hildatolincolnbus.png" alt="Walking route from St Hilda's to Lincoln College" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #666; cursor: pointer;" onclick="openDirectionsImageModal('./hildatolincolnwalk.png', 'Walking Route from St Hilda\'s to Lincoln College')">
                     </div>
                 </div>
             </div>
