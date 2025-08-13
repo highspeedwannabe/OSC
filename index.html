@@ -341,27 +341,45 @@
             }
 
             .menu-bar {
-                right: 20px;
-                top: 30px;
-                left: auto;
-                transform: none;
-                width: auto;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 400px;
                 animation: fadeIn 1s 2s forwards;
-                flex-direction: column;
-                gap: 8px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                gap: 12px;
+                padding: 0;
             }
 
             .menu-item {
-                font-size: 0.75rem;
-                padding: 6px 0;
+                font-size: 0.9rem;
+                padding: 12px 8px;
                 text-align: center;
-                min-width: 80px;
-                flex: none;
-                border-bottom: 1px solid transparent;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 8px;
+                backdrop-filter: blur(10px);
+                transition: all 0.3s ease;
+                text-decoration: none;
+                color: white;
+                font-weight: 500;
+                letter-spacing: 0.05em;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 44px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
             }
 
-            .menu-item:hover {
-                border-bottom-color: rgba(255, 255, 255, 0.6);
+            .menu-item:hover,
+            .menu-item:active {
+                background: rgba(255, 255, 255, 0.2);
+                border-color: rgba(255, 255, 255, 0.6);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             }
 
             .language-switcher {
@@ -385,6 +403,10 @@
                 max-width: 26px;
                 max-height: 19px;
                 margin: 0.3vw;
+            }
+
+            .menu-item::after {
+                display: none;
             }
         }
 
@@ -426,24 +448,39 @@
             }
 
             .menu-bar {
-                right: 15px;
-                top: 25px;
-                left: auto;
-                transform: none;
-                width: auto;
-                gap: 6px;
+                top: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 95%;
+                max-width: 350px;
+                gap: 8px;
             }
 
             .menu-item {
-                font-size: 0.7rem;
-                padding: 5px 0;
-                min-width: 70px;
-                flex: none;
-                border-bottom: 1px solid transparent;
+                font-size: 0.8rem;
+                padding: 10px 6px;
+                min-height: 40px;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 8px;
+                backdrop-filter: blur(10px);
+                transition: all 0.3s ease;
+                text-decoration: none;
+                color: white;
+                font-weight: 500;
+                letter-spacing: 0.05em;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
             }
 
-            .menu-item:hover {
-                border-bottom-color: rgba(255, 255, 255, 0.6);
+            .menu-item:hover,
+            .menu-item:active {
+                background: rgba(255, 255, 255, 0.2);
+                border-color: rgba(255, 255, 255, 0.6);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             }
 
             .language-switcher {
@@ -466,6 +503,10 @@
                 max-width: 24px;
                 max-height: 18px;
                 margin: 0.4vw;
+            }
+
+            .menu-item::after {
+                display: none;
             }
         }
 
