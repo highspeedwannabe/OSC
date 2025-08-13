@@ -70,7 +70,7 @@
 
         .content {
             position: fixed;
-            bottom: 5vh;
+            bottom: 8vh;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
@@ -182,47 +182,52 @@
             gap: 2vw;
         }
 
-        .menu {
+        .menu-bar {
             position: fixed;
             top: 30px;
-            right: 40px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 3;
             opacity: 0;
             animation: fadeIn 1s 1s forwards;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            width: 50%;
+            justify-content: center;
         }
 
-        .menu-left {
-            position: fixed;
-            top: 30px;
-            left: 40px;
-            z-index: 3;
-            opacity: 0;
-            animation: fadeIn 1s 1s forwards;
-        }
-
-        .nav-button {
+        .menu-item {
             color: white;
             text-decoration: none;
-            font-size: 2rem;
-            padding: 15px 30px;
-            border: 2px solid white;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            white-space: normal;
-            text-align: center;
-            line-height: 1.2;
+            letter-spacing: 0.1em;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+            position: relative;
+            border-bottom: 2px solid transparent;
         }
 
-        /* Spanish language specific styles */
-        .nav-button[data-es] {
-            font-size: 1.2rem; /* 40% smaller than 2rem */
+        .menu-item:hover {
+            color: rgba(255, 255, 255, 0.9);
+            border-bottom-color: rgba(255, 255, 255, 0.6);
         }
 
-        .nav-button:hover {
+        .menu-item::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
             background: white;
-            color: #222426;
+            transition: width 0.3s ease;
+        }
+
+        .menu-item:hover::after {
+            width: 100%;
         }
 
         /* Language Switcher Styles */
@@ -304,9 +309,13 @@
                 opacity: 1;
             }
 
+            .small-logo-container {
+                animation: fadeIn 1s 2s forwards;
+            }
+
             .content {
                 width: 100%;
-                bottom: 5vh;
+                bottom: 8vh;
                 padding: 0 10px;
                 box-sizing: border-box;
                 animation: fadeIn 1s 2s forwards;
@@ -331,33 +340,28 @@
                 flex: 0 0 auto;
             }
 
-            .nav-button {
-                font-size: 1.6rem;
-                padding: 8px 12px;
-                width: 80px;
-                white-space: normal;
-                word-wrap: break-word;
-                min-height: 45px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            /* Spanish language specific styles for mobile */
-            .nav-button[data-es] {
-                font-size: 0.96rem; /* 40% smaller than 1.6rem */
-            }
-
-            .menu {
+            .menu-bar {
                 right: 20px;
                 top: 30px;
+                left: auto;
+                transform: none;
+                width: auto;
                 animation: fadeIn 1s 2s forwards;
+                flex-direction: column;
+                gap: 8px;
             }
 
-            .menu-left {
-                left: 20px;
-                top: 30px;
-                animation: fadeIn 1s 2s forwards;
+            .menu-item {
+                font-size: 0.75rem;
+                padding: 6px 0;
+                text-align: center;
+                min-width: 80px;
+                flex: none;
+                border-bottom: 1px solid transparent;
+            }
+
+            .menu-item:hover {
+                border-bottom-color: rgba(255, 255, 255, 0.6);
             }
 
             .language-switcher {
@@ -382,10 +386,6 @@
                 max-height: 19px;
                 margin: 0.3vw;
             }
-
-            .small-logo-container {
-                animation: fadeIn 1s 2s forwards;
-            }
         }
 
         @media screen and (max-width: 480px) {
@@ -400,9 +400,13 @@
                 opacity: 1;
             }
 
+            .small-logo-container {
+                animation: fadeIn 1s 2s forwards;
+            }
+
             .content {
                 width: 100%;
-                bottom: 5vh;
+                bottom: 8vh;
                 padding: 0 8px;
                 animation: fadeIn 1s 2s forwards;
             }
@@ -421,19 +425,25 @@
                 gap: 2vw;
             }
 
-            .nav-button {
-                font-size: 1.4rem;
-                white-space: normal;
-                word-wrap: break-word;
-                min-height: 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            .menu-bar {
+                right: 15px;
+                top: 25px;
+                left: auto;
+                transform: none;
+                width: auto;
+                gap: 6px;
             }
 
-            /* Spanish language specific styles for small mobile */
-            .nav-button[data-es] {
-                font-size: 0.84rem; /* 40% smaller than 1.4rem */
+            .menu-item {
+                font-size: 0.7rem;
+                padding: 5px 0;
+                min-width: 70px;
+                flex: none;
+                border-bottom: 1px solid transparent;
+            }
+
+            .menu-item:hover {
+                border-bottom-color: rgba(255, 255, 255, 0.6);
             }
 
             .language-switcher {
@@ -458,6 +468,8 @@
                 margin: 0.4vw;
             }
         }
+
+
 
         @keyframes fadeInOut {
             0% { opacity: 0; }
@@ -523,12 +535,12 @@
         </div>
     </div>
 
-    <nav class="menu-left">
-        <a href="/mission" class="nav-button" data-en="About OSC" data-es="Acerca de OSC" data-ja="OSCについて" data-zh="關於OSC" data-hi="OSC के बारे में">About OSC</a>
-    </nav>
-
-    <nav class="menu">
-        <a href="/auth" class="nav-button" data-en="Delegate Login" data-es="Inicio de Sesión de Delegado" data-ja="代表者ログイン" data-zh="代表登入" data-hi="प्रतिनिधि लॉगिन">Delegate Login</a>
+    <nav class="menu-bar">
+        <a href="/committee" class="menu-item" data-en="Committee" data-es="Comité" data-ja="委員会" data-zh="委員會" data-hi="संविधान समिति">Committee</a>
+        <a href="/board" class="menu-item" data-en="Board of Advisers" data-es="Consejo Asesor" data-ja="アドバイザー" data-zh="顧問" data-hi="सलाहकार">Board of Advisers</a>
+        <a href="/mission" class="menu-item" data-en="Mission" data-es="Misión" data-ja="ミッション" data-zh="使命" data-hi="दृष्टिकोण">Mission</a>
+        <a href="/auth" class="menu-item" data-en="Delegate Login" data-es="Inicio de Sesión de Delegado" data-ja="代表者ログイン" data-zh="代表登入" data-hi="प्रतिनिधि लॉगिन">Delegate Login</a>
+        
     </nav>
 
             <!-- Language switcher commented out - can be re-enabled later
@@ -555,9 +567,7 @@
             // Start everything after logo animation
             setTimeout(() => {
                 document.querySelector('.content').style.opacity = '1';
-                document.querySelector('.menu').style.opacity = '1';
-                document.querySelector('.menu-left').style.opacity = '1';
-                // document.querySelector('.language-switcher').style.opacity = '1'; // Commented out - language switcher disabled
+                document.querySelector('.menu-bar').style.opacity = '1';
                 document.querySelector('.small-logo-container').style.opacity = '1';
                 document.querySelector('#vanta-background').style.opacity = '1';
             }, window.innerWidth <= 768 ? 2500 : 1500);
