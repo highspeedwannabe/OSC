@@ -49,7 +49,7 @@
 
         .mission-statement {
             position: fixed;
-            top: calc(50% + 280px);
+            top: calc(50% - 200px);
             left: 50%;
             transform: translateX(-50%);
             z-index: 3;
@@ -221,23 +221,24 @@
         .menu-bar {
             position: fixed;
             top: 30px;
-            right: 40px;
+            left: 33.33%;
+            transform: translateX(-50%);
             z-index: 3;
             opacity: 0;
             animation: fadeIn 1s 1s forwards;
             display: flex;
-            gap: 15px;
+            gap: 20px;
             align-items: center;
         }
 
         .menu-item {
             color: white;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             font-weight: 400;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            padding: 8px 16px;
+            padding: 10px 20px;
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 4px;
             transition: all 0.3s ease;
@@ -362,7 +363,8 @@
             }
 
             .menu-bar {
-                right: 20px;
+                left: 33.33%;
+                transform: translateX(-50%);
                 top: 30px;
                 animation: fadeIn 1s 2s forwards;
                 flex-direction: column;
@@ -442,7 +444,8 @@
             }
 
             .menu-bar {
-                right: 15px;
+                left: 33.33%;
+                transform: translateX(-50%);
                 top: 25px;
                 gap: 6px;
             }
