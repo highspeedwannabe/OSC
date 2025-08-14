@@ -297,7 +297,7 @@
         }
 
   /* Mobile Styles */
-  @media screen and (max-width: 768px) {
+          @media screen and (max-width: 768px) {
             .logo-container {
                 animation: none;
                 opacity: 1;
@@ -324,8 +324,11 @@
             }
 
             .title {
-                font-size: 4.5vw;
+                font-size: 3.8vw;
                 font-weight: 400;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
             }
 
             .subtitle {
@@ -453,8 +456,11 @@
             }
 
             .title {
-                font-size: 5.5vw;
+                font-size: 4.2vw;
                 font-weight: 400;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
             }
 
             .subtitle {
@@ -541,6 +547,18 @@
             }
             .menu-item:nth-child(4) { /* Delegate Login */
                 order: 4;
+            }
+        }
+
+        /* Extra small screens */
+        @media screen and (max-width: 360px) {
+            .title {
+                font-size: 3.5vw;
+                line-height: 1.2;
+            }
+            
+            .content {
+                padding: 0 5px;
             }
         }
 
