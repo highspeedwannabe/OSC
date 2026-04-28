@@ -8,31 +8,31 @@ class LanguageManager {
                 title: "Oxford Semiconductor Conference",
                 subtitle: "A 501(c)3 Non-profit Organization",
                 aboutButton: "About OSC",
-                loginButton: "Delegate Login"
+                loginButton: "Compendiums"
             },
             es: {
                 title: "Conferencia de Semiconductores de Oxford",
                 subtitle: "Una Organización Sin Fines de Lucro 501(c)3",
                 aboutButton: "Acerca de OSC",
-                loginButton: "Inicio de Sesión de Delegado"
+                loginButton: "Compendios"
             },
             ja: {
                 title: "オックスフォード半導体会議",
                 subtitle: "501(c)3非営利団体",
                 aboutButton: "OSCについて",
-                loginButton: "代表者ログイン"
+                loginButton: "コンペンディアム"
             },
             zh: {
                 title: "牛津半導體會議",
                 subtitle: "501(c)3非營利組織",
                 aboutButton: "關於OSC",
-                loginButton: "代表登入"
+                loginButton: "會議資料彙編"
             },
             hi: {
                 title: "ऑक्सफोर्ड सेमीकंडक्टर सम्मेलन",
                 subtitle: "501(c)3 गैर-लाभकारी संगठन",
                 aboutButton: "OSC के बारे में",
-                loginButton: "प्रतिनिधि लॉगिन"
+                loginButton: "संग्रह"
             }
         };
         

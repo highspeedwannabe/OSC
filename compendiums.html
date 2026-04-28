@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compendiums - Oxford Semiconductor Conference</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #222426;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            overflow-y: auto;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+            padding-top: 22vh;
+            padding-bottom: 3rem;
+            box-sizing: border-box;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 200;
+            text-align: center;
+            margin-bottom: 1.25rem;
+            color: #fff;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-lead {
+            font-size: 1.1rem;
+            font-weight: 300;
+            text-align: center;
+            max-width: 36rem;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .compendium-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            max-width: 520px;
+        }
+
+        .compendium-link {
+            display: inline-block;
+            color: white;
+            font-size: 1.15rem;
+            font-weight: 400;
+            padding: 0.85rem 1.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 0.04em;
+            width: 100%;
+            box-sizing: border-box;
+            background: rgba(40, 40, 45, 0.5);
+            backdrop-filter: blur(8px);
+        }
+
+        .compendium-link:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.55);
+        }
+
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 50;
+            mix-blend-mode: difference;
+            width: 100px;
+            opacity: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+            display: block;
+            opacity: 1;
+        }
+
+        .logo:hover img {
+            transform: scale(1.1);
+        }
+
+        .home-text {
+            color: white;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover .home-text {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+                letter-spacing: 0.08em;
+            }
+
+            .page-lead {
+                font-size: 0.95rem;
+                padding: 0 0.5rem;
+            }
+
+            .compendium-link {
+                font-size: 1rem;
+                padding: 0.75rem 1.25rem;
+            }
+
+            .hero-section {
+                padding-top: 18vh;
+            }
+        }
+
+        .language-switcher,
+        .flag-button {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="logo">
+        <img src="./assets/OSC.png" alt="Conference Logo">
+        <span class="home-text">HOME</span>
+    </a>
+
+    <div class="hero-section">
+        <h1 class="page-title" data-en="Compendiums" data-es="Compendios" data-ja="コンペンディアム" data-zh="會議資料彙編" data-hi="संग्रह">Compendiums</h1>
+        <p class="page-lead" data-en="Reference materials open in a new browser tab." data-es="Los materiales de referencia se abren en una nueva pestaña." data-ja="参考資料は新しいタブで開きます。" data-zh="參考資料於新分頁開啟。" data-hi="संदर्भ सामग्री नए टैब में खुलती है।">Reference materials open in a new browser tab.</p>
+        <ul class="compendium-list">
+            <li>
+                <a href="https://www.oxfordsemi.org" class="compendium-link" target="_blank" rel="noopener noreferrer" data-en="Oxford Semiconductor Conference compendium" data-es="Compendio de la Conferencia de Semiconductores de Oxford" data-ja="オックスフォード半導体会議コンペンディアム" data-zh="牛津半導體會議資料彙編" data-hi="ऑक्सफोर्ड सेमीकंडक्टर सम्मेलन संग्रह">Oxford Semiconductor Conference compendium</a>
+            </li>
+        </ul>
+    </div>
+
+    <script src="js/language-manager.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pageTranslations = {
+                en: { title: "Compendiums - Oxford Semiconductor Conference" },
+                es: { title: "Compendios - Conferencia de Semiconductores de Oxford" },
+                ja: { title: "コンペンディアム - オックスフォード半導体会議" },
+                zh: { title: "會議資料彙編 - 牛津半導體會議" },
+                hi: { title: "संग्रह - ऑक्सफोर्ड सेमीकंडक्टर सम्मेलन" }
+            };
+            if (window.languageManager) {
+                window.languageManager.addTranslations(pageTranslations);
+                window.languageManager.applyLanguage(window.languageManager.getCurrentLanguage());
+            }
+        });
+    </script>
+</body>
+</html>
