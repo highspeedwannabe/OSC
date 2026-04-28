@@ -72,9 +72,10 @@
 
         .compendium-link {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.85rem;
             color: white;
             font-size: 1.15rem;
             font-weight: 400;
@@ -97,8 +98,9 @@
         }
 
         .compendium-link img {
-            height: 52px;
+            height: 96px;
             width: auto;
+            max-width: 100%;
             object-fit: contain;
             flex-shrink: 0;
         }
@@ -165,11 +167,11 @@
             .compendium-link {
                 font-size: 1rem;
                 padding: 0.75rem 1.25rem;
-                gap: 0.75rem;
+                gap: 0.65rem;
             }
 
             .compendium-link img {
-                height: 40px;
+                height: 72px;
             }
 
             .compendium-year {
@@ -197,7 +199,7 @@
         <h1 class="page-title" data-en="Compendiums" data-es="Compendios" data-ja="コンペンディアム" data-zh="會議資料彙編" data-hi="संग्रह">Compendiums</h1>
         <ul class="compendium-list">
             <li>
-                <a href="./assets/OSC 2025 Compendium_v8.pdf" class="compendium-link" target="_blank" rel="noopener noreferrer" aria-label="2025 Consortium compendium PDF">
+                <a href="https://drive.google.com/uc?export=download&amp;id=1wh_TcULEA9GuN_0dLkLFHKEwS5a_XdS_" class="compendium-link" target="_blank" rel="noopener noreferrer" aria-label="2025 Consortium compendium PDF">
                     <img src="./assets/OSCimg.png" alt="">
                     <span class="compendium-year">2025</span>
                 </a>
